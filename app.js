@@ -27,8 +27,11 @@ const app = express()
   .use(cors({origin: '*'}))
   .set('json spaces', 2);
 
-// Register the REST API.
+// Register our REST API.
 registerApi(router);
+
+// Redirect to front-end
+app.use('*', express.static(path.join(__dirname, 'dist')));
 
 app.use((err, req, res, next) => {
   if (err) {
