@@ -1,15 +1,38 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { WebComponent } from './web.component';
+import { WebRoutingModule } from './web-routing.module';
+import { SignInComponent } from './auth/signin/signin.component';
+import { SignUpComponent } from './auth/signup/signup.component';
+import { AuthService } from './auth/auth.service';
+import { HeaderComponent } from './header/header.component';
+import { MobileMenuComponent } from './header/mobile-menu/mobile-menu.component';
+import { MainNavigationComponent } from './header/main-navigation/main-navigation.component';
+import { SubNavigationComponent } from './header/sub-navigation/sub-navigation.component';
+import { NavigationLogoComponent } from './header/navigation-logo/navigation-logo.component';
+import { UserNavigationComponent } from './header/user-navigation/user-navigation.component';
 
 @NgModule({
   declarations: [
-    WebComponent
+    WebComponent,
+    SignInComponent,
+    SignUpComponent,
+    HeaderComponent,
+    MobileMenuComponent,
+    MainNavigationComponent,
+    SubNavigationComponent,
+    NavigationLogoComponent,
+    UserNavigationComponent
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    WebRoutingModule
+  ],
+  providers: [
+    AuthService
   ]
 })
 

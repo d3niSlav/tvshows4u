@@ -1,0 +1,17 @@
+.auth-section {
+  min-height: calc(100vh - 50px);
+  background-size: cover;
+}
+
+@media (min-width: 1024px) {
+  .auth-section {
+    min-height: calc(100vh - 70px);
+  }
+}
+
+@media (min-width: 480px) {
+  .auth-section {
+    background: url('/assets/img/auth-background.jpg') no-repeat center;
+    background-size: cover;
+  }
+}

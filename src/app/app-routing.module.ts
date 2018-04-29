@@ -4,7 +4,7 @@ import { WebComponent } from './web/web.component';
 import { CmsComponent } from './cms/cms.component';
 
 const appRoutes: Routes = [
-  { path: '', component: WebComponent, pathMatch: 'full' },
+  { path: '', loadChildren: './web/web.module#WebModule' },
   { path: 'cms', component: CmsComponent },
 ];
 

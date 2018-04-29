@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="login-container">
+        <div id="output"></div>
+        <div class="avatar"></div>
+        <div class="form-box">
+            <form (onSubmit)="onSignup(f)" #f="ngForm">
+                <input
+                    name="username"
+                    type="text"
+                    ngModel
+                    required
+                    #username="ngModel"
+                    placeholder="Enter username" />
+                <input
+                    name="email"
+                    type="email"
+                    ngModel
+                    required
+                    #email="ngModel"
+                    placeholder="Enter email" />
+                <input
+                    type="password"
+                    name="password"
+                    ngModel
+                    required
+                    #pass="ngModel"
+                    placeholder="Enter password" />
+                <input
+                    type="password"
+                    name="confirmPassword"
+                    ngModel
+                    required
+                    #confPass="ngModel"
+                    placeholder="Confirm password" />
+                <button class="btn btn-info btn-block login" type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+</div>

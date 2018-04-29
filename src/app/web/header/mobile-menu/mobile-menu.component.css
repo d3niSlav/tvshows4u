@@ -1,0 +1,65 @@
+/* Menu Button */
+
+.mobile-nav-button {
+  float: right;
+  width: 54px;
+  height: 54px;
+  padding: 18px 14px 16px;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.menu-button {
+  position: relative;
+  height: 100%;
+}
+
+.menu-button-bar {
+  position: absolute;
+  left: 0;
+  display: block;
+  width: 26px;
+  height: 2px;
+  background-color: #FFF;
+  border-radius: 1px;
+  transform-origin: left center;
+  transition: 0.125s;
+}
+
+.menu-button-bar.top {
+  top: 0;
+}
+
+.menu-button-bar.middle {
+  top: 45%;
+  transform-origin: center;
+}
+
+.menu-button-bar.bottom {
+  bottom: 0;
+}
+
+.menu-button.active .top {
+  transform: translateX(3px) rotate(45deg);
+}
+
+.menu-button.active .middle {
+  transform: scaleX(0);
+}
+
+.menu-button.active .bottom {
+  transform: translateX(3px) rotate(-45deg);
+}
+
+/* Mobile Menu */
+
+.mobile-menu {
+  position: absolute;
+  top: 54px;
+  left: 0;
+  width: 100%;
+  min-height: calc(100vh - 54px);
+  background-color: #000;
+}

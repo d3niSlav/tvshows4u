@@ -1,0 +1,67 @@
+<div class="auth-section">
+  <div class="register-wrapper">
+    <form class="signup-form" (ngSubmit)="signUp()" #signupForm="ngForm">
+      <fieldset class="main-signup">
+        <div class="signup-wrapper">
+          <a href="/">
+            <div class="logo-container"></div>
+          </a>
+          <ul class="form-fields">
+            <li class="form-email ">
+              <div class="fieldgroup">
+                <span class="error error-message"></span>
+                <input
+                    class="user-input"
+                    id="email"
+                    name="email"
+                    placeholder="Email&nbsp;address"
+                    type="email"
+                    [(ngModel)]="signUpData.email"
+                    required />
+              </div>
+            </li>
+            <li class="form-password">
+              <div class="fieldgroup">
+                <span class="error error-message"></span>
+                <input
+                    class="user-input"
+                    name="password"
+                    placeholder="Password"
+                    type="password"
+                    id="password"
+                    [(ngModel)]="signUpData.password"
+                    required />
+              </div>
+            </li>
+            <li class="form-password">
+              <div class="fieldgroup">
+                <span class="error error-message"></span>
+                <input
+                    class="user-input"
+                    name="confirmPassword"
+                    placeholder="Confirm Password"
+                    type="password"
+                    id="confirmPassword"
+                    required
+                    #confirmPassword />
+              </div>
+            </li>
+            <li class="button form-actions">
+              <div class="form-buttons">
+                <input
+                    class="button-primary"
+                    type="submit"
+                    value="Sign Up"
+                    [disabled]="!signupForm.form.valid" />
+              </div>
+              <span class="user-action-message">
+                Already a member?
+                <a [routerLink]="['/signin']" class="action-link">Sign in now</a>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>

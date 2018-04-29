@@ -1,0 +1,45 @@
+.menu-primary {
+  height: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-primary li {
+  display: inline-block;
+  list-style-type: none;
+}
+
+.menu-link {
+  height: 28px;
+  padding: 0 10px 2px;
+  color: #FFF;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.menu-link.active,
+.menu-link:hover {
+  color: #00b7ba;
+  border-bottom: 3px solid #8B0000;
+}
+
+.menu-link:hover {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .menu-primary {
+    height: 34px
+  }
+
+  .menu-link {
+    font-size: 16px;
+  }
+
+  .menu-link.active,
+  .menu-link:hover {
+    border-width: 4px;
+    padding-bottom: 8px;
+  }
+}
