@@ -14,7 +14,6 @@
 .button-profile {
   display: inline-block;
   line-height: 16px;
-  margin-top: 6px;
   font-size: 12px;
   text-align: center;
   font-weight: bold;
@@ -29,6 +28,7 @@
 .button-auth {
   width: 65px;
   color: #000;
+  margin-top: 2px;
   background-color: #00b7ba;
   border: 1px solid #00b7ba;
 }

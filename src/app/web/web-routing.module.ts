@@ -3,10 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { WebComponent } from './web.component';
 import { SignInComponent } from './auth/signin/signin.component';
 import { SignUpComponent } from './auth/signup/signup.component';
+import {HomeComponent} from './home/home.component';
 
 const webRoutes: Routes = [
   { path: '', component: WebComponent, children: [
-    { path: '', redirectTo: 'signin', pathMatch: 'full' },
+    { path: '', component: HomeComponent, pathMatch: 'full' },
     { path: 'signin', component: SignInComponent },
     { path: 'signup', component: SignUpComponent }
   ]}

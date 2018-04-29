@@ -1,2 +1,7 @@
-<app-web-header></app-web-header>
-<router-outlet></router-outlet>
+<div [ngClass]="{'blur-overlay': isModalOpen}">
+  <app-web-header></app-web-header>
+  <router-outlet></router-outlet>
+</div>
+<ng-template [ngIf]="isModalOpen">
+  <app-auth-modal (getModalStateChange)="handleModalChange($event)"></app-auth-modal>
+</ng-template>

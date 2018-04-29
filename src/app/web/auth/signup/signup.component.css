@@ -3,15 +3,15 @@
   background-size: cover;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 480px) {
   .auth-section {
-    min-height: calc(100vh - 70px);
+    background: url('/assets/img/auth-background.jpg') no-repeat top;
+    background-size: cover;
   }
 }
 
-@media (min-width: 480px) {
+@media (min-width: 1024px) {
   .auth-section {
-    background: url('/assets/img/auth-background.jpg') no-repeat center;
-    background-size: cover;
+    min-height: calc(100vh - 70px);
   }
 }

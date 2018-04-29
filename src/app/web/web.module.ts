@@ -12,6 +12,8 @@ import { MainNavigationComponent } from './header/main-navigation/main-navigatio
 import { SubNavigationComponent } from './header/sub-navigation/sub-navigation.component';
 import { NavigationLogoComponent } from './header/navigation-logo/navigation-logo.component';
 import { UserNavigationComponent } from './header/user-navigation/user-navigation.component';
+import { AuthModalComponent } from './auth/auth-modal/auth-modal.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { UserNavigationComponent } from './header/user-navigation/user-navigatio
     MainNavigationComponent,
     SubNavigationComponent,
     NavigationLogoComponent,
-    UserNavigationComponent
+    UserNavigationComponent,
+    AuthModalComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
