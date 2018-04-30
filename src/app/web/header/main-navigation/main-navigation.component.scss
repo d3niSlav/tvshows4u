@@ -2,11 +2,11 @@
   height: 32px;
   margin: 0;
   padding: 0;
-}
 
-.menu-primary li {
-  display: inline-block;
-  list-style-type: none;
+  li {
+    display: inline-block;
+    list-style-type: none;
+  }
 }
 
 .menu-link {
@@ -16,16 +16,16 @@
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
-}
 
-.menu-link.active,
-.menu-link:hover {
-  color: #00b7ba;
-  border-bottom: 3px solid #8B0000;
-}
+  &.active,
+  &:hover {
+    color: #00b7ba;
+    border-bottom: 3px solid #8B0000;
+  }
 
-.menu-link:hover {
-  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -35,11 +35,11 @@
 
   .menu-link {
     font-size: 16px;
-  }
 
-  .menu-link.active,
-  .menu-link:hover {
-    border-width: 4px;
-    padding-bottom: 8px;
+    &.active,
+    &:hover {
+      border-width: 4px;
+      padding-bottom: 8px;
+    }
   }
 }

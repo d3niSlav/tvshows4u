@@ -1,0 +1,40 @@
+.sub-menu {
+  height: 24px;
+  margin: 0;
+  padding-top: 5px;
+  list-style-type: none;
+
+  li {
+    float: left;
+
+    .menu-link {
+      display: inline-block;
+      padding: 0 10px;
+      font-size: 0.7rem;
+      color: #FFF;
+      font-weight: normal;
+      border-left: 1px solid rgba(136, 136, 136, 0.6);
+
+      &.active,
+      &:hover {
+        color: #DC143C;
+        text-decoration: none;
+      }
+    }
+
+    &:first-child .menu-link {
+      border: none;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .sub-menu {
+    height: 32px;
+    padding-top: 8px;
+
+    li .menu-link {
+      font-size: 14px;
+    }
+  }
+}

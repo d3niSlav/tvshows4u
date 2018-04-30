@@ -4,19 +4,19 @@
   height: 100%;
   padding: 5px 5px 0;
   background-color: #8B0000;
-}
 
-.header-logo:after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-color: #8B0000 transparent transparent transparent;
-  border-style: solid;
-  border-width: 8px 40px 0 40px;
-  transform: translateX(-50%);
+  &:after {
+    content: '';
+    position: absolute;
+      bottom: -8px;
+      left: 50%;
+    width: 0;
+    height: 0;
+    border-color: #8B0000 transparent transparent transparent;
+    border-style: solid;
+    border-width: 8px 40px 0 40px;
+    transform: translateX(-50%);
+  }
 }
 
 .logo-image {

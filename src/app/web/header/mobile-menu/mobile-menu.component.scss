@@ -14,11 +14,25 @@
 .menu-button {
   position: relative;
   height: 100%;
+
+  &.active {
+    .top {
+      transform: translateX(3px) rotate(45deg);
+    }
+
+    .middle {
+      transform: scaleX(0);
+    }
+
+    .bottom {
+      transform: translateX(3px) rotate(-45deg);
+    }
+  }
 }
 
 .menu-button-bar {
   position: absolute;
-  left: 0;
+    left: 0;
   display: block;
   width: 26px;
   height: 2px;
@@ -26,39 +40,27 @@
   border-radius: 1px;
   transform-origin: left center;
   transition: 0.125s;
-}
 
-.menu-button-bar.top {
-  top: 0;
-}
+  &.top {
+    top: 0;
+  }
 
-.menu-button-bar.middle {
-  top: 45%;
-  transform-origin: center;
-}
+  &.middle {
+    top: 45%;
+    transform-origin: center;
+  }
 
-.menu-button-bar.bottom {
-  bottom: 0;
-}
-
-.menu-button.active .top {
-  transform: translateX(3px) rotate(45deg);
-}
-
-.menu-button.active .middle {
-  transform: scaleX(0);
-}
-
-.menu-button.active .bottom {
-  transform: translateX(3px) rotate(-45deg);
+  &.bottom {
+    bottom: 0;
+  }
 }
 
 /* Mobile Menu */
 
 .mobile-menu {
   position: absolute;
-  top: 54px;
-  left: 0;
+    top: 54px;
+    left: 0;
   width: 100%;
   min-height: calc(100vh - 54px);
   background-color: #000;
