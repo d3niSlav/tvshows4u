@@ -11,45 +11,7 @@
           <div class="logo-container"></div>
         </a>
         <ul class="form-fields">
-          <li class="form-email">
-            <div class="fieldgroup">
-              <span class="error error-message">Errorororoor</span>
-              <input
-                  class="user-input error"
-                  type="text"
-                  placeholder="Email&nbsp;address">
-            </div>
-          </li>
-          <li class="form-password">
-            <div class="fieldgroup">
-              <span class="error error-message">wewewewew</span>
-              <span class="password-field">
-                  <input
-                      class="user-input"
-                      type="password"
-                      placeholder="Password">
-                  <a
-                      class="forgot-password-link"
-                      [routerLink]="['/forgotten']"
-                      title="Forgot your password?">
-                    <i class="fa fa-unlock-alt"></i>
-                  </a>
-              </span>
-            </div>
-          </li>
-          <li class="button form-actions">
-            <div class="form-buttons">
-              <input
-                  class="button-primary"
-                  type="submit"
-                  value="Sign In"/>
-            </div>
-            <span class="user-action-message">Not a member?
-              <a
-                  class="action-link"
-                  [routerLink]="['/register']">Join now</a>
-            </span>
-          </li>
+          <ng-content></ng-content>
         </ul>
       </div>
     </fieldset>

@@ -13,3 +13,10 @@ input:focus,
 button:focus {
   outline: none;
 }
+
+[type=reset],
+[type=submit],
+button,
+html [type=button] {
+  -webkit-appearance: initial;
+}

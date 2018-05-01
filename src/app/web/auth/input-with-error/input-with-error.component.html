@@ -1,0 +1,28 @@
+<li>
+  <span class="error error-message">{{ errorMessage }}</span>
+  <div
+      class="fieldgroup"
+      [ngClass]="{ 'with-side': buttonRedirect }">
+    <input
+        class="user-input"
+        [id]="id || name"
+        [name]="name"
+        [ngClass]="{ 'error': errorMessage }"
+        [placeholder]="placeholder"
+        [type]="type"
+        [value]="value"/>
+    <a
+        *ngIf="buttonRedirect"
+        class="side-button"
+        [routerLink]="[buttonRedirect]"
+        title="Forgot your password?">
+      <i class="fa fa-unlock-alt"></i>
+    </a>
+  </div>
+  <p class="additional-label" *ngIf="label">{{label}}
+    <a
+        *ngIf="labelButtonText && labelRedirect"
+        class="action-link"
+        [routerLink]="[labelRedirect]">{{labelButtonText}}</a>
+  </p>
+</li>

@@ -1,3 +1,22 @@
-<div class="auth-section">
-  <app-auth-modal></app-auth-modal>
-</div>
+<app-auth-layout>
+  <app-auth-modal>
+    <input-with-errors
+        name="email"
+        type="email"
+        placeholder="Enter email address"></input-with-errors>
+    <input-with-errors
+        name="password"
+        type="password"
+        placeholder="Enter password"></input-with-errors>
+    <input-with-errors
+        name="confirmPassword"
+        type="password"
+        placeholder="Confirm password"></input-with-errors>
+    <input-with-errors
+        type="submit"
+        label="Already a member?"
+        labelButtonText="Sign In"
+        labelRedirect="/signin"
+        value="Sign Up"></input-with-errors>
+  </app-auth-modal>
+</app-auth-layout>

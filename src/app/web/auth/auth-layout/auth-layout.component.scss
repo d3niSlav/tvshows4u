@@ -1,0 +1,14 @@
+.auth-section {
+  height: calc(100vh - 54px);
+  background-size: cover;
+  overflow: hidden;
+
+  @media (min-width: 480px) {
+    background: url('/assets/img/auth-background.jpg') no-repeat top;
+    background-size: cover;
+  }
+
+  @media (min-width: 1024px) {
+    height: calc(100vh - 70px);
+  }
+}

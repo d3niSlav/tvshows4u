@@ -14,6 +14,9 @@ import { NavigationLogoComponent } from './header/navigation-logo/navigation-log
 import { UserNavigationComponent } from './header/user-navigation/user-navigation.component';
 import { AuthModalComponent } from './auth/auth-modal/auth-modal.component';
 import { HomeComponent } from './home/home.component';
+import { InputWithErrorComponent } from './auth/input-with-error/input-with-error.component';
+import { AuthLayoutComponent } from './auth/auth-layout/auth-layout.component';
+import { ForgottenPasswordComponent } from './auth/forgotten-password/forgotten-password.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { HomeComponent } from './home/home.component';
     NavigationLogoComponent,
     UserNavigationComponent,
     AuthModalComponent,
-    HomeComponent
+    HomeComponent,
+    InputWithErrorComponent,
+    AuthLayoutComponent,
+    ForgottenPasswordComponent
   ],
   imports: [
     CommonModule,
