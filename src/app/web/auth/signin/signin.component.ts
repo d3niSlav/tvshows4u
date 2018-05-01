@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class SignInComponent implements OnInit {
   signInForm: any;
+  data: any;
 
   constructor(private authService: AuthService, private router: Router) {
   }
@@ -21,7 +22,17 @@ export class SignInComponent implements OnInit {
   }
 
   signIn() {
-    console.log(this.signInForm.formGroup.value);
+    const userData = {...this.signInForm.formGroup.value};
+
+    this.authService.loginUser(userData).subscribe(response => {
+      this.data = response;
+      console.log(response);
+      localStorage.setItem('jwtToken', this.data.token);
+      this.authService.setIsUserAuthenticated(!!response);
+      this.router.navigate(['/']);
+    }, error => {
+      console.log(error);
+    });
   }
 }
 

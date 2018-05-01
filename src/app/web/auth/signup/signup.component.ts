@@ -9,6 +9,8 @@ import { ValidationManager } from 'ng2-validation-manager';
 })
 export class SignUpComponent implements OnInit {
   signUpForm: any;
+  data: any;
+  messages: any;
 
   constructor(private authService: AuthService, private router: Router) {
   }
@@ -22,17 +24,27 @@ export class SignUpComponent implements OnInit {
 
     this.signUpForm.setErrorMessage('confirmPassword', 'equalTo', 'Passwords does not match!');
     this.signUpForm.setErrorMessage('confirmPassword', 'required', 'Confirm your password');
+
+    this.messages = {
+      email: null,
+      password: null
+    };
   }
 
   signUp() {
-    console.log(this.signUpForm.getForm().valid);
-    // this.authService.registerUser(this.signUpData).subscribe(resp => {
-    //   this.data = resp;
-    //   localStorage.setItem('jwtToken', this.data.token);
-    //   this.authService.setIsUserAuthenticated(!!resp);
-    //   this.router.navigate(['']);
-    // }, err => {
-    //   this.message = err.error.msg;
-    // });
+    let userData = {...this.signUpForm.formGroup.value};
+    delete userData.confirmPassword;
+
+    this.authService.registerUser(userData).subscribe((response: Response) => {
+        this.data = response;
+        localStorage.setItem('jwtToken', this.data.token);
+        this.authService.setIsUserAuthenticated(!!response);
+        this.router.navigate(['/']);
+      }, error => {
+        this.messages.email = error.error.email;
+        this.messages.password = error.error.password;
+        console.log(this.messages)
+      }
+    );
   }
 }

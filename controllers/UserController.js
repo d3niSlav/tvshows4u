@@ -6,7 +6,7 @@ const create = async function (req, res) {
   const user = await User.query().first().where({ email: req.body.email });
 
   if (user) {
-    return res.status(409).send({ error: 'Email already exists!' });
+    return res.status(409).send({ email: 'Email already exists!' });
   }
 
   const graph = req.body;
@@ -42,7 +42,7 @@ const update = async function (req, res) {
     const user = await User.query().first().where({ email: req.body.email });
 
     if (user) {
-      return res.status(409).send({ error: 'Username is already in use!' })
+      return res.status(409).send({ email: 'Email is already registered!' })
     }
   }
 
@@ -63,22 +63,22 @@ const login = async function (req, res) {
   res.setHeader('Content-Type', 'application/json');
 
   if (!req.body.email) {
-    return res.status(400).send({ error: 'Please enter an email address!' });
+    return res.status(400).send({ email: 'Please enter an email address!' });
   }
 
   if (!req.body.password) {
-    return res.status(400).send({ error: 'Please enter a password!' });
+    return res.status(400).send({ password: 'Please enter a password!' });
   }
 
   const user = await User.query().first().where({ email: req.body.email });
   if (!user) {
-    return res.status(401).send({ error: 'Wrong email or password!' });
+    return res.status(401).send({ email: 'Wrong email or password!' });
 
   }
 
   const isPasswordValid = await user.verifyPassword(req.body.password);
   if (!isPasswordValid) {
-    return res.status(401).send({ error: 'Wrong email or password!' });
+    return res.status(401).send({ email: 'Wrong email or password!' });
   }
 
   return res.send(user.getJWT());

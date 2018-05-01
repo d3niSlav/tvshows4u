@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ValidationManager} from 'ng2-validation-manager';
-import {AuthService} from '../auth.service';
-import {Router} from '@angular/router';
+import { ValidationManager } from 'ng2-validation-manager';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forgotten-password',
