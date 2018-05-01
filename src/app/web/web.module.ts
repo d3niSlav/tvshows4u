@@ -17,6 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { InputWithErrorComponent } from './auth/input-with-error/input-with-error.component';
 import { AuthLayoutComponent } from './auth/auth-layout/auth-layout.component';
 import { ForgottenPasswordComponent } from './auth/forgotten-password/forgotten-password.component';
+import { AuthSubmitComponent } from './auth/auth-submit/auth-submit.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ForgottenPasswordComponent } from './auth/forgotten-password/forgotten-
     HomeComponent,
     InputWithErrorComponent,
     AuthLayoutComponent,
-    ForgottenPasswordComponent
+    ForgottenPasswordComponent,
+    AuthSubmitComponent
   ],
   imports: [
     CommonModule,

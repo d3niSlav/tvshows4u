@@ -1,0 +1,16 @@
+<li>
+  <div class="fieldgroup">
+    <input
+        class="user-input"
+        [id]="id"
+        type="submit"
+        [disabled]="!form.getForm().valid"
+        [value]="inputValue" />
+  </div>
+  <p class="additional-label" *ngIf="label">{{label}}
+    <a
+        *ngIf="labelButtonText && labelRedirect"
+        class="action-link"
+        [routerLink]="[labelRedirect]">{{labelButtonText}}</a>
+  </p>
+</li>

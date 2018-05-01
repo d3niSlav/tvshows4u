@@ -1,22 +1,31 @@
 <app-auth-layout>
   <app-auth-modal>
-    <input-with-errors
-        name="email"
-        type="email"
-        placeholder="Enter email address"></input-with-errors>
-    <input-with-errors
-        name="password"
-        type="password"
-        placeholder="Enter password"></input-with-errors>
-    <input-with-errors
-        name="confirmPassword"
-        type="password"
-        placeholder="Confirm password"></input-with-errors>
-    <input-with-errors
-        type="submit"
-        label="Already a member?"
-        labelButtonText="Sign In"
-        labelRedirect="/signin"
-        value="Sign Up"></input-with-errors>
+    <form (ngSubmit)="signUp()" ngForm>
+      <fieldset>
+        <ul>
+          <input-with-errors
+              name="email"
+              type="email"
+              [form]="signUpForm"
+              placeholder="Enter email address"></input-with-errors>
+          <input-with-errors
+              name="password"
+              type="password"
+              [form]="signUpForm"
+              placeholder="Enter password"></input-with-errors>
+          <input-with-errors
+              name="confirmPassword"
+              type="password"
+              [form]="signUpForm"
+              placeholder="Confirm password"></input-with-errors>
+          <app-auth-submit
+              [form]="signUpForm"
+              label="Already a member?"
+              labelButtonText="Sign In"
+              labelRedirect="/signin"
+              inputValue="Sign Up"></app-auth-submit>
+        </ul>
+      </fieldset>
+    </form>
   </app-auth-modal>
 </app-auth-layout>

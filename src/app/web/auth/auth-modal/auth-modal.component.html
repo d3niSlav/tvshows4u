@@ -1,19 +1,15 @@
 <div class="auth-modal-wrapper">
-  <form>
-    <fieldset class="auth-modal">
-      <div class="content">
-        <ng-template [ngIf]="isModal">
-          <button class="popup-close-button" (click)="closeModal()">
-            <i class="fa fa-times"></i>
-          </button>
-        </ng-template>
-        <a [routerLink]="['/']">
-          <div class="logo-container"></div>
-        </a>
-        <ul class="form-fields">
-          <ng-content></ng-content>
-        </ul>
-      </div>
-    </fieldset>
-  </form>
+  <div class="auth-modal">
+    <div class="content">
+      <ng-template [ngIf]="isModal">
+        <button class="popup-close-button" (click)="closeModal()">
+          <i class="fa fa-times"></i>
+        </button>
+      </ng-template>
+      <a [routerLink]="['/']">
+        <div class="logo-container"></div>
+      </a>
+      <ng-content></ng-content>
+    </div>
+  </div>
 </div>
