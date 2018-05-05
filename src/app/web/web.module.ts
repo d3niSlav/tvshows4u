@@ -18,6 +18,10 @@ import { InputWithErrorComponent } from './auth/input-with-error/input-with-erro
 import { AuthLayoutComponent } from './auth/auth-layout/auth-layout.component';
 import { ForgottenPasswordComponent } from './auth/forgotten-password/forgotten-password.component';
 import { AuthSubmitComponent } from './auth/auth-submit/auth-submit.component';
+import { TvShowCardComponent } from './shared/tv-show-card/tv-show-card.component';
+import { ShowsComponent } from './shows/shows.component';
+import { LinkButtonComponent } from './shared/buttons/link-button/link-button.component';
+import { PosterComponent } from './shared/tv-shows/poster/poster.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,11 @@ import { AuthSubmitComponent } from './auth/auth-submit/auth-submit.component';
     InputWithErrorComponent,
     AuthLayoutComponent,
     ForgottenPasswordComponent,
-    AuthSubmitComponent
+    AuthSubmitComponent,
+    TvShowCardComponent,
+    ShowsComponent,
+    LinkButtonComponent,
+    PosterComponent
   ],
   imports: [
     CommonModule,

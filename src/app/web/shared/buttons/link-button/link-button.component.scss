@@ -1,0 +1,27 @@
+.link-button {
+  display: inline-block;
+  padding: 5px 20px;
+  color: #FFFFFF;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  vertical-align: middle;
+  background-color: #8B0000;
+  border-radius: 38px;
+  border: 2px solid transparent;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #DC143C;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding: 12px 30px;
+    font-size: 20px;
+  }
+}
