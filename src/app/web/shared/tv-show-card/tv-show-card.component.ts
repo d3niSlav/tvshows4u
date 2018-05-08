@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'tv-show-card',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tv-show-card.component.scss']
 })
 export class TvShowCardComponent implements OnInit {
+  @Input() show: any;
 
   constructor() { }
 

@@ -1,16 +1,10 @@
 <div class="container">
+  <shows-filters
+      (sortingFilterChanged)="handleSortingCriteriaChange($event)"></shows-filters>
   <div class="row">
-      <tv-show-card></tv-show-card>
-      <tv-show-card></tv-show-card>
-      <tv-show-card></tv-show-card>
-      <tv-show-card></tv-show-card>
-      <tv-show-card></tv-show-card>
-      <tv-show-card></tv-show-card>
-      <tv-show-card></tv-show-card>
-      <tv-show-card></tv-show-card>
-      <tv-show-card></tv-show-card>
-      <tv-show-card></tv-show-card>
-      <tv-show-card></tv-show-card>
-      <tv-show-card></tv-show-card>
+    <tv-show-card
+        *ngFor="let show of shows
+         | sort:sortingCriteria.criteria:sortingCriteria.isDescending"
+        [show]="show"></tv-show-card>
   </div>
 </div>

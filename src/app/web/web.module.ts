@@ -22,9 +22,14 @@ import { TvShowCardComponent } from './shared/tv-show-card/tv-show-card.componen
 import { ShowsComponent } from './shows/shows.component';
 import { LinkButtonComponent } from './shared/buttons/link-button/link-button.component';
 import { PosterComponent } from './shared/tv-shows/poster/poster.component';
+import { SortPipe } from '../shared/pipes/sort.pipe';
+import { FiltersComponent } from './shows/filters/filters.component';
+import { OrderComponent } from './shows/filters/order/order.component';
+import { CategoriesComponent } from './shows/filters/categories/categories.component';
 
 @NgModule({
   declarations: [
+    SortPipe,
     WebComponent,
     SignInComponent,
     SignUpComponent,
@@ -43,7 +48,10 @@ import { PosterComponent } from './shared/tv-shows/poster/poster.component';
     TvShowCardComponent,
     ShowsComponent,
     LinkButtonComponent,
-    PosterComponent
+    PosterComponent,
+    FiltersComponent,
+    OrderComponent,
+    CategoriesComponent
   ],
   imports: [
     CommonModule,

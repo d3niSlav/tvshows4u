@@ -1,0 +1,21 @@
+<div class="filters-wrapper">
+  <p class="title">All TV Shows</p>
+  <ul class="sort-menu">
+    <li
+        *ngFor="let sortingFilter of sortingFiltersMap"
+        [ngClass]="{'active': sortingFilter === currentSortingFilter}"
+        [title]="sortingFilter.title"
+        (click)="switchSortingFilter(sortingFilter)">
+      <i class="fa fa-{{sortingFilter.icon}}"></i>
+    </li>
+    <li
+        class="toggle-categories"
+        title="Choose categories">
+    <span class="open-categories ng-scope">
+      Categories
+      <i class="fa fa-chevron-down"></i>
+    </span>
+    </li>
+  </ul>
+  <hr class="divider"/>
+</div>

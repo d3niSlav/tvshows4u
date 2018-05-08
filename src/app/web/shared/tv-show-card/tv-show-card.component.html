@@ -1,11 +1,11 @@
-<div id="" class="show-wrapper">
+<div id="show.id" class="show-wrapper" *ngIf="show">
   <show-poster
-      showTitle="Agent Carter"
+      [showTitle]="show.title"
       showUrl="/"
-      showImage="http://techaeris.com/wp-content/uploads/2016/01/Agent-Carter-Poster.jpg"></show-poster>
+      [showImage]="show.poster"></show-poster>
   <div class="information">
-    <h3 class="title">Agent Carter</h3>
-    <p class="duration">Year: 2015–2016</p>
+    <h3 class="title">{{show.title}}</h3>
+    <p class="duration">Year: {{show.year}}</p>
     <link-button>More info</link-button>
   </div>
 </div>
