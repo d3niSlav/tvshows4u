@@ -16,7 +16,6 @@ exports.up = knex => {
       table.string('logo');
       table.float('imdbRating', 3, 1);
       table.string('imdbID');
-      table.integer('totalSeasons');
       table.string('trailer');
     })
     .createTable('seasons', table => {
@@ -29,13 +28,16 @@ exports.up = knex => {
         .integer('showId')
         .unsigned()
         .references('id')
-        .inTable('shows');
+        .inTable('shows')
+        .onDelete('CASCADE');
     })
     .createTable('episodes', table => {
       table.increments('id').primary();
       table.date('releaseDate');
       table.string('imdbID');
-      table.float('imdbRating', 3, 1);
+      table
+        .string('imdbRating')
+        .defaultTo('N/A');
       table.string('runtime');
       table.string('screenshot');
       table.text('plot');
@@ -45,7 +47,8 @@ exports.up = knex => {
         .integer('seasonId')
         .unsigned()
         .references('id')
-        .inTable('seasons');
+        .inTable('seasons')
+        .onDelete('CASCADE');
     })
 };
 

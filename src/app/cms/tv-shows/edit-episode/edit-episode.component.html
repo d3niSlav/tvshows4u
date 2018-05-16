@@ -1,0 +1,85 @@
+<div class="col-10 order-md-1 m-auto">
+  <h4 class="mb-3">TV Show Episode</h4>
+  <form [formGroup]="tvShowEpisodeForm" class="needs-validation mb-3">
+    <div class="row">
+      <div class="col-md-7">
+        <div class="row">
+          <div class="col-md-8 mb-3">
+            <label for="title">Title</label>
+            <input
+                id="title"
+                class="form-control"
+                type="text"
+                formControlName="title"
+                placeholder="Enter title for the episode here"/>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="episodeReleaseDate">Release date</label>
+            <input
+                id="releaseDate"
+                class="form-control"
+                type="date"
+                formControlName="releaseDate"/>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="screenshot">Screenshot URL</label>
+          <input
+              id="screenshot"
+              class="form-control"
+              type="text"
+              formControlName="screenshot"
+              placeholder="Screenshot URL"
+              #screenshotImagePath/>
+        </div>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="runtime">Runtime</label>
+            <input
+                id="runtime"
+                class="form-control"
+                type="text"
+                formControlName="runtime"
+                placeholder="Runtime"/>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="imdbId">IMDB ID</label>
+            <input
+                id="imdbId"
+                class="form-control"
+                type="text"
+                formControlName="imdbId"
+                placeholder="IMDB ID"/>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="imdbRating">IMDB Rating</label>
+            <input
+                id="imdbRating"
+                class="form-control"
+                type="number"
+                formControlName="imdbRating"
+                placeholder="IMDB Rating"/>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5 text-center">
+        <label for="poster-image" class="d-block">Screenshot preview:</label>
+        <img
+            id="poster-image"
+            [src]="screenshotImagePath.value"
+            alt="Episode screenshot"
+            class="img-fluid"/>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="plot">Plot</label>
+      <textarea
+          id="plot"
+          class="form-control"
+          formControlName="plot"
+          rows="5"></textarea>
+    </div>
+    <hr class="mb-4">
+    <button class="btn btn-primary btn-lg btn-block" type="submit">Save episode</button>
+  </form>
+</div>

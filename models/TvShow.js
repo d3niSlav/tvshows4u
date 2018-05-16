@@ -28,8 +28,7 @@ class Show extends Model {
         'poster',
         'logo',
         'imdbRating',
-        'imdbID',
-        'totalSeasons'
+        'imdbID'
       ],
 
       properties: {
@@ -48,7 +47,6 @@ class Show extends Model {
         logo: { type: 'string' },
         imdbRating: { type: 'float' },
         imdbID: { type: 'string' },
-        totalSeasons: { type: 'integer' },
         trailer: { type: 'string' }
       }
     };

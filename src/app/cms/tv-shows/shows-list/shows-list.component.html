@@ -1,0 +1,9 @@
+<ul class="list-group" *ngIf="tvShows">
+  <li *ngFor="let show of tvShows"
+      class="list-group-item list-group-item-action">
+    <a [routerLink]="[show.id, 'edit']"
+       class="d-flex justify-content-between align-items-center">{{show.title}}
+      <span class="badge badge-primary badge-pill float-right">Seasons: {{show.totalSeasons}}</span>
+    </a>
+  </li>
+</ul>

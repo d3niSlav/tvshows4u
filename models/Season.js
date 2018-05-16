@@ -1,6 +1,7 @@
 'use strict';
 
 const Model = require('objection').Model;
+const Episode = require('./Episode');
 
 class Season extends Model {
   // Table name is the only required property.
@@ -33,15 +34,12 @@ class Season extends Model {
 
   static get relationMappings() {
     return {
-      show: {
-        relation: Model.BelongsToOneRelation,
-        // The related model. This can be either a Model subclass constructor or an
-        // absolute file path to a module that exports one. We use the file path version
-        // here to prevent require loops.
-        modelClass: __dirname + '/TvShow',
+      episodes: {
+        relation: Model.HasManyRelation,
+        modelClass: Episode,
         join: {
-          from: 'seasons.showId',
-          to: 'shows.id'
+          from: 'seasons.id',
+          to: 'episodes.seasonId'
         }
       }
     };

@@ -4,8 +4,8 @@ import { WebComponent } from './web/web.component';
 import { CmsComponent } from './cms/cms.component';
 
 const appRoutes: Routes = [
-  { path: '', loadChildren: './web/web.module#WebModule' },
-  { path: 'cms', component: CmsComponent },
+  { path: '', loadChildren: './web/web.module#WebModule', pathMatch: 'full' },
+  { path: 'cms', loadChildren: './cms/cms.module#CmsModule' }
 ];
 
 @NgModule({
