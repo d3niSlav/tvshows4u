@@ -1,5 +1,11 @@
 <div class="col-10 order-md-1 m-auto">
-  <h4 class="mb-3">TV Show Episode</h4>
+  <div class="row">
+    <div class="col-12">
+      <h4 class="mb-3" *ngIf="episodeId">Edit episode</h4>
+      <h4 class="mb-3" *ngIf="!episodeId">Add new episode</h4>
+    </div>
+  </div>
+  <hr class="mb-4">
   <form [formGroup]="tvShowEpisodeForm" class="needs-validation mb-3">
     <div class="row">
       <div class="col-md-7">
@@ -11,15 +17,15 @@
                 class="form-control"
                 type="text"
                 formControlName="title"
-                placeholder="Enter title for the episode here"/>
+                placeholder="Enter title for the episode here" />
           </div>
           <div class="col-md-4 mb-3">
-            <label for="episodeReleaseDate">Release date</label>
+            <label for="releaseDate">Release date</label>
             <input
                 id="releaseDate"
                 class="form-control"
                 type="date"
-                formControlName="releaseDate"/>
+                formControlName="releaseDate" />
           </div>
         </div>
         <div class="mb-3">
@@ -30,7 +36,7 @@
               type="text"
               formControlName="screenshot"
               placeholder="Screenshot URL"
-              #screenshotImagePath/>
+              #screenshotImagePath />
         </div>
         <div class="row">
           <div class="col-md-4 mb-3">
@@ -40,7 +46,7 @@
                 class="form-control"
                 type="text"
                 formControlName="runtime"
-                placeholder="Runtime"/>
+                placeholder="Runtime" />
           </div>
           <div class="col-md-4 mb-3">
             <label for="imdbId">IMDB ID</label>
@@ -49,7 +55,7 @@
                 class="form-control"
                 type="text"
                 formControlName="imdbId"
-                placeholder="IMDB ID"/>
+                placeholder="IMDB ID" />
           </div>
           <div class="col-md-4 mb-3">
             <label for="imdbRating">IMDB Rating</label>
@@ -58,7 +64,7 @@
                 class="form-control"
                 type="number"
                 formControlName="imdbRating"
-                placeholder="IMDB Rating"/>
+                placeholder="IMDB Rating" />
           </div>
         </div>
       </div>
@@ -68,7 +74,7 @@
             id="poster-image"
             [src]="screenshotImagePath.value"
             alt="Episode screenshot"
-            class="img-fluid"/>
+            class="img-fluid" />
       </div>
     </div>
     <div class="mb-3">
@@ -79,7 +85,7 @@
           formControlName="plot"
           rows="5"></textarea>
     </div>
-    <hr class="mb-4">
+    <hr class="mb-4" />
     <button class="btn btn-primary btn-lg btn-block" type="submit">Save episode</button>
   </form>
 </div>

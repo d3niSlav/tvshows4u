@@ -8,20 +8,19 @@ import {TvShowsService} from '../../services/tv-shows.service';
   styleUrls: ['./edit-show.component.scss']
 })
 export class EditShowComponent implements OnInit {
-  tvShowId: string;
+  tvShowId: number;
   editMode = false;
   tvShowForm: FormGroup;
   seasons = [];
 
-  constructor(private route: ActivatedRoute, private tvShowsService: TvShowsService) {
-  }
+  constructor(private route: ActivatedRoute, private tvShowsService: TvShowsService) {}
 
   ngOnInit() {
     this.route.params.subscribe(
       (params: Params) => {
-        const id = params['id'];
+        const id = +params['id'];
         this.tvShowId = id;
-        this.editMode = id != null;
+        this.editMode = !!id;
         this.initForm();
       }
     );
@@ -62,9 +61,6 @@ export class EditShowComponent implements OnInit {
 
     if (this.editMode) {
       this.tvShowsService.getSingleShow(this.tvShowId).subscribe(res => {
-          console.log(res);
-          this.seasons = Array.from({length: res.totalSeasons}, (v, k) => k+1);
-
         this.tvShowForm = new FormGroup({
             'title': new FormControl(res.title),
             'year': new FormControl(res.year),
@@ -81,6 +77,8 @@ export class EditShowComponent implements OnInit {
             'imdbRating': new FormControl(res.imdbRating),
             'awards': new FormControl(res.awards)
           });
+
+          this.seasons = res.seasons;
         }
       );
     }

@@ -14,9 +14,9 @@ const cmsRoutes: Routes = [
       { path: 'new', component: EditShowComponent },
       { path: ':id/edit', component: EditShowComponent },
       { path: ':id/season/new', component: EditSeasonComponent },
-      { path: ':id/season/edit', component: EditSeasonComponent },
-      { path: 'season/:id/episode/new', component: EditEpisodeComponent },
-      { path: 'season/:id/episode/edit', component: EditEpisodeComponent }
+      { path: ':id/season/:seasonId/edit', component: EditSeasonComponent },
+      { path: ':id/season/:seasonId/episode/new', component: EditEpisodeComponent },
+      { path: ':id/season/:seasonId/episode/:episodeId/edit', component: EditEpisodeComponent }
     ]},
   ]}
 ];

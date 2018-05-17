@@ -11,15 +11,15 @@ export class TvShowsService {
     return this.http.get('/api/shows');
   }
 
-  getSingleShow(showId: string): Observable<any> {
+  getSingleShow(showId: number): Observable<any> {
     return this.http.get(`/api/shows/${showId}`);
   }
 
-  getSingleSeason(showId: string, seasonNumber): Observable<any> {
-    return this.http.get(`/api/shows/${showId}/season/${seasonNumber}`);
+  getSingleSeason(seasonId: number): Observable<any> {
+    return this.http.get(`/api/shows/seasons/${seasonId}`);
   }
 
-  getSingleEpisode(seasonId: string, episodeNumber): Observable<any> {
-    return this.http.get(`/api/shows/seasonId/${seasonId}/episode/${episodeNumber}`);
+  getSingleEpisode(episodeId: number): Observable<any> {
+    return this.http.get(`/api/shows/episodes/${episodeId}`);
   }
 }

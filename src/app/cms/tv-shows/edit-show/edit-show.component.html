@@ -1,9 +1,10 @@
 <div class="col-10 order-md-1 m-auto">
   <div class="row">
-    <div class="col-12 col-md-8">
-      <h4 class="mb-3">TV Show</h4>
+    <div class="col-12" [ngClass]="{ 'col-sm-5 col-md-6 col-xl-8': tvShowId }">
+      <h4 class="mb-3" *ngIf="tvShowId">Edit TV Show</h4>
+      <h4 class="mb-3" *ngIf="!tvShowId">Add TV Show</h4>
     </div>
-    <div class="col-6 col-md-2">
+    <div class="col-6 col-sm-4 col-md-3 col-xl-2" *ngIf="tvShowId">
       <div class="btn-group">
         <button
             type="button"
@@ -15,16 +16,19 @@
         </button>
         <div class="dropdown-menu">
           <a class="dropdown-item"
-             *ngFor="let seasonNumber of seasons"
-             [routerLink]="['../../season/', seasonNumber, 'edit']">{{seasonNumber}}</a>
+             *ngFor="let season of seasons"
+             [routerLink]="['../season/', season.id, 'edit']">{{season.number}}</a>
         </div>
       </div>
     </div>
-    <div class="col-6 col-md-2">
-      <a class="btn btn-success" [routerLink]="['../season/new/', seasons.length + 1]" role="button">Add season</a>
+    <div class="col-6 col-sm-3 col-xl-2" *ngIf="tvShowId">
+      <a class="btn btn-success"
+         [routerLink]="['../season/new']"
+         [queryParams]="{ number: seasons.length + 1 }"
+         role="button">Add season</a>
     </div>
   </div>
-  <hr class="mb-4">
+  <hr class="mb-4" />
   <form [formGroup]="tvShowForm" class="needs-validation mb-3">
     <div class="row">
       <div class="col-md-8">
@@ -36,7 +40,7 @@
                 id="title"
                 class="form-control"
                 formControlName="title"
-                placeholder="Enter title here"/>
+                placeholder="Enter title here" />
             <div class="invalid-feedback">
               Please enter a title!
             </div>
@@ -47,7 +51,7 @@
                 type="text"
                 id="year"
                 formControlName="year"
-                class="form-control"/>
+                class="form-control" />
             <div class="invalid-feedback">
               Please enter a valid year!
             </div>
@@ -61,7 +65,7 @@
               formControlName="poster"
               class="form-control"
               placeholder="Poster URL"
-              #posterImagePath/>
+              #posterImagePath />
         </div>
         <div class="row">
           <div class="col-md-8 mb-3">
@@ -71,7 +75,7 @@
                 id="genre"
                 formControlName="genre"
                 class="form-control"
-                placeholder="Enter genre"/>
+                placeholder="Enter genre" />
             <div class="invalid-feedback">
               Please specify show genre!
             </div>
@@ -83,7 +87,7 @@
                 formControlName="runtime"
                 id="runtime"
                 class="form-control"
-                placeholder="Runtime"/>
+                placeholder="Runtime" />
           </div>
         </div>
         <div class="row">
@@ -95,7 +99,7 @@
                 formControlName="logo"
                 class="form-control"
                 placeholder="Logo URL"
-                #logoImage/>
+                #logoImage />
           </div>
           <div class="col-md-4 mb-3">
             <label for="status">Status</label>
@@ -120,7 +124,7 @@
                   formControlName="trailer"
                   id="trailer"
                   class="form-control"
-                  placeholder="YouTube video ID"/>
+                  placeholder="YouTube video ID" />
             </div>
           </div>
           <div class="col-md-6">
@@ -129,7 +133,7 @@
                 id="logo-image"
                 [src]="logoImage.value"
                 alt="Logo"
-                class="img-fluid"/>
+                class="img-fluid" />
           </div>
         </div>
       </div>
@@ -139,7 +143,7 @@
             id="poster-image"
             [src]="posterImagePath.value"
             alt="Poster"
-            class="img-fluid"/>
+            class="img-fluid" />
       </div>
     </div>
     <div class="mb-3">
@@ -161,7 +165,7 @@
             id="languages"
             formControlName="languages"
             class="form-control"
-            placeholder="Languages"/>
+            placeholder="Languages" />
       </div>
       <div class="col-md-3 mb-3">
         <label for="country">Country</label>
@@ -170,7 +174,7 @@
             id="country"
             formControlName="country"
             class="form-control"
-            placeholder="Country"/>
+            placeholder="Country" />
       </div>
       <div class="col-md-3 mb-3">
         <label for="imdbID">IMDB ID</label>
@@ -179,7 +183,7 @@
             id="imdbID"
             formControlName="imdbID"
             class="form-control"
-            placeholder="IMDB ID"/>
+            placeholder="IMDB ID" />
       </div>
       <div class="col-md-2 mb-3">
         <label for="imdbRating">IMDB Rating</label>
@@ -188,7 +192,7 @@
             id="imdbRating"
             formControlName="imdbRating"
             class="form-control"
-            placeholder="Rating"/>
+            placeholder="Rating" />
       </div>
     </div>
     <div class="mb-3">

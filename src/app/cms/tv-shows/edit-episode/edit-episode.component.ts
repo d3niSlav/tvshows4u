@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {ActivatedRoute, Params} from '@angular/router';
 import {TvShowsService} from '../../services/tv-shows.service';
@@ -10,7 +10,9 @@ import {TvShowsService} from '../../services/tv-shows.service';
 })
 export class EditEpisodeComponent implements OnInit {
   tvShowEpisodeForm: FormGroup;
-  seasonId: string;
+  tvShowId: number;
+  seasonId: number;
+  episodeId: number;
   episodeNumber: number;
   editMode = false;
 
@@ -20,24 +22,21 @@ export class EditEpisodeComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
       (params: Params) => {
-        this.seasonId = params['id'];
+        this.tvShowId = +params['id'];
+        this.seasonId = +params['seasonId'];
+        this.episodeId = +params['episodeId'];
       }
     );
 
-    this.route.queryParams.subscribe(
-      (params: Params) => {
-        let episodeNumber = params['number'];
-        if (!episodeNumber) {
-          episodeNumber = params['id'];
-          this.editMode = true;
+    if (this.episodeId) {
+      this.editMode = true;
+    } else {
+      this.route.queryParams.subscribe(
+        (params: Params) => {
+          this.episodeNumber = +params['number'];
         }
-
-        this.episodeNumber = episodeNumber;
-      }
-    );
-
-    console.log(this.episodeNumber);
-    console.log(this.editMode);
+      );
+    }
 
     this.initForm();
   }
@@ -64,16 +63,14 @@ export class EditEpisodeComponent implements OnInit {
     });
 
     if (this.editMode) {
-      this.tvShowsService.getSingleEpisode(this.seasonId, this.episodeNumber).subscribe(res => {
-          console.log(res);
-
+      this.tvShowsService.getSingleEpisode(this.episodeId).subscribe(res => {
           this.tvShowEpisodeForm = new FormGroup({
             'number': new FormControl(res.number),
             'title': new FormControl(res.title),
             'plot': new FormControl(res.plot),
             'screenshot': new FormControl(res.screenshot),
             'runtime': new FormControl(res.runtime),
-            'releaseDate': new FormControl(res.releaseDate),
+            'releaseDate': new FormControl(new Date(res.releaseDate).toISOString().split('T')[0]),
             'imdbId': new FormControl(res.imdbId),
             'imdbRating': new FormControl(res.imdbRating)
           });

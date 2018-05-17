@@ -9,15 +9,26 @@ const Episode = require('../models/Episode');
 /* Read all TV Show */
 const getAllShows = async function (req, res) {
   res.setHeader('Content-Type', 'application/json');
-  const tvShows = await TvShow.query()
+  let tvShows = await TvShow.query()
     .skipUndefined()
     .allowEager('[seasons]')
-    .eager(req.query.eager)
+    .eager('seasons')
     // .where('age', '>=', req.query.minAge)
     // .where('age', '<', req.query.maxAge)
     // .where('firstName', 'like', req.query.firstName)
     .orderBy(req.query.criteria)
     .modifyEager('[seasons]', qb => qb.orderBy('number'));
+
+  tvShows = tvShows.map(show => {
+    show.seasons = show.seasons.map(season => {
+      return {
+        id: season.id,
+        number: season.number
+      };
+    });
+
+    return show;
+  });
 
   return res.send(tvShows);
 };
@@ -52,7 +63,12 @@ const getShow = async function (req, res) {
     return res.status(404).send({ error: 'TV Show not found!' });
   }
 
-  tvShow.seasons = tvShow.seasons.length;
+  tvShow.seasons = tvShow.seasons.map(season => {
+    return {
+      id: season.id,
+      number: season.number
+    };
+  });
   return res.send(tvShow);
 };
 

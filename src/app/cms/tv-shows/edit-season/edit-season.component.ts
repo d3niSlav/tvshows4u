@@ -9,11 +9,12 @@ import {TvShowsService} from '../../services/tv-shows.service';
   styleUrls: ['./edit-season.component.scss']
 })
 export class EditSeasonComponent implements OnInit {
-  tvShowId: string;
+  tvShowId: number;
+  seasonId: number;
   seasonNumber: number;
   editMode = false;
   tvShowForm: FormGroup;
-  seasons = [];
+  episodes = [];
 
   constructor(private route: ActivatedRoute, private tvShowsService: TvShowsService) {
   }
@@ -21,21 +22,20 @@ export class EditSeasonComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
       (params: Params) => {
-        this.tvShowId = params['id'];
+        this.tvShowId = +params['id'];
+        this.seasonId = +params['seasonId'];
       }
     );
 
-    this.route.queryParams.subscribe(
-      (params: Params) => {
-        let seasonNumber = params['number'];
-        if (!seasonNumber) {
-          seasonNumber = params['id'];
-          this.editMode = true;
+    if (this.seasonId) {
+      this.editMode = true;
+    } else {
+      this.route.queryParams.subscribe(
+        (params: Params) => {
+          this.seasonNumber = +params['number'];
         }
-
-        this.seasonNumber = seasonNumber;
-      }
-    );
+      );
+    }
 
     this.initForm();
   }
@@ -54,8 +54,13 @@ export class EditSeasonComponent implements OnInit {
     });
 
     if (this.editMode) {
-      this.tvShowsService.getSingleSeason(this.tvShowId, this.seasonNumber).subscribe(res => {
-          console.log(res);
+      this.tvShowsService.getSingleSeason(this.seasonId).subscribe(res => {
+          this.episodes = res.episodes.map(episode => {
+            return {
+              id: episode.id,
+              number: episode.number
+            };
+          });
 
           this.tvShowForm = new FormGroup({
             'poster': new FormControl(res.poster),
