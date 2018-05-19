@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {TvShowsService} from '../../services/tv-shows.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class EditEpisodeComponent implements OnInit {
   episodeNumber: number;
   editMode = false;
 
-  constructor(private route: ActivatedRoute, private tvShowsService: TvShowsService) {
+  constructor(private route: ActivatedRoute, private tvShowsService: TvShowsService, private router: Router) {
   }
 
   ngOnInit() {
@@ -64,18 +64,47 @@ export class EditEpisodeComponent implements OnInit {
 
     if (this.editMode) {
       this.tvShowsService.getSingleEpisode(this.episodeId).subscribe(res => {
-          this.tvShowEpisodeForm = new FormGroup({
-            'number': new FormControl(res.number),
-            'title': new FormControl(res.title),
-            'plot': new FormControl(res.plot),
-            'screenshot': new FormControl(res.screenshot),
-            'runtime': new FormControl(res.runtime),
-            'releaseDate': new FormControl(new Date(res.releaseDate).toISOString().split('T')[0]),
-            'imdbId': new FormControl(res.imdbId),
-            'imdbRating': new FormControl(res.imdbRating)
-          });
+          this.fillForm(res);
         }
       );
     }
+  }
+
+  private onSubmit() {
+    if (this.editMode) {
+      this.tvShowsService.updateEpisode(this.episodeId, this.tvShowEpisodeForm.value).subscribe(res => {
+        this.fillForm(res);
+      });
+    } else {
+      const episodeData = {
+        ...this.tvShowEpisodeForm.value,
+        number: this.episodeNumber
+      };
+
+      this.tvShowsService.addEpisode(this.seasonId, episodeData).subscribe(res => {
+        this.router.navigate(['../', res.id, 'edit'], {relativeTo: this.route});
+      });
+    }
+  }
+
+  private onDelete() {
+    this.tvShowsService.deleteEpisode(this.episodeId).subscribe(res => {
+      if (res) {
+        this.router.navigate(['../../../edit'], {relativeTo: this.route});
+      }
+    });
+  }
+
+  private fillForm(data) {
+    this.tvShowEpisodeForm = new FormGroup({
+      'number': new FormControl(data.number),
+      'title': new FormControl(data.title),
+      'plot': new FormControl(data.plot),
+      'screenshot': new FormControl(data.screenshot),
+      'runtime': new FormControl(data.runtime),
+      'releaseDate': new FormControl(new Date(data.releaseDate).toISOString().split('T')[0]),
+      'imdbId': new FormControl(data.imdbId),
+      'imdbRating': new FormControl(data.imdbRating)
+    });
   }
 }

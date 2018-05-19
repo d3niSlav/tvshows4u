@@ -1,11 +1,11 @@
 <div class="col-10 order-md-1 m-auto">
   <div class="row">
-    <div class="col-12" [ngClass]="{ 'col-sm-5 col-md-6 col-xl-8': tvShowId }">
+    <div class="col-12" [ngClass]="{ 'col-md-5 col-xl-7': tvShowId }">
       <h4 class="mb-3" *ngIf="tvShowId">Edit TV Show</h4>
       <h4 class="mb-3" *ngIf="!tvShowId">Add TV Show</h4>
     </div>
-    <div class="col-6 col-sm-4 col-md-3 col-xl-2" *ngIf="tvShowId">
-      <div class="btn-group">
+    <div class="col-12 col-md-7 col-xl-5 text-md-right" *ngIf="tvShowId">
+      <div class="btn-group" *ngIf="seasons.length">
         <button
             type="button"
             class="btn btn-info dropdown-toggle"
@@ -20,16 +20,19 @@
              [routerLink]="['../season/', season.id, 'edit']">{{season.number}}</a>
         </div>
       </div>
-    </div>
-    <div class="col-6 col-sm-3 col-xl-2" *ngIf="tvShowId">
       <a class="btn btn-success"
          [routerLink]="['../season/new']"
          [queryParams]="{ number: seasons.length + 1 }"
          role="button">Add season</a>
+      <button class="btn btn-dark"
+              (click)="onDelete()"
+              title="Delete this TV show">
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
+      </button>
     </div>
   </div>
   <hr class="mb-4" />
-  <form [formGroup]="tvShowForm" class="needs-validation mb-3">
+  <form [formGroup]="tvShowForm" class="needs-validation mb-3" (ngSubmit)="onSubmit()">
     <div class="row">
       <div class="col-md-8">
         <div class="row">
@@ -46,7 +49,7 @@
             </div>
           </div>
           <div class="col-md-4 mb-3">
-            <label for="year">Release date</label>
+            <label for="year">Duration</label>
             <input
                 type="text"
                 id="year"
@@ -57,15 +60,28 @@
             </div>
           </div>
         </div>
-        <div class="mb-3">
-          <label for="poster">Poster URL</label>
-          <input
-              type="text"
-              id="poster"
-              formControlName="poster"
-              class="form-control"
-              placeholder="Poster URL"
-              #posterImagePath />
+        <div class="row">
+          <div class="col-md-8 mb-3">
+            <label for="poster">Poster URL</label>
+            <input
+                type="text"
+                id="poster"
+                formControlName="poster"
+                class="form-control"
+                placeholder="Poster URL"
+                #posterImagePath/>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="releaseDate">Release date</label>
+            <input
+                id="releaseDate"
+                type="date"
+                formControlName="releaseDate"
+                class="form-control"/>
+            <div class="invalid-feedback">
+              Please enter a release date!
+            </div>
+          </div>
         </div>
         <div class="row">
           <div class="col-md-8 mb-3">
@@ -159,13 +175,13 @@
     </div>
     <div class="row">
       <div class="col-md-4 mb-3">
-        <label for="languages">Languages</label>
+        <label for="language">Language</label>
         <input
             type="text"
-            id="languages"
-            formControlName="languages"
+            id="language"
+            formControlName="language"
             class="form-control"
-            placeholder="Languages" />
+            placeholder="Language" />
       </div>
       <div class="col-md-3 mb-3">
         <label for="country">Country</label>
@@ -177,18 +193,18 @@
             placeholder="Country" />
       </div>
       <div class="col-md-3 mb-3">
-        <label for="imdbID">IMDB ID</label>
+        <label for="imdbId">IMDB ID</label>
         <input
             type="text"
-            id="imdbID"
-            formControlName="imdbID"
+            id="imdbId"
+            formControlName="imdbId"
             class="form-control"
             placeholder="IMDB ID" />
       </div>
       <div class="col-md-2 mb-3">
         <label for="imdbRating">IMDB Rating</label>
         <input
-            type="number"
+            type="text"
             id="imdbRating"
             formControlName="imdbRating"
             class="form-control"

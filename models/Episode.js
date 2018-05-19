@@ -23,7 +23,7 @@ class Episode extends Model {
         screenshot: {type: 'string'},
         runtime: {type: 'string'},
         releaseDate: {type: 'date'},
-        imdbID: {type: 'string'},
+        imdbId: {type: 'string'},
         imdbRating: {type: 'string', defaults: 'N/A'},
         showId: {type: 'integer'},
         seasonId: {type: 'integer'},

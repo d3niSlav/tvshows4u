@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {ActivatedRoute, Params} from '@angular/router'
+import {ActivatedRoute, Params, Router} from '@angular/router'
 import {TvShowsService} from '../../services/tv-shows.service';
 
 @Component({
@@ -13,10 +13,10 @@ export class EditSeasonComponent implements OnInit {
   seasonId: number;
   seasonNumber: number;
   editMode = false;
-  tvShowForm: FormGroup;
+  tvSeasonForm: FormGroup;
   episodes = [];
 
-  constructor(private route: ActivatedRoute, private tvShowsService: TvShowsService) {
+  constructor(private route: ActivatedRoute, private tvShowsService: TvShowsService, private router: Router) {
   }
 
   ngOnInit() {
@@ -43,10 +43,10 @@ export class EditSeasonComponent implements OnInit {
   private initForm() {
     const poster = '';
     const description = '';
-    const number = '';
+    const number = this.seasonNumber || '';
     const releaseYear = '';
 
-    this.tvShowForm = new FormGroup({
+    this.tvSeasonForm = new FormGroup({
       'poster': new FormControl(poster),
       'description': new FormControl(description),
       'number': new FormControl(number),
@@ -62,14 +62,43 @@ export class EditSeasonComponent implements OnInit {
             };
           });
 
-          this.tvShowForm = new FormGroup({
-            'poster': new FormControl(res.poster),
-            'description': new FormControl(res.description),
-            'number': new FormControl(res.number),
-            'releaseYear': new FormControl(res.releaseYear)
-          });
+          this.fillForm(res);
         }
       );
     }
+  }
+
+  private onSubmit() {
+    if (this.editMode) {
+      this.tvShowsService.updateSeason(this.seasonId, this.tvSeasonForm.value).subscribe(res => {
+        this.fillForm(res);
+      });
+    } else {
+      const episodeData = {
+        ...this.tvSeasonForm.value,
+        number: this.seasonNumber
+      };
+
+      this.tvShowsService.addSeason(this.tvShowId, episodeData).subscribe(res => {
+        this.router.navigate(['../', res.id, 'edit'], {relativeTo: this.route});
+      });
+    }
+  }
+
+  private onDelete() {
+    this.tvShowsService.deleteSeason(this.seasonId).subscribe(res => {
+      if (res) {
+        this.router.navigate(['../../../edit'], {relativeTo: this.route});
+      }
+    });
+  }
+
+  private fillForm(data) {
+    this.tvSeasonForm = new FormGroup({
+      'poster': new FormControl(data.poster),
+      'description': new FormControl(data.description),
+      'number': new FormControl(data.number),
+      'releaseYear': new FormControl(data.releaseYear)
+    });
   }
 }

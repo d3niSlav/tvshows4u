@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CmsComponent } from './cms.component';
 import { CmsRoutingModule } from './cms-routing.module';

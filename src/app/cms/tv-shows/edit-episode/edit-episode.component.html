@@ -1,12 +1,19 @@
 <div class="col-10 order-md-1 m-auto">
   <div class="row">
-    <div class="col-12">
+    <div [ngClass]="episodeId ? 'col-10' : 'col-12'">
       <h4 class="mb-3" *ngIf="episodeId">Edit episode</h4>
       <h4 class="mb-3" *ngIf="!episodeId">Add new episode</h4>
     </div>
+    <div class="col-2 text-right" *ngIf="episodeId">
+      <button class="btn btn-dark"
+              (click)="onDelete()"
+              title="Delete this episode">
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
+      </button>
+    </div>
   </div>
   <hr class="mb-4">
-  <form [formGroup]="tvShowEpisodeForm" class="needs-validation mb-3">
+  <form [formGroup]="tvShowEpisodeForm" class="needs-validation mb-3" (ngSubmit)="onSubmit()">
     <div class="row">
       <div class="col-md-7">
         <div class="row">
@@ -62,7 +69,7 @@
             <input
                 id="imdbRating"
                 class="form-control"
-                type="number"
+                type="text"
                 formControlName="imdbRating"
                 placeholder="IMDB Rating" />
           </div>

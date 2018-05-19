@@ -15,7 +15,7 @@ exports.up = knex => {
       table.string('poster');
       table.string('logo');
       table.float('imdbRating', 3, 1);
-      table.string('imdbID');
+      table.string('imdbId');
       table.string('trailer');
     })
     .createTable('seasons', table => {
@@ -34,7 +34,7 @@ exports.up = knex => {
     .createTable('episodes', table => {
       table.increments('id').primary();
       table.date('releaseDate');
-      table.string('imdbID');
+      table.string('imdbId');
       table
         .string('imdbRating')
         .defaultTo('N/A');

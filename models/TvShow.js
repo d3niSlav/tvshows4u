@@ -28,7 +28,7 @@ class Show extends Model {
         'poster',
         'logo',
         'imdbRating',
-        'imdbID'
+        'imdbId'
       ],
 
       properties: {
@@ -46,7 +46,7 @@ class Show extends Model {
         poster: { type: 'string' },
         logo: { type: 'string' },
         imdbRating: { type: 'float' },
-        imdbID: { type: 'string' },
+        imdbId: { type: 'string' },
         trailer: { type: 'string' }
       }
     };
