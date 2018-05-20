@@ -8,7 +8,7 @@ export class TvShowsService {
   }
 
   getShows(): Observable<any> {
-    return this.http.get('/api/shows');
+    return this.http.get('/api/shows?criteria=title');
   }
 
   /** TV Shows **/

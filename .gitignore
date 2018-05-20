@@ -61,4 +61,7 @@ typings/
 .idea/
 
 # Dist folder - DEV
-.dist/
+/dist
+
+# Test files folder
+/tests

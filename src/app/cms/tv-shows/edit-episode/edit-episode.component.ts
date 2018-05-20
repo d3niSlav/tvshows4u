@@ -42,7 +42,7 @@ export class EditEpisodeComponent implements OnInit {
   }
 
   private initForm() {
-    const number = '';
+    const number = this.episodeNumber || '';
     const title = '';
     const plot = '';
     const screenshot = '';

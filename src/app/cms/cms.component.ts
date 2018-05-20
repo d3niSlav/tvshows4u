@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cms.component.scss']
 })
 export class CmsComponent implements OnInit {
+  isSideNavToggled = false;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  handleSideNav(isSideNavToggled) {
+    this.isSideNavToggled = isSideNavToggled;
+  }
 }

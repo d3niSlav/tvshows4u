@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'cms-navigation',
@@ -6,10 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
+  @Output() getSideNavStateChange = new EventEmitter<boolean>();
+  isSideNavCollapsed = false;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  onSideNavToggle() {
+    this.isSideNavCollapsed = !this.isSideNavCollapsed;
+    this.getSideNavStateChange.emit(this.isSideNavCollapsed);
+  }
+
+  onCollapsedNavLinkClick() {
+    this.isSideNavCollapsed = false;
+    this.getSideNavStateChange.emit(this.isSideNavCollapsed);
+  }
 }

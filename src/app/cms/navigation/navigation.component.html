@@ -9,7 +9,7 @@
     <ul class="navbar-nav navbar-sidenav" id="cmsMenu">
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="TV Shows">
         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#tvShowsComponents"
-           data-parent="#cmsMenu">
+           data-parent="#cmsMenu" (click)="onCollapsedNavLinkClick()">
           <i class="fa fa-television" aria-hidden="true"></i>
           <span class="nav-link-text">TV Shows</span>
         </a>
@@ -30,7 +30,7 @@
       </li>
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Users">
         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#usersComponents"
-           data-parent="#cmsMenu">
+           data-parent="#cmsMenu" (click)="onCollapsedNavLinkClick()">
           <i class="fa fa-users" aria-hidden="true"></i>
           <span class="nav-link-text">Users</span>
         </a>
@@ -50,8 +50,12 @@
         </ul>
       </li>
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
-        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti"
-           data-parent="#exampleAccordion">
+        <a
+            class="nav-link nav-link-collapse"
+            data-toggle="collapse" href="#collapseMulti"
+            data-parent="#exampleAccordion"
+            [ngClass]="{'collapsed': !isSideNavCollapsed}"
+            (click)="onCollapsedNavLinkClick()">
           <i class="fa fa-fw fa-sitemap"></i>
           <span class="nav-link-text">Menu Levels</span>
         </a>
@@ -91,7 +95,7 @@
     </ul>
     <ul class="navbar-nav sidenav-toggler">
       <li class="nav-item">
-        <a class="nav-link text-center" id="sidenavToggler">
+        <a class="nav-link text-center" id="sidenavToggler" (click)="onSideNavToggle()">
           <i class="fa fa-fw fa-angle-left"></i>
         </a>
       </li>
