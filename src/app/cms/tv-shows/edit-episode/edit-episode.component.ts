@@ -70,7 +70,7 @@ export class EditEpisodeComponent implements OnInit {
     }
   }
 
-  private onSubmit() {
+  onSubmit() {
     if (this.editMode) {
       this.tvShowsService.updateEpisode(this.episodeId, this.tvShowEpisodeForm.value).subscribe(res => {
         this.fillForm(res);
@@ -87,7 +87,7 @@ export class EditEpisodeComponent implements OnInit {
     }
   }
 
-  private onDelete() {
+  onDelete() {
     this.tvShowsService.deleteEpisode(this.episodeId).subscribe(res => {
       if (res) {
         this.router.navigate(['../../../edit'], {relativeTo: this.route});

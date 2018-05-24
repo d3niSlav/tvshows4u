@@ -72,7 +72,7 @@ export class EditShowComponent implements OnInit {
     }
   }
 
-  private onSubmit() {
+  onSubmit() {
     if (this.editMode) {
       this.tvShowsService.updateTvShow(this.tvShowId, this.tvShowForm.value).subscribe(res => {
         this.fillForm(res);
@@ -84,7 +84,7 @@ export class EditShowComponent implements OnInit {
     }
   }
 
-  private onDelete() {
+  onDelete() {
     this.tvShowsService.deleteTvShow(this.tvShowId).subscribe(res => {
       if (res) {
         this.router.navigate(['../../'], {relativeTo: this.route});

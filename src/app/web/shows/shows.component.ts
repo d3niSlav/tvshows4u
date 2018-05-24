@@ -349,7 +349,8 @@ export class ShowsComponent implements OnInit {
       releasedDate: '2015-03-17T01:00:00.000Z'
     }
   ];
-  sortingCriteria = {};
+  sortingCriteria = '';
+  isDescending = '';
 
   constructor() {
   }
@@ -357,8 +358,8 @@ export class ShowsComponent implements OnInit {
   ngOnInit() {
   }
 
-  handleSortingCriteriaChange(criteria) {
-    this.sortingCriteria = criteria;
-    console.log(this.sortingCriteria);
+  handleSortingCriteriaChange(criteriaData) {
+    this.sortingCriteria = criteriaData.criteria;
+    this.isDescending = criteriaData.isDescending;
   }
 }

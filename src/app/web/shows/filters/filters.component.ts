@@ -45,5 +45,4 @@ export class FiltersComponent implements OnInit {
     this.currentSortingFilter = criteria;
     this.sortingFilterChanged.emit(criteria);
   }
-
 }

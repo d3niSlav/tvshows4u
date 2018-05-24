@@ -3,8 +3,7 @@
       (sortingFilterChanged)="handleSortingCriteriaChange($event)"></shows-filters>
   <div class="row">
     <tv-show-card
-        *ngFor="let show of shows
-         | sort:sortingCriteria.criteria:sortingCriteria.isDescending"
+        *ngFor="let show of shows | sort:sortingCriteria:isDescending"
         [show]="show"></tv-show-card>
   </div>
 </div>

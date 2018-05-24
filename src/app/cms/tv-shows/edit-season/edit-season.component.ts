@@ -68,7 +68,7 @@ export class EditSeasonComponent implements OnInit {
     }
   }
 
-  private onSubmit() {
+  onSubmit() {
     if (this.editMode) {
       this.tvShowsService.updateSeason(this.seasonId, this.tvSeasonForm.value).subscribe(res => {
         this.fillForm(res);
@@ -85,7 +85,7 @@ export class EditSeasonComponent implements OnInit {
     }
   }
 
-  private onDelete() {
+  onDelete() {
     this.tvShowsService.deleteSeason(this.seasonId).subscribe(res => {
       if (res) {
         this.router.navigate(['../../../edit'], {relativeTo: this.route});
