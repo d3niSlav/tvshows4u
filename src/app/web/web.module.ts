@@ -26,6 +26,11 @@ import { SortPipe } from '../shared/pipes/sort.pipe';
 import { FiltersComponent } from './shows/filters/filters.component';
 import { OrderComponent } from './shows/filters/order/order.component';
 import { CategoriesComponent } from './shows/filters/categories/categories.component';
+import { ProfileComponent } from './profile/profile.component';
+import { HttpClientModule } from '@angular/common/http';
+import {AuthGuard} from './auth/auth-guard.service';
+import {ProfileService} from './profile/profile.service';
+import { UserCardComponent } from './profile/user-card/user-card.component';
 
 @NgModule({
   declarations: [
@@ -51,16 +56,21 @@ import { CategoriesComponent } from './shows/filters/categories/categories.compo
     PosterComponent,
     FiltersComponent,
     OrderComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    ProfileComponent,
+    UserCardComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     WebRoutingModule
-  ],
+],
   providers: [
-    AuthService
+    AuthService,
+    AuthGuard,
+    ProfileService
   ]
 })
 

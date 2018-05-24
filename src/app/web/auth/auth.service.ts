@@ -5,15 +5,15 @@ import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class AuthService implements OnInit {
-  isUserAuthenticated: boolean = false;
+  currentUser = null;
   userAuthenticationChanged = new Subject<boolean>();
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit() {
   }
 
-  checkIfUserIsAuthenticated(): boolean {
-    return this.isUserAuthenticated;
+  isUserLoggedIn(): boolean {
+    return !!this.currentUser;
   }
 
   registerUser(userData) {
@@ -31,8 +31,13 @@ export class AuthService implements OnInit {
     return this.http.get('/api/users', httpOptions);
   }
 
-  setIsUserAuthenticated(isUserAuthenticated) {
-    this.isUserAuthenticated = isUserAuthenticated;
-    this.userAuthenticationChanged.next(this.isUserAuthenticated);
+  setCurrentUser(user) {
+    this.currentUser = user;
+    this.userAuthenticationChanged.next(true);
+  }
+
+  logout() {
+    this.currentUser = null;
+    this.userAuthenticationChanged.next(false);
   }
 }

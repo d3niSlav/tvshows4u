@@ -1,6 +1,6 @@
 const ProfileTvShow = require('../models/ProfileTvShow');
 const TvShow = require('../models/TvShow');
-// const Season = require('../models/Season');
+const Profile = require('../models/Profile');
 // const Episode = require('../models/Episode');
 
 /**
@@ -182,3 +182,9 @@ const mergeObjectsFromArrays = (firstArray, secondArray) => {
 
   return mergedArray;
 };
+
+const getProfile = async function (req, res) {
+  return res.send(userProfile);
+};
+
+module.exports.getProfile = getProfile;

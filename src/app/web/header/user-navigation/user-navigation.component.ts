@@ -15,7 +15,7 @@ export class UserNavigationComponent implements OnInit, OnDestroy {
   constructor(private authService: AuthService , private router: Router) { }
 
   ngOnInit() {
-    this.isUserAuthenticated = this.authService.checkIfUserIsAuthenticated();
+    this.isUserAuthenticated = this.authService.isUserLoggedIn();
     this.subscription = this.authService.userAuthenticationChanged
       .subscribe(
         (isUserAuthenticated: boolean) => {
@@ -26,7 +26,7 @@ export class UserNavigationComponent implements OnInit, OnDestroy {
 
   onLogout() {
     sessionStorage.removeItem('jwtToken');
-    this.authService.setIsUserAuthenticated(false);
+    this.authService.logout();
     this.router.navigate(['']);
   }
 

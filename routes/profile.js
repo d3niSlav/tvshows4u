@@ -1,10 +1,14 @@
 'use strict';
 
 const ProfileController = require('../controllers/ProfileController');
+const passport = require('passport');
+require('../middleware/passport')(passport);
 
 module.exports = router => {
   /** Add show to favourites */
   router.post('/api/profile/favourites/add', ProfileController.addShowToFavourites);
+
+  router.get('/api/profile', passport.authenticate('jwt', { session: false }), ProfileController.getProfile);
 
   /** Remove show from favourites */
   router.post('/api/profile/favourites/remove', ProfileController.removeShowFromFavourites);

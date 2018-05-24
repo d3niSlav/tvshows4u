@@ -17,12 +17,12 @@ export class WebComponent implements OnInit {
 
     if (authenticationToken) {
       this.authService.getUser(authenticationToken).subscribe((response: Response) => {
-        this.authService.setIsUserAuthenticated(!!response);
+        this.authService.setCurrentUser(response);
       }, error => {
-        this.authService.setIsUserAuthenticated(false);
+        this.authService.logout();
       });
     } else {
-      this.authService.setIsUserAuthenticated(false);
+      this.authService.logout();
     }
   }
 

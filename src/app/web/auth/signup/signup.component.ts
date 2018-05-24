@@ -38,10 +38,10 @@ export class SignUpComponent implements OnInit {
     this.authService.registerUser(userData).subscribe((response: Response) => {
         this.data = response;
         sessionStorage.setItem('jwtToken', this.data.token);
-        this.authService.setIsUserAuthenticated(!!response);
+        this.authService.setCurrentUser(response);
         this.router.navigate(['/']);
       }, error => {
-        this.authService.setIsUserAuthenticated(false);
+        this.authService.logout();
         this.messages.email = error.error.email;
         this.messages.password = error.error.password;
       }

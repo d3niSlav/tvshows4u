@@ -27,10 +27,10 @@ export class SignInComponent implements OnInit {
     this.authService.loginUser(userData).subscribe(response => {
       this.data = response;
       sessionStorage.setItem('jwtToken', this.data.token);
-      this.authService.setIsUserAuthenticated(!!response);
+      this.authService.setCurrentUser(response);
       this.router.navigate(['/']);
     }, error => {
-      this.authService.setIsUserAuthenticated(false);
+      this.authService.logout();
     });
   }
 }
