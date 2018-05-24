@@ -5,15 +5,15 @@ import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class AuthService implements OnInit {
-  isUserAuthenticated: false;
+  isUserAuthenticated: boolean = false;
   userAuthenticationChanged = new Subject<boolean>();
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit() {
   }
 
-  checkIfUserIsAuthenticated() {
-    return !!localStorage.getItem('jwtToken');
+  checkIfUserIsAuthenticated(): boolean {
+    return this.isUserAuthenticated;
   }
 
   registerUser(userData) {
@@ -24,9 +24,9 @@ export class AuthService implements OnInit {
     return this.http.post('/api/users/login', userData);
   }
 
-  getUser() {
+  getUser(token) {
     const httpOptions = {
-      headers: new HttpHeaders({'Authorization': localStorage.getItem('jwtToken')})
+      headers: new HttpHeaders({'Authorization': token})
     };
     return this.http.get('/api/users', httpOptions);
   }

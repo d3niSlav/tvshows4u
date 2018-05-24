@@ -26,12 +26,11 @@ export class SignInComponent implements OnInit {
 
     this.authService.loginUser(userData).subscribe(response => {
       this.data = response;
-      console.log(response);
-      localStorage.setItem('jwtToken', this.data.token);
+      sessionStorage.setItem('jwtToken', this.data.token);
       this.authService.setIsUserAuthenticated(!!response);
       this.router.navigate(['/']);
     }, error => {
-      console.log(error);
+      this.authService.setIsUserAuthenticated(false);
     });
   }
 }

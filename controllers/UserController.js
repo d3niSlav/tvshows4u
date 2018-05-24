@@ -14,7 +14,7 @@ const create = async function (req, res) {
     name: req.body.email.split('@')[0]
   };
 
-  const insertedGraph = await transaction(User.knex(), trx => {
+  const newUser = await transaction(User.knex(), trx => {
     return (
       User.query(trx)
         .allowInsert('profile')
@@ -22,7 +22,7 @@ const create = async function (req, res) {
     );
   });
 
-  return res.send(insertedGraph);
+  return res.send(newUser.getJWT());
 };
 
 module.exports.create = create;
@@ -73,7 +73,6 @@ const login = async function (req, res) {
   const user = await User.query().first().where({ email: req.body.email });
   if (!user) {
     return res.status(401).send({ email: 'Wrong email or password!' });
-
   }
 
   const isPasswordValid = await user.verifyPassword(req.body.password);

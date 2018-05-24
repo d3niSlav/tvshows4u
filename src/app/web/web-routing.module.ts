@@ -3,9 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { WebComponent } from './web.component';
 import { SignInComponent } from './auth/signin/signin.component';
 import { SignUpComponent } from './auth/signup/signup.component';
-import {HomeComponent} from './home/home.component';
-import {ForgottenPasswordComponent} from './auth/forgotten-password/forgotten-password.component';
-import {ShowsComponent} from './shows/shows.component';
+import { HomeComponent } from './home/home.component';
+import { ForgottenPasswordComponent } from './auth/forgotten-password/forgotten-password.component';
+import { ShowsComponent } from './shows/shows.component';
 
 const webRoutes: Routes = [
   { path: '', component: WebComponent, children: [

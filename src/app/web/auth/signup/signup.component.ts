@@ -37,13 +37,13 @@ export class SignUpComponent implements OnInit {
 
     this.authService.registerUser(userData).subscribe((response: Response) => {
         this.data = response;
-        localStorage.setItem('jwtToken', this.data.token);
+        sessionStorage.setItem('jwtToken', this.data.token);
         this.authService.setIsUserAuthenticated(!!response);
         this.router.navigate(['/']);
       }, error => {
+        this.authService.setIsUserAuthenticated(false);
         this.messages.email = error.error.email;
         this.messages.password = error.error.password;
-        console.log(this.messages)
       }
     );
   }

@@ -1,8 +1,22 @@
 <div class="user-navigation d-none d-md-inline-block align-middle">
   <div class="user-action">
-    <a class="button-auth" [routerLink]="['/signin']">Sign in</a>
+    <a
+        *ngIf="!isUserAuthenticated"
+        class="button-auth"
+        [routerLink]="['/signin']">Sign in</a>
+    <button
+        *ngIf="isUserAuthenticated"
+        class="button-auth"
+        (click)="onLogout()">Logout</button>
   </div>
   <div class="user-action">
-    <a class="button-profile" [routerLink]="['/signup']">Register</a>
+    <a
+        *ngIf="!isUserAuthenticated"
+        class="button-profile"
+        [routerLink]="['/signup']">Register now</a>
+    <a
+        *ngIf="isUserAuthenticated"
+        class="button-profile"
+        [routerLink]="['/signup']">View profile</a>
   </div>
 </div>
