@@ -17,10 +17,10 @@ import { Component, Input } from '@angular/core';
       display: inline-block;
       width: 100%;
       height: 100%;
+    }
     
-      img {
-        width: 100%;
-      }
+   .poster-wrapper img {
+      width: 100%;
     }
 `]
 })

@@ -28,9 +28,10 @@ import { OrderComponent } from './shows/filters/order/order.component';
 import { CategoriesComponent } from './shows/filters/categories/categories.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
-import {AuthGuard} from './auth/auth-guard.service';
-import {ProfileService} from './profile/profile.service';
+import { AuthGuard } from './auth/auth-guard.service';
+import { ProfileService } from './profile/profile.service';
 import { UserCardComponent } from './profile/user-card/user-card.component';
+import { ShowsService } from './shows/shows.service';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { UserCardComponent } from './profile/user-card/user-card.component';
   providers: [
     AuthService,
     AuthGuard,
+    ShowsService,
     ProfileService
   ]
 })

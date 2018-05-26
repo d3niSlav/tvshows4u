@@ -124,6 +124,22 @@ const createSeason = async function (req, res) {
 
 module.exports.createSeason = createSeason;
 
+/* READ Show with latest season */
+const getShowWithLatestSeason = async function (req, res) {
+  // res.setHeader('Content-Type', 'application/json');
+  let tvShow = await TvShow.query()
+    .findById(req.params.id)
+    .join('seasons', 'shows.id', '=', 'seasons.showId');
+
+  if (!tvShow) {
+    return res.status(404).send({ error: 'TV Show not found!' });
+  }
+
+  return res.send(tvShow);
+};
+
+module.exports.getShowWithLatestSeason = getShowWithLatestSeason;
+
 /* READ Season */
 const getSeason = async function (req, res) {
   res.setHeader('Content-Type', 'application/json');

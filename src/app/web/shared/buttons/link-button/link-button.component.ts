@@ -1,11 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'link-button',
-  templateUrl: './link-button.component.html',
+  template: `
+    <a class="link-button"
+       [routerLink]="[showUrl]">
+      <ng-content></ng-content>
+    </a>
+  `,
   styleUrls: ['./link-button.component.scss']
 })
 export class LinkButtonComponent implements OnInit {
+  @Input() showUrl: string = '';
 
   constructor() { }
 

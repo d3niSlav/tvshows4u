@@ -16,6 +16,7 @@ const webRoutes: Routes = [
     { path: 'forgotten', component: ForgottenPasswordComponent },
     { path: 'signup', component: SignUpComponent },
     { path: 'shows', component: ShowsComponent },
+    { path: 'show/:id', component: ShowsComponent },
     { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] }
   ]}
 ];

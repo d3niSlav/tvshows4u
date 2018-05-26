@@ -21,6 +21,9 @@ module.exports = router => {
   /** Create a Season */
   router.post('/api/shows/:id/seasons', TvShowController.createSeason);
 
+  /** READ show with latest season */
+  router.get('/api/shows/:id/seasons/latest', TvShowController.getShowWithLatestSeason);
+
   /** READ a season */
   router.get('/api/shows/seasons/:seasonId', TvShowController.getSeason);
 

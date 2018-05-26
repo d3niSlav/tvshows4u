@@ -7,8 +7,8 @@ export class SortPipe implements PipeTransform {
   transform(array: Array<any>, criteria: string, isDescending: true): Array<any> {
     if (criteria) {
       array.sort((firstElement: any, secondElement: any) => {
-        let firstParameter = firstElement[criteria].toLowerCase();
-        let secondParameter = secondElement[criteria].toLowerCase();
+        let firstParameter = firstElement[criteria].toString().toLowerCase();
+        let secondParameter = secondElement[criteria].toString().toLowerCase();
 
         if (isDescending) {
           [firstParameter, secondParameter] = [secondParameter, firstParameter]

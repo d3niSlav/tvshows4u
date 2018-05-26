@@ -1,11 +1,11 @@
 <div id="show.id" class="show-wrapper" *ngIf="show">
   <show-poster
       [showTitle]="show.title"
-      showUrl="/"
+      showUrl="/show/{{show.id}}"
       [showImage]="show.poster"></show-poster>
   <div class="information">
     <h3 class="title">{{show.title}}</h3>
     <p class="duration">Year: {{show.year}}</p>
-    <link-button>More info</link-button>
+    <link-button showUrl="/show/{{show.id}}">More info</link-button>
   </div>
 </div>
