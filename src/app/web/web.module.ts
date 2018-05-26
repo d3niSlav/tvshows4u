@@ -34,6 +34,7 @@ import { UserCardComponent } from './profile/user-card/user-card.component';
 import { ShowsService } from './shows/shows.service';
 import { SeasonComponent } from './shows/single-show/season/season.component';
 import { SingleShowComponent } from './shows/single-show/single-show.component';
+import { EpisodeComponent } from './shows/single-show/season/episode/episode.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { SingleShowComponent } from './shows/single-show/single-show.component';
     ProfileComponent,
     UserCardComponent,
     SeasonComponent,
-    SingleShowComponent
+    SingleShowComponent,
+    EpisodeComponent
   ],
   imports: [
     CommonModule,
