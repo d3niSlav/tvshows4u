@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ShowsService } from './shows.service';
+import { ShowsService } from '../shows.service';
 
 @Component({
   selector: 'app-shows',

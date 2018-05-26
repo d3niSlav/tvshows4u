@@ -1,0 +1,162 @@
+.season {
+  padding: 40px 0;
+  background-color: #eeeeee;
+  transition: padding 0.3s ease;
+
+  @media screen and (min-width: 768px) {
+    padding: 60px 0;
+  }
+}
+
+.season-wrapper {
+  position: relative;
+  min-height: 295px;
+  padding: 25px 0;
+  color: #FFFFFF;
+  text-align: center;
+  background: linear-gradient(to bottom left, rgba(197, 54, 26, 0.9), #274a61);
+
+  @media screen and (min-width: 1024px) {
+    min-height: 395px;
+  }
+
+  .seasons-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 300px;
+    margin: 0 auto;
+    font-size: 0.875rem;
+    border-bottom: 2px solid #eeeeee;
+
+    @media screen and (min-width: 768px) {
+      float: right;
+      justify-content: flex-end;
+      max-width: 400px;
+      border: none;
+    }
+
+    li {
+      line-height: 1rem;
+      color: #FFFFFF;
+
+      @media screen and (min-width: 1024px) {
+        line-height: 1.313rem;
+        padding-left: 5px;
+        font-size: 1.313rem;
+      }
+    }
+
+    button {
+      color: #FFFFFF;
+      background: none;
+      border: none;
+      outline: none;
+    }
+  }
+
+  .title {
+    margin: 20px auto 10px;
+    color: #FFFFFF;
+    font-size: 1.375rem;
+    font-weight: 700;
+    transition: margin 0.3s ease, font 0.3s ease;
+
+    @media screen and (min-width: 1024px) {
+      margin-bottom: 0;
+      font-size: 1.8rem;
+    }
+  }
+
+  .information {
+    font-weight: 600;
+    transition: font 0.3s ease;
+
+    @media screen and (min-width: 1024px) {
+      font-size: 1.125rem;
+    }
+  }
+
+  .season-poster {
+    max-width: 300px;
+    margin: 0 auto;
+    overflow: hidden;
+
+    @media screen and (min-width: 768px) {
+      position: absolute;
+      top: -65px;
+      left: 0;
+      width: 225px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    @media screen and (min-width: 1024px) {
+      width: 300px;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .plot {
+    max-width: 300px;
+    line-height: 1.125rem;
+    overflow: hidden;
+    margin: 10px auto;
+    text-align: justify;
+  }
+
+  @media screen and (min-width: 768px) {
+    .title,
+    .information,
+    .plot {
+      max-width: 100%;
+      text-align: left;
+    }
+  }
+
+  .toggle-episodes-button {
+    width: 150px;
+    margin: 10px auto 0;
+    padding: 6px 10px;
+    color: #302621;
+    font-size: 0.875rem;
+    font-weight: 600;
+    background-color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    border-radius: 5px;
+    transition: linear .1s;
+
+    @media screen and (min-width: 768px) {
+      margin-left: 0;
+    }
+  }
+}
+
+.season-data-container {
+  margin: 0 10px;
+  text-align: center;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 250px;
+    text-align: left;
+  }
+
+  @media screen and (min-width: 1024px) {
+    margin-left: 325px;
+  }
+}
+
+.episodes-wrapper {
+  padding: 15px;
+
+  @media screen and (min-width: 768px) {
+      padding: 20px 15px;
+  }
+
+  @media screen and (min-width: 1024px) {
+      padding: 30px 25px;
+  }
+}

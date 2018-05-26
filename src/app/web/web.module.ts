@@ -19,19 +19,21 @@ import { AuthLayoutComponent } from './auth/auth-layout/auth-layout.component';
 import { ForgottenPasswordComponent } from './auth/forgotten-password/forgotten-password.component';
 import { AuthSubmitComponent } from './auth/auth-submit/auth-submit.component';
 import { TvShowCardComponent } from './shared/tv-show-card/tv-show-card.component';
-import { ShowsComponent } from './shows/shows.component';
+import { ShowsComponent } from './shows/browse-shows/shows.component';
 import { LinkButtonComponent } from './shared/buttons/link-button/link-button.component';
 import { PosterComponent } from './shared/tv-shows/poster/poster.component';
 import { SortPipe } from '../shared/pipes/sort.pipe';
-import { FiltersComponent } from './shows/filters/filters.component';
-import { OrderComponent } from './shows/filters/order/order.component';
-import { CategoriesComponent } from './shows/filters/categories/categories.component';
+import { FiltersComponent } from './shows/browse-shows/filters/filters.component';
+import { OrderComponent } from './shows/browse-shows/filters/order/order.component';
+import { CategoriesComponent } from './shows/browse-shows/filters/categories/categories.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './auth/auth-guard.service';
 import { ProfileService } from './profile/profile.service';
 import { UserCardComponent } from './profile/user-card/user-card.component';
 import { ShowsService } from './shows/shows.service';
+import { SeasonComponent } from './shows/single-show/season/season.component';
+import { SingleShowComponent } from './shows/single-show/single-show.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,9 @@ import { ShowsService } from './shows/shows.service';
     OrderComponent,
     CategoriesComponent,
     ProfileComponent,
-    UserCardComponent
+    UserCardComponent,
+    SeasonComponent,
+    SingleShowComponent
   ],
   imports: [
     CommonModule,
