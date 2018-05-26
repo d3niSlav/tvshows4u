@@ -35,6 +35,7 @@ import { ShowsService } from './shows/shows.service';
 import { SeasonComponent } from './shows/single-show/season/season.component';
 import { SingleShowComponent } from './shows/single-show/single-show.component';
 import { EpisodeComponent } from './shows/single-show/season/episode/episode.component';
+import { TrailerComponent } from './shows/single-show/trailer/trailer.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { EpisodeComponent } from './shows/single-show/season/episode/episode.com
     UserCardComponent,
     SeasonComponent,
     SingleShowComponent,
-    EpisodeComponent
+    EpisodeComponent,
+    TrailerComponent
   ],
   imports: [
     CommonModule,
