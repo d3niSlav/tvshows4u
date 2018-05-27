@@ -11,6 +11,13 @@ export class ShowsService {
     return this.http.get(`/api/shows?criteria=${criteria}`);
   }
 
+  getNewestShows(numberOfShows: number): Observable<any> {
+    let url = 'api/shows?criteria=releaseDate&desc=true';
+    url = numberOfShows > 0 ? url + `&limit=${numberOfShows}` : url;
+
+    return this.http.get(url);
+  }
+
   getTvShow(showId: number): Observable<any> {
     return this.http.get(`/api/shows/${showId}`);
   }

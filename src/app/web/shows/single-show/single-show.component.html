@@ -1,48 +1,32 @@
-<section class="show">
+<section class="show" *ngIf="show">
   <div class="container position-relative">
     <div class="show-wrapper">
       <div class="show-navigation-wrapper">
         <h1 class="title">
-          Teen Wolf<span class="duration">(2011–)</span>
+          {{ show.title }}<span class="duration">{{ show.year }}</span>
         </h1>
         <div class="navigation-container">
-          <show-navigation></show-navigation>
+          <show-navigation
+              [showId]="show.id"
+              [isWatched]="show.isWatched"
+              [isFavourite]="show.isFavourite"
+              [rating]="show.imdbRating"></show-navigation>
         </div>
       </div>
       <div class="season-poster">
-        <img class="season-poster-image" alt="Season 4"
-             src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/nWULHwAb7yjlrGpB5BTdnjZc980.jpg">
+        <img class="season-poster-image" src="{{ show.poster }}" alt="{{ show.title }}" />
       </div>
       <div class="overview">
         <div class="title">Plot</div>
-        <p class="plot">Scott McCall was just another kid in high school. Until, one night his best friend Stiles brings
-          him to the woods, to look for a dead body, and Scott is bitten by a werewolf. Being a werewolf came with its
-          perks- stronger, faster, new star in the lacrosse team, popularity- but also made it hard to control his
-          anger.
-          Scott has also fallen for the new girl in town, Allison, whose dad is trying to hunt and kill Scott. Scott now
-          has to try and balance his out of control life, figure out how to control his new powers, try not to be killed
-          by the alpha that bit him, and protect Allison- and keep her from finding out his big secret.</p>
-      </div>
+        <p class="plot">{{ show.plot }}</div>
     </div>
-    <div class="cast">
+    <div class="cast" *ngIf="show.cast">
       <div class="title">
         Main cast
       </div>
       <hr/>
       <div class="cast-wrapper row justify-content-center">
-        <div class="col-6 col-md-5th">
-          <actor-preview></actor-preview>
-        </div>
-        <div class="col-6 col-md-5th">
-          <actor-preview></actor-preview>
-        </div>
-        <div class="col-6 col-md-5th">
-          <actor-preview></actor-preview>
-        </div>
-        <div class="col-6 col-md-5th">
-          <actor-preview></actor-preview>
-        </div>
-        <div class="col-6 col-md-5th">
+        <div class="col-6 col-md-5th" *ngFor="let member of show.cast">
           <actor-preview></actor-preview>
         </div>
       </div>

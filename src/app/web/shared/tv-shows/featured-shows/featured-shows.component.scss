@@ -8,7 +8,7 @@
   }
 
   .single-show {
-    padding-top: 25px;
+    padding: 25px 0;
     color: #FFFFFF;
   }
 
@@ -78,9 +78,7 @@
     }
 
     @media screen and (min-width: 1200px) {
-      height: 200px;
-      line-height: 1.25rem;
-      font-size: 1.15rem;
+      height: 180px;
     }
   }
 

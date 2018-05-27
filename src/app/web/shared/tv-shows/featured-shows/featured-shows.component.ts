@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'featured-shows',
@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./featured-shows.component.scss']
 })
 export class FeaturedShowsComponent implements OnInit {
+  @Input() sectionTitle: string = "";
+  @Input() shows = [];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

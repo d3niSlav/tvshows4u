@@ -1,3 +1,9 @@
-<featured-shows></featured-shows>
-<suggested-shows></suggested-shows>
-<shows-with-rating></shows-with-rating>
+<featured-shows
+    sectionTitle="Newest shows just for you"
+    [shows]="showsOnFocus"></featured-shows>
+<suggested-shows
+    sectionTitle="More new shows to watch"
+    [shows]="suggestedShows"></suggested-shows>
+<shows-with-rating
+    sectionTitle="Other new & popular TV-shows"
+    [shows]="rankedShows"></shows-with-rating>

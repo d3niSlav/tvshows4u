@@ -1,12 +1,12 @@
 <nav>
   <ul class="show-actions">
     <li class="round-button" title="Add to Favorite">
-      <button class="circle-button">
+      <button class="circle-button" [ngClass]="{ 'active': isFavourite }">
         <i class="fa fa-heart" aria-hidden="true"></i>
       </button>
     </li>
     <li class="round-button" title="Add to your watchlist">
-      <button class="circle-button active">
+      <button class="circle-button" [ngClass]="{ 'active': isWatched }">
         <i class="fa fa-eye" aria-hidden="true"></i>
       </button>
     </li>
@@ -38,7 +38,7 @@
       </a>
     </li>
     <li class="chart">
-      <div class="rating-text">Imdb: 8.0</div>
+      <div class="rating-text">Imdb: {{rating}}</div>
     </li>
   </ul>
 </nav>

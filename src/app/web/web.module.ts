@@ -43,10 +43,13 @@ import { ShowsWithRatingComponent } from './shared/tv-shows/shows-with-rating/sh
 import { SuggestedShowsComponent } from './shared/tv-shows/suggested-shows/suggested-shows.component';
 import { FeaturedShowsComponent } from './shared/tv-shows/featured-shows/featured-shows.component';
 import { NewestShowsComponent } from './shows/newest-shows/newest-shows.component';
+import { TruncatePipe } from '../shared/pipes/truncate.pipe';
+import { StarsComponent } from './shared/tv-shows/stars/stars.component';
 
 @NgModule({
   declarations: [
     SortPipe,
+    TruncatePipe,
     WebComponent,
     SignInComponent,
     SignUpComponent,
@@ -81,7 +84,8 @@ import { NewestShowsComponent } from './shows/newest-shows/newest-shows.componen
     ShowsWithRatingComponent,
     SuggestedShowsComponent,
     FeaturedShowsComponent,
-    NewestShowsComponent
+    NewestShowsComponent,
+    StarsComponent
   ],
   imports: [
     CommonModule,
@@ -90,6 +94,9 @@ import { NewestShowsComponent } from './shows/newest-shows/newest-shows.componen
     HttpClientModule,
     WebRoutingModule
 ],
+  exports: [
+    TruncatePipe
+  ],
   providers: [
     AuthService,
     AuthGuard,

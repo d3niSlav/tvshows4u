@@ -9,6 +9,7 @@ import { CmsModule } from './cms/cms.module';
 import { WebModule } from './web/web.module';
 import { FilterPipe } from './shared/pipes/filter.pipe';
 import { FilterArrayPipe } from './shared/pipes/filter-array.pipe';
+import { TruncatePipe } from './shared/pipes/truncate.pipe';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,9 @@ import { FilterArrayPipe } from './shared/pipes/filter-array.pipe';
     AppRoutingModule,
     WebModule,
     CmsModule
+  ],
+  exports: [
+    TruncatePipe
   ],
   providers: [],
   bootstrap: [

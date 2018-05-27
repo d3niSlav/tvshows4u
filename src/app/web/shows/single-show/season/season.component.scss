@@ -45,6 +45,10 @@
         padding-left: 5px;
         font-size: 1.313rem;
       }
+
+      button {
+        cursor: pointer;
+      }
     }
 
     button {
@@ -127,6 +131,7 @@
     background-color: #FFFFFF;
     border: 2px solid #FFFFFF;
     border-radius: 5px;
+    cursor: pointer;
     transition: linear .1s;
 
     @media screen and (min-width: 768px) {

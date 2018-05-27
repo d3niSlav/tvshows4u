@@ -1,63 +1,32 @@
-<div class="season">
+<div class="season" *ngIf="currentSeason">
   <section class="season-wrapper">
     <div class="container position-relative">
       <div class="season-data-container">
-        <ul class="seasons-list">
+        <ul class="seasons-list" *ngIf="seasons.length > 0">
           <li><strong>Season</strong></li>
-          <li>
-            <button class="season-number">1</button>
-          </li>
-          <li>
-            <button class="season-number">1</button>
-          </li>
-          <li>
-            <button class="season-number">1</button>
-          </li>
-          <li>
-            <button class="season-number">1</button>
-          </li>
-          <li>
-            <button class="season-number">1</button>
-          </li>
-          <li>
-            <button class="season-number">1</button>
-          </li>
-          <li>
-            <button class="season-number">1</button>
+          <li *ngFor="let season of seasons">
+            <button class="season-number">{{ season.number }}</button>
           </li>
         </ul>
-        <p class="title">Season 4</p>
-        <p class="information">2016 | 22 Episodes</p>
+        <p class="title">Season {{ currentSeason.number }}</p>
+        <p class="information">{{ currentSeason.releaseYear }} | {{ currentSeason.episodes.length }} Episodes</p>
         <div class="season-poster">
-          <img class="season-poster-image" alt="Season 4"
-               src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/nWULHwAb7yjlrGpB5BTdnjZc980.jpg">
+          <img class="season-poster-image" alt="Season {{ currentSeason.number }}" src="{{ currentSeason.poster }}" />
         </div>
-        <p class="plot">
-          Vengeance runs rampant this season as Coulson is a mere agent again, and Daisy has gone rogue after being
-          under
-          Hive's control. How will S.H.I.E.L.D. deal with the arrival of The Ghost Rider?
-        </p>
-        <button class="toggle-episodes-button">Show episodes</button>
+        <p class="plot">{{ currentSeason.description }}</p>
+        <button
+            class="toggle-episodes-button"
+            (click)="toggleEpisodes()">
+            {{ areEpisodesShown ? 'Hide' : 'Show' }} episodes
+        </button>
       </div>
     </div>
   </section>
 </div>
-<div class="episodes-wrapper">
+<div class="episodes-wrapper" *ngIf="areEpisodesShown && currentSeason && currentSeason.episodes.length > 0">
   <div class="row">
-    <div class="col-12 col-sm-6 col-xl-4">
-      <episode></episode>
-    </div>
-    <div class="col-12 col-sm-6 col-xl-4">
-      <episode></episode>
-    </div>
-    <div class="col-12 col-sm-6 col-xl-4">
-      <episode></episode>
-    </div>
-    <div class="col-12 col-sm-6 col-xl-4">
-      <episode></episode>
-    </div>
-    <div class="col-12 col-sm-6 col-xl-4">
-      <episode></episode>
+    <div class="col-12 col-sm-6 col-xl-4" *ngFor="let episode of currentSeason.episodes">
+      <episode [episode]="episode"></episode>
     </div>
   </div>
 </div>

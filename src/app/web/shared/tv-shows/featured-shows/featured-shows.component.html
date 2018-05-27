@@ -1,40 +1,23 @@
 <div class="featured-shows">
   <div class="container">
-    <div class="title">
-      More shows to watch
-    </div>
+    <div class="title">{{ sectionTitle }}</div>
     <div class="shows-wrapper row justify-content-center">
-      <div class="col-12 col-lg-6">
+      <div class="col-12 col-lg-6" *ngFor="let tvShow of shows">
         <div class="single-show row">
           <div class="poster-container col-12 col-md-4 col-lg-6">
             <show-poster
-                showTitle="Jessica Jones"
-                showUrl="show/4"
-                showImage="https://image.tmdb.org/t/p/w300_and_h450_bestv2/dWILlx5a1NnQgE6n4QU3jAv1J64.jpg"></show-poster>
+                [showTitle]="tvShow.title"
+                [showUrl]="'/show/' + tvShow.id"
+                [showImage]="tvShow.poster"></show-poster>
           </div>
           <div class="col-12 col-md-8 col-lg-6">
             <div class="show-title">
-              <a [routerLink]="['show', 4]">Jessica Jones</a>
+              <a [routerLink]="['/show', tvShow.id]">{{ tvShow.title }}</a>
             </div>
-            <div class="plot">When a sabotaged experiment gives him super strength and unbreakable skin, Luke Cage
-              becomes
-              a fugitive attempting to rebuild his life in Harlem and must soon confront his past and fight a battle for
-              the heart of his city.
-            </div>
-            <div class="release-date">30 Sep 2016</div>
-            <div class="rating">
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star-o" aria-hidden="true"></i>
-            </div>
-            <link-button showUrl="/show/5">More info</link-button>
+            <div class="plot">{{ tvShow.plot | truncate:[250] }}</div>
+            <div class="release-date">{{ tvShow.releaseDate | date:'longDate' }}</div>
+            <rating-stars [rating]="tvShow.imdbRating"></rating-stars>
+            <link-button showUrl="/show/{{ tvShow.id }}">More info</link-button>
           </div>
         </div>
       </div>

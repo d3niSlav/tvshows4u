@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'shows-with-rating',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shows-with-rating.component.scss']
 })
 export class ShowsWithRatingComponent implements OnInit {
+  @Input() sectionTitle: string = "";
+  @Input() shows = [];
 
   constructor() { }
 

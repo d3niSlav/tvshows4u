@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'show-navigation',
@@ -6,8 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./show-navigation.component.scss']
 })
 export class ShowNavigationComponent implements OnInit {
+  @Input() showId: number;
+  @Input() isWatched: boolean = false;
+  @Input() isFavourite: boolean = false;
+  @Input() rating: string = 'N/A';
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
