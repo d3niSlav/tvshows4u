@@ -1,0 +1,56 @@
+.actor-wrapper {
+  margin: 0 auto 20px;
+  text-align: center;
+
+  @media screen and (min-width: 1024px) {
+    margin: 0 auto;
+  }
+
+  .actor-image {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    margin: 0 auto;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+
+    @media screen and (min-width: 1024px) {
+      width: 135px;
+      height: 135px;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .name,
+  .character {
+    width: 100%;
+    line-height: 1.375rem;
+    margin: 0;
+    overflow: hidden;
+    color: #FFFFFF;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .name {
+    padding-top: 5px;
+    font-size: 0.875rem;
+    font-weight: 700;
+
+    @media screen and (min-width: 1024px) {
+      padding: 10px 0 5px;
+      font-size: 1.25rem;
+    }
+  }
+
+  .character {
+    font-size: 0.7rem;
+
+    @media screen and (min-width: 1024px) {
+      font-size: 1rem;
+    }
+  }
+}

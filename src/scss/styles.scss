@@ -29,3 +29,10 @@ ul {
   padding: 0;
   list-style-type: none;
 }
+
+@media screen and (min-width: 768px) {
+  .col-md-5th {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}

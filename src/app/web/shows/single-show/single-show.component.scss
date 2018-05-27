@@ -1,0 +1,155 @@
+.show {
+  padding: 25px 0;
+  background: radial-gradient(at 10% 30%, rgba(39, 74, 97, 0.9) 0%, #c5361a 100%), url('/assets/img/shows-background.jpg') no-repeat top;
+  background-size: cover;
+
+  @media screen and (min-width: 768px) {
+    min-height: 385px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding: 40px 0 25px;
+    min-height: 500px;
+  }
+
+  .show-wrapper {
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: center;
+
+    @media screen and (min-width: 768px) {
+      max-width: 100%;
+      margin-left: 230px;
+      text-align: left;
+    }
+
+    @media screen and (min-width: 1024px) {
+      margin-left: 325px;
+    }
+  }
+
+  .show-navigation-wrapper {
+    text-align: center;
+
+    @media screen and (min-width: 768px) {
+      text-align: left;
+    }
+
+    .title {
+      line-height: 1.8rem;
+      margin: 0 auto;
+      color: #FFFFFF;
+      font-size: 1.8rem;
+      font-weight: 700;
+
+      @media screen and (min-width: 1024px) {
+        font-size: 2.188rem;
+      }
+    }
+
+    .duration {
+      display: block;
+      font-size: 1.375rem;
+      font-weight: 400;
+      text-align: center;
+      opacity: 0.6;
+
+      @media screen and (min-width: 768px) {
+        display: inline-block;
+        padding-left: 10px;
+      }
+
+      @media screen and (min-width: 1024px) {
+        font-size: 1.8rem;
+      }
+    }
+
+    .navigation-container {
+      padding: 5px 0;
+    }
+  }
+
+  .season-poster {
+    max-width: 300px;
+    margin: 0 auto;
+    overflow: hidden;
+
+    @media screen and (min-width: 768px) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 225px;
+    }
+
+    @media screen and (min-width: 1024px) {
+      width: 300px;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .overview {
+    .title {
+      text-align: left;
+    }
+
+    .plot {
+      line-height: 1.125rem;
+      margin: 10px auto;
+      color: #FFFFFF;
+      text-align: justify;
+
+      @media screen and (min-width: 768px) {
+        min-height: 175px;
+      }
+
+      @media screen and (min-width: 1024px) {
+        min-height: 300px;
+        line-height: 1.375rem;
+      }
+    }
+  }
+
+  .overview .title,
+  .cast .title {
+    line-height: 1.313rem;
+    margin: 20px auto 10px;
+    color: #FFFFFF;
+    font-size: 1.313rem;
+    font-weight: 600;
+  }
+
+  .cast {
+    margin: 20px auto;
+
+    @media screen and (min-width: 768px) {
+      margin: 20px -15px;
+    }
+
+    .title {
+      max-width: 300px;
+      margin: 0 auto;
+      text-align: center;
+
+      @media screen and (min-width: 768px) {
+        max-width: 100%;
+        text-align: left;
+      }
+    }
+
+    hr {
+      margin: 5px auto;
+      border-top: 2px solid rgba(#FFFFFF, 0.7);
+    }
+
+    .cast-wrapper {
+      padding: 15px 0;
+
+      @media screen and (min-width: 768px) {
+        padding: 25px 0 0;
+      }
+    }
+  }
+}

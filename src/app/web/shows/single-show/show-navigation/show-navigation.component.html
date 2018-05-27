@@ -1,0 +1,44 @@
+<nav>
+  <ul class="show-actions">
+    <li class="round-button" title="Add to Favorite">
+      <button class="circle-button">
+        <i class="fa fa-heart" aria-hidden="true"></i>
+      </button>
+    </li>
+    <li class="round-button" title="Add to your watchlist">
+      <button class="circle-button active">
+        <i class="fa fa-eye" aria-hidden="true"></i>
+      </button>
+    </li>
+    <li class="round-button active" title="View seasons information">
+      <a
+          [routerLink]="['info']"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}"
+          class="circle-button">
+        <i class="fa fa-info" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="round-button" title="View comments">
+      <a
+          [routerLink]="['comments']"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}"
+          class="circle-button">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="round-button play-trailer" title="View the movie trailer">
+      <a
+          [routerLink]="['trailer']"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}"
+          class="circle-button">
+        <i class="fa fa-youtube-play" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="chart">
+      <div class="rating-text">Imdb: 8.0</div>
+    </li>
+  </ul>
+</nav>

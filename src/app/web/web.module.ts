@@ -36,6 +36,9 @@ import { SeasonComponent } from './shows/single-show/season/season.component';
 import { SingleShowComponent } from './shows/single-show/single-show.component';
 import { EpisodeComponent } from './shows/single-show/season/episode/episode.component';
 import { TrailerComponent } from './shows/single-show/trailer/trailer.component';
+import { ActorComponent } from './shows/single-show/actor/actor.component';
+import { ShowNavigationComponent } from './shows/single-show/show-navigation/show-navigation.component';
+import { CommentsListComponent } from './shows/single-show/comments-list/comments-list.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +70,10 @@ import { TrailerComponent } from './shows/single-show/trailer/trailer.component'
     SeasonComponent,
     SingleShowComponent,
     EpisodeComponent,
-    TrailerComponent
+    TrailerComponent,
+    ActorComponent,
+    ShowNavigationComponent,
+    CommentsListComponent
   ],
   imports: [
     CommonModule,
