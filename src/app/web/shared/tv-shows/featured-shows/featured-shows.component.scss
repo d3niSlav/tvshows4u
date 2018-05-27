@@ -1,0 +1,102 @@
+.featured-shows {
+  padding: 30px 0;
+  text-align: center;
+  background: #1f2324;
+
+  @media screen and (min-width: 768px) {
+    padding: 30px 0 50px;
+  }
+
+  .single-show {
+    padding-top: 25px;
+    color: #FFFFFF;
+  }
+
+  .title {
+    max-width: 230px;
+    line-height: 2rem;
+    margin: 0 auto;
+    color: #FFFFFF;
+    font-size: 1.75rem;
+    font-weight: 700;
+
+    @media screen and (min-width: 768px) {
+      max-width: 100%;
+      line-height: 2.188rem;
+      padding: 25px 0 15px;
+      font-size: 2.188rem;
+    }
+  }
+
+  .poster-container {
+    width: 75%;
+    margin: 0 auto;
+  }
+
+  .release-date {
+    margin-top: 15px;
+    color: #f73a4c;
+  }
+
+  .show-title {
+    line-height: 1;
+    margin: 10px auto;
+    font-size: 1rem;
+
+    @media screen and (min-width: 768px) {
+      font-size: 1.7rem;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    a {
+      color: #FFFFFF;
+    }
+  }
+
+  .plot {
+    margin: 10px auto;
+    line-height: 1rem;
+    color: #FFFFFF;
+    font-size: 0.8rem;
+    text-align: justify;
+
+    @media screen and (min-width: 768px) {
+      line-height: 1.4rem;
+      font-size: 1.25rem;
+    }
+
+    @media screen and (min-width: 992px) {
+      height: 140px;
+      line-height: 1rem;
+      font-size: 0.8rem;
+    }
+
+    @media screen and (min-width: 1024px) {
+      line-height: 1.125rem;
+      font-size: 0.9rem;
+    }
+
+    @media screen and (min-width: 1200px) {
+      height: 200px;
+      line-height: 1.25rem;
+      font-size: 1.15rem;
+    }
+  }
+
+  .rating {
+    display: flex;
+    justify-content: space-around;
+    margin: 5px auto 15px;
+    color: #FFD700;
+    font-size: 0.65rem;
+
+    @media screen and (min-width: 768px) {
+      font-size: 0.8rem;
+    }
+
+    @media screen and (min-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+}

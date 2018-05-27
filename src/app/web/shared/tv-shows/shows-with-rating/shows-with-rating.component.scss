@@ -1,0 +1,64 @@
+.shows-with-rating {
+  padding: 30px 0;
+  text-align: center;
+  background: linear-gradient(rgba(247, 58, 76, 0.8), rgba(247, 58, 76, 0.8)) 0 0, url('/assets/img/cubic-background.jpg') center top no-repeat;
+
+  .title {
+    max-width: 230px;
+    line-height: 2rem;
+    margin: 0 auto;
+    color: #FFFFFF;
+    font-size: 1.75rem;
+    font-weight: 700;
+
+    @media screen and (min-width: 768px) {
+      max-width: 100%;
+      line-height: 2.188rem;
+      padding: 25px 0 15px;
+      font-size: 2.188rem;
+    }
+  }
+
+  .poster-container {
+    width: 75%;
+    margin: 0 auto;
+  }
+
+  .single-show {
+    padding-top: 25px;
+  }
+
+  .show-title {
+    line-height: 1;
+    margin: 10px auto 5px;
+    font-size: 1rem;
+
+    @media screen and (min-width: 768px) {
+      font-size: 1.25rem;
+    }
+
+    @media screen and (min-width: 768px) {
+      font-size: 1.5rem;
+    }
+
+    a {
+      color: #FFFFFF;
+    }
+  }
+
+  .rating {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto 35px;
+    color: #FFD700;
+    font-size: 0.65rem;
+
+    @media screen and (min-width: 768px) {
+      font-size: 0.8rem;
+    }
+
+    @media screen and (min-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+}

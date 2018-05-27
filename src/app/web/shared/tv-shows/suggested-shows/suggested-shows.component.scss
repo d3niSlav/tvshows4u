@@ -1,0 +1,65 @@
+.suggested-shows {
+  padding: 30px 0;
+  text-align: center;
+  background-color: #000000;
+
+  .single-show {
+    padding-top: 25px;
+  }
+
+  .title {
+    max-width: 230px;
+    line-height: 2rem;
+    margin: 0 auto;
+    color: #FFFFFF;
+    font-size: 1.75rem;
+    font-weight: 700;
+
+    @media screen and (min-width: 768px) {
+      max-width: 100%;
+      line-height: 2.188rem;
+      padding: 25px 0 15px;
+      font-size: 2.188rem;
+    }
+  }
+
+  .poster-container {
+    width: 75%;
+    margin: 0 auto;
+  }
+
+  .release-date {
+    margin-top: 15px;
+    color: #f73a4c;
+  }
+
+  .show-title {
+    line-height: 1;
+    font-size: 1rem;
+
+    @media screen and (min-width: 768px) {
+      font-size: 1.25rem;
+    }
+
+    @media screen and (min-width: 768px) {
+      font-size: 1.5rem;
+    }
+
+    a {
+      color: #FFFFFF;
+    }
+  }
+
+  .plot {
+    margin: 10px auto;
+    line-height: 1rem;
+    color: #FFFFFF;
+    font-size: 0.8rem;
+    text-align: justify;
+
+    @media screen and (min-width: 1024px) {
+      line-height: 1.5rem;
+      font-size: 1.125rem;
+    }
+  }
+}

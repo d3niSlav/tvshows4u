@@ -12,6 +12,7 @@ import { SingleShowComponent } from './shows/single-show/single-show.component';
 import { SeasonComponent } from './shows/single-show/season/season.component';
 import { CommentsListComponent } from './shows/single-show/comments-list/comments-list.component';
 import { TrailerComponent } from './shows/single-show/trailer/trailer.component';
+import { NewestShowsComponent } from './shows/newest-shows/newest-shows.component';
 
 const webRoutes: Routes = [
   { path: '', component: WebComponent, children: [
@@ -20,6 +21,7 @@ const webRoutes: Routes = [
     { path: 'forgotten', component: ForgottenPasswordComponent },
     { path: 'signup', component: SignUpComponent },
     { path: 'shows', component: ShowsComponent },
+    { path: 'newest', component: NewestShowsComponent },
     { path: 'show/:id', component: SingleShowComponent, children: [
       { path: '', redirectTo: 'info', pathMatch: 'full' },
       { path: 'info', component: SeasonComponent },

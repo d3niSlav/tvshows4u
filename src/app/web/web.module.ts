@@ -39,6 +39,10 @@ import { TrailerComponent } from './shows/single-show/trailer/trailer.component'
 import { ActorComponent } from './shows/single-show/actor/actor.component';
 import { ShowNavigationComponent } from './shows/single-show/show-navigation/show-navigation.component';
 import { CommentsListComponent } from './shows/single-show/comments-list/comments-list.component';
+import { ShowsWithRatingComponent } from './shared/tv-shows/shows-with-rating/shows-with-rating.component';
+import { SuggestedShowsComponent } from './shared/tv-shows/suggested-shows/suggested-shows.component';
+import { FeaturedShowsComponent } from './shared/tv-shows/featured-shows/featured-shows.component';
+import { NewestShowsComponent } from './shows/newest-shows/newest-shows.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +77,11 @@ import { CommentsListComponent } from './shows/single-show/comments-list/comment
     TrailerComponent,
     ActorComponent,
     ShowNavigationComponent,
-    CommentsListComponent
+    CommentsListComponent,
+    ShowsWithRatingComponent,
+    SuggestedShowsComponent,
+    FeaturedShowsComponent,
+    NewestShowsComponent
   ],
   imports: [
     CommonModule,
