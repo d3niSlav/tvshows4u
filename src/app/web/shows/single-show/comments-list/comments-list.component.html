@@ -1,19 +1,15 @@
 <section class="comments">
   <div class="container">
     <div class="title">Discuss</div>
+    <hr />
     <div class="comment-wrapper">
-      <div class="single-comment">
-        <div class="profile-image">
-          <img alt="Tedi" src="https://media.creativemornings.com/uploads/user/avatar/2279/kim_face_circle.jpeg">
-        </div>
-        <span class="username">Tedi</span>
-        <span class="date"> 02 May 2017 10:55 </span>
-        <hr class="comments-divider">
-        <p class="comment">I watch it every week.</p>
-        <button class="like-button">
-          <i class="fa fa-thumbs-o-up ng-scope" aria-hidden="true"></i> 2
-        </button>
-      </div>
+      <comment-form (newCommentAdded)="handleNewComment($event)"></comment-form>
+      <ng-container *ngIf="comments.length > 0">
+        <single-comment
+            *ngFor="let comment of comments"
+            [comment]="comment"></single-comment>
+      </ng-container>
+      <p *ngIf="comments.length === 0">No comments yet!</p>
     </div>
   </div>
 </section>

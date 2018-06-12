@@ -3,65 +3,21 @@
   background: radial-gradient(at 10% 30%, rgba(39, 74, 97, 0.5) 0%, rgba(197, 54, 26, 0.7) 100%), url('/assets/img/striped-background.jpg') repeat-y top;
   background-size: 100%;
 
+  .title {
+    line-height: 1.313rem;
+    margin: 20px auto 10px;
+    color: #FFFFFF;
+    font-size: 1.313rem;
+    font-weight: 600;
+  }
+
+  hr {
+    margin: 5px auto;
+    border-top: 2px solid rgba(255, 255, 255, 0.7);
+  }
+
   .comment-wrapper {
     max-width: 700px;
     margin: 0 auto;
-
-    .single-comment {
-      margin: 15px 0;
-      padding: 15px;
-      color: #000000;
-      background-color: #FFFFFF;
-      border: 1px solid #888888;
-      border-radius: 3px;
-    }
-
-    .profile-image {
-      display: inline-block;
-      vertical-align: middle;
-      width: 40px;
-      height: 40px;
-      margin-right: 5px;
-      border-radius: 50%;
-
-      img {
-        width: 100%;
-      }
-    }
-
-    .username {
-      display: inline-block;
-      vertical-align: middle;
-      color: #8B0000;
-      font-size: 1.375rem;
-      font-weight: 800;
-      background: none;
-    }
-
-    .date {
-      float: right;
-      margin-top: 10px;
-      color: #888888;
-      font-size: 1rem;
-    }
-  }
-
-  .like-button {
-    color: #8B0000;
-    background: none;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    transition: color 0.3s ease;
-
-    &:hover {
-      color: #DC143C;
-    }
-
-  }
-
-  .comments-divider {
-    border: none;
-    border-top: 1px solid #eee;
   }
 }

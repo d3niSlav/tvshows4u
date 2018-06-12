@@ -1,0 +1,12 @@
+<div class="single-comment">
+  <div class="profile-image">
+    <img alt="{{comment.user.name}}" src="{{comment.user.profileImage}}">
+  </div>
+  <span class="username">{{comment.user.name}}</span>
+  <span class="date">{{comment.date |date:'MMM d, y h:mm'}}</span>
+  <hr class="comments-divider">
+  <p class="comment">{{comment.commentText}}</p>
+  <button class="like-button">
+    <i class="fa fa-thumbs-o-up ng-scope" aria-hidden="true"></i> {{comment.likes || 0}}
+  </button>
+</div>

@@ -7,6 +7,7 @@ import { Subject } from 'rxjs/Subject';
 export class AuthService implements OnInit {
   currentUser = null;
   userAuthenticationChanged = new Subject<boolean>();
+
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit() {
@@ -39,5 +40,13 @@ export class AuthService implements OnInit {
   logout() {
     this.currentUser = null;
     this.userAuthenticationChanged.next(false);
+  }
+
+  getCurrentUser() {
+    if (this.currentUser) {
+      return this.currentUser;
+    }
+
+    return null;
   }
 }

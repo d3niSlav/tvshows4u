@@ -45,6 +45,8 @@ import { FeaturedShowsComponent } from './shared/tv-shows/featured-shows/feature
 import { NewestShowsComponent } from './shows/newest-shows/newest-shows.component';
 import { TruncatePipe } from '../shared/pipes/truncate.pipe';
 import { StarsComponent } from './shared/tv-shows/stars/stars.component';
+import { CommentFormComponent } from './shows/single-show/comments-list/comment-form/comment-form.component';
+import { SingleCommentComponent } from './shows/single-show/comments-list/single-comment/single-comment.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +87,9 @@ import { StarsComponent } from './shared/tv-shows/stars/stars.component';
     SuggestedShowsComponent,
     FeaturedShowsComponent,
     NewestShowsComponent,
-    StarsComponent
+    StarsComponent,
+    CommentFormComponent,
+    SingleCommentComponent
   ],
   imports: [
     CommonModule,
