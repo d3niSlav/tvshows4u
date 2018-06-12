@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { ShowsService } from '../../shows.service';
-import { SingleShowComponent } from '../single-show.component';
+import { SingleShowService } from '../single-show.service';
 
 @Component({
   selector: 'season',
@@ -13,7 +12,7 @@ export class SeasonComponent implements OnInit {
   currentSeason: any;
   areEpisodesShown: boolean = false;
 
-  constructor(private showsService: ShowsService, private route: ActivatedRoute, private parent: SingleShowComponent) {
+  constructor(private showService: SingleShowService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -25,11 +24,11 @@ export class SeasonComponent implements OnInit {
       }
     );
 
-    this.showsService.getTvShow(tvShowId).subscribe(res => {
+    this.showService.getTvShow(tvShowId).subscribe(res => {
       this.seasons = res.seasons;
       const currentSeasonId = res.seasons[res.seasons.length - 1].id;
 
-      this.showsService.getSingleSeason(currentSeasonId).subscribe(res => {
+      this.showService.getSingleSeason(currentSeasonId).subscribe(res => {
         this.currentSeason = res;
       });
     });

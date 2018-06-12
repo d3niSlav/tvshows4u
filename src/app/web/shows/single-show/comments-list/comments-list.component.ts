@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SingleShowService } from '../single-show.service';
 
 @Component({
   selector: 'app-comments-list',
@@ -8,19 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class CommentsListComponent implements OnInit {
   comments = [];
 
-  constructor() {}
+  constructor(private showService: SingleShowService) {}
 
   ngOnInit() {
-    this.comments.push({
-      user: {
-        id: 32,
-        name: "Eme wweee",
-        profileImage: "https://media.creativemornings.com/uploads/user/avatar/2279/kim_face_circle.jpeg"
-      },
-      date: "02 May 2017 10:55",
-      comment: "Pavlina me turmoziiiii",
-      likes: 5
-    })
+    const showId = this.showService.getShowId();
+
+    this.showService.getComments(showId).subscribe(res => {
+      this.comments = res;
+    });
   }
 
   handleNewComment(comment: any) {

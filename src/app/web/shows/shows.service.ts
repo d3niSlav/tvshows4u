@@ -4,8 +4,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ShowsService {
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   getShows(criteria: string = 'title'): Observable<any> {
     return this.http.get(`/api/shows?criteria=${criteria}`);
@@ -16,17 +15,5 @@ export class ShowsService {
     url = numberOfShows > 0 ? url + `&limit=${numberOfShows}` : url;
 
     return this.http.get(url);
-  }
-
-  getTvShow(showId: number): Observable<any> {
-    return this.http.get(`/api/shows/${showId}`);
-  }
-
-  getSingleSeason(seasonId: number): Observable<any> {
-    return this.http.get(`/api/shows/seasons/${seasonId}`);
-  }
-
-  getSingleEpisode(episodeId: number): Observable<any> {
-    return this.http.get(`/api/shows/episodes/${episodeId}`);
   }
 }

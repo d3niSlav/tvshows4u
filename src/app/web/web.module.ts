@@ -47,6 +47,7 @@ import { TruncatePipe } from '../shared/pipes/truncate.pipe';
 import { StarsComponent } from './shared/tv-shows/stars/stars.component';
 import { CommentFormComponent } from './shows/single-show/comments-list/comment-form/comment-form.component';
 import { SingleCommentComponent } from './shows/single-show/comments-list/single-comment/single-comment.component';
+import { SingleShowService } from './shows/single-show/single-show.service';
 
 @NgModule({
   declarations: [
@@ -105,6 +106,7 @@ import { SingleCommentComponent } from './shows/single-show/comments-list/single
     AuthService,
     AuthGuard,
     ShowsService,
+    SingleShowService,
     ProfileService
   ]
 })

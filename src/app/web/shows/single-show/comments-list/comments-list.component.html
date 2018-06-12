@@ -9,7 +9,7 @@
             *ngFor="let comment of comments"
             [comment]="comment"></single-comment>
       </ng-container>
-      <p *ngIf="comments.length === 0">No comments yet!</p>
+      <p class="no-comments" *ngIf="comments.length === 0">No comments yet!</p>
     </div>
   </div>
 </section>

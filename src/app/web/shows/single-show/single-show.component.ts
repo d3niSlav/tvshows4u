@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {ShowsService} from '../shows.service';
-import {ActivatedRoute, Params} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { SingleShowService } from './single-show.service';
 
 @Component({
   selector: 'app-single-show',
@@ -10,8 +10,7 @@ import {ActivatedRoute, Params} from '@angular/router';
 export class SingleShowComponent implements OnInit {
   show: any;
 
-  constructor(private showsService: ShowsService, private route: ActivatedRoute) {
-  }
+  constructor(private showService: SingleShowService, private route: ActivatedRoute) {}
 
   ngOnInit() {
     let tvShowId;
@@ -22,9 +21,11 @@ export class SingleShowComponent implements OnInit {
       }
     );
 
-    this.showsService.getTvShow(tvShowId).subscribe(res => {
-      this.show = res;
-    });
+    if (tvShowId) {
+      this.showService.getTvShow(tvShowId).subscribe(res => {
+        this.show = res;
+        this.showService.setCurrentShow(res);
+      });
+    }
   }
-
 }
