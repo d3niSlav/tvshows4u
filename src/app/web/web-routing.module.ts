@@ -13,6 +13,7 @@ import { SeasonComponent } from './shows/single-show/season/season.component';
 import { CommentsListComponent } from './shows/single-show/comments-list/comments-list.component';
 import { TrailerComponent } from './shows/single-show/trailer/trailer.component';
 import { NewestShowsComponent } from './shows/newest-shows/newest-shows.component';
+import {ContactFormComponent} from './contact-form/contact-form.component';
 
 const webRoutes: Routes = [
   { path: '', component: WebComponent, children: [
@@ -28,7 +29,8 @@ const webRoutes: Routes = [
       { path: 'comments', component: CommentsListComponent },
       { path: 'trailer', component: TrailerComponent }
     ]},
-    { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] }
+    { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+    { path: 'contacts', component: ContactFormComponent }
   ]}
 ];
 

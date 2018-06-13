@@ -48,6 +48,8 @@ import { StarsComponent } from './shared/tv-shows/stars/stars.component';
 import { CommentFormComponent } from './shows/single-show/comments-list/comment-form/comment-form.component';
 import { SingleCommentComponent } from './shows/single-show/comments-list/single-comment/single-comment.component';
 import { SingleShowService } from './shows/single-show/single-show.service';
+import { ContactFormComponent } from './contact-form/contact-form.component';
+import { ContactService } from './contact-form/contact.service';
 
 @NgModule({
   declarations: [
@@ -90,7 +92,8 @@ import { SingleShowService } from './shows/single-show/single-show.service';
     NewestShowsComponent,
     StarsComponent,
     CommentFormComponent,
-    SingleCommentComponent
+    SingleCommentComponent,
+    ContactFormComponent
   ],
   imports: [
     CommonModule,
@@ -107,7 +110,8 @@ import { SingleShowService } from './shows/single-show/single-show.service';
     AuthGuard,
     ShowsService,
     SingleShowService,
-    ProfileService
+    ProfileService,
+    ContactService
   ]
 })
 

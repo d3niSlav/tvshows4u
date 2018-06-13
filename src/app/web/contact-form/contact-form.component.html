@@ -1,0 +1,32 @@
+<section class="contact-us-wrapper">
+  <div class="form-wrapper">
+    <div class="title">Mail us</div>
+    <form (ngSubmit)="sendMessage()" ngForm autocomplete="off">
+      <fieldset [formGroup]="contactForm && contactForm.getForm()">
+        <input
+            class="input-field"
+            type="text"
+            name="name"
+            formControlName="name"
+            placeholder="Enter name..." />
+        <input
+            class="input-field"
+            type="text"
+            name="email"
+            formControlName="email"
+            placeholder="Enter e-mail..." />
+        <p class="error-msg"></p>
+        <textarea
+            class="input-field message-field"
+            name="message"
+            formControlName="message"
+            placeholder="Enter message..."></textarea>
+        <p class="error-msg"></p>
+        <div class="submit-wrapper">
+          <button class="send-button" type="submit">Send</button>
+        </div>
+      </fieldset>
+    </form>
+    <p class="result-message" [ngClass]="{ 'error': isError }">{{message}}</p>
+  </div>
+</section>

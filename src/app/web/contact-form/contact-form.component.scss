@@ -1,0 +1,106 @@
+.contact-us-wrapper {
+  position: relative;
+  height: calc(100vh - 54px);
+  color: #FFF;
+  background: linear-gradient(rgba(#000, 0.3), rgba(#000, 0.5)), url('/assets/img/contact-background.jpg') no-repeat;
+
+  @media screen and (min-width: 1024px) {
+    height: calc(100vh - 70px);
+  }
+
+  .form-wrapper {
+    position: absolute;
+      top: 50%;
+      left: 50%;
+    width: 100%;
+    padding: 15px;
+    margin: 0 auto;
+    transform: translate(-50%, -50%);
+
+    @media screen and (min-width: 768px) {
+      max-width: 750px;
+    }
+
+    @media screen and (min-width: 1024px) {
+      max-width: 970px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      max-width: 1024px;
+    }
+  }
+
+  .title {
+    line-height: 1;
+    padding-bottom: 30px;
+    color: #FFFFFF;
+    font-size: 3.125rem;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .input-field {
+    display: block;
+    width: 100%;
+    padding: 15px 20px 15px 10px;
+    color: #eee;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #333333;
+    outline: none;
+
+    @media screen and (min-width: 1024px) {
+      &:not(.message-field) {
+        float: left;
+        width: calc(50% - 15px);
+        margin-left: 15px;
+
+        &:first-child {
+          margin: 0 15px 0 0;
+        }
+      }
+    }
+  }
+
+  .message-field {
+    height: 90px;
+    resize: none;
+  }
+
+  .submit-wrapper {
+    margin-top: 35px;
+    text-align: center;
+    word-spacing: 10px;
+
+    .send-button {
+      line-height: 1rem;
+      padding: 20px 66px;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      border: 1px solid #FFFFFF;
+      border-radius: 40px;
+      background: none;
+      cursor: pointer;
+      transition: color 0.3s ease, border 0.3s ease, background 0.3s ease;
+
+      &:hover {
+        color: #FFFFFF;
+        border-color: #8B0000;
+        background: #8B0000;
+      }
+    }
+  }
+
+  .result-message {
+    height: 30px;
+    margin: 10px auto 0;
+    color: #08d808;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    
+    &.error {
+      color: #ff0000;
+    }
+  }
+}
