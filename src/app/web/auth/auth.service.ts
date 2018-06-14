@@ -6,7 +6,7 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class AuthService implements OnInit {
   currentUser = null;
-  userAuthenticationChanged = new Subject<boolean>();
+  userAuthenticationChanged = new Subject<any>();
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -34,12 +34,12 @@ export class AuthService implements OnInit {
 
   setCurrentUser(user) {
     this.currentUser = user;
-    this.userAuthenticationChanged.next(true);
+    this.userAuthenticationChanged.next(this.currentUser);
   }
 
   logout() {
     this.currentUser = null;
-    this.userAuthenticationChanged.next(false);
+    this.userAuthenticationChanged.next(this.currentUser);
   }
 
   getCurrentUser() {

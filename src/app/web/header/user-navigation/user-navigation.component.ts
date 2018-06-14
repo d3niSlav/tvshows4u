@@ -18,8 +18,8 @@ export class UserNavigationComponent implements OnInit, OnDestroy {
     this.isUserAuthenticated = this.authService.isUserLoggedIn();
     this.subscription = this.authService.userAuthenticationChanged
       .subscribe(
-        (isUserAuthenticated: boolean) => {
-          this.isUserAuthenticated = isUserAuthenticated;
+        (user: any) => {
+          this.isUserAuthenticated = !!user;
         }
       );
   }

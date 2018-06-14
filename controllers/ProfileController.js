@@ -9,103 +9,122 @@ const Profile = require('../models/Profile');
  */
 const addShowToFavourites = async function (req, res) {
   res.setHeader('Content-Type', 'application/json');
-  let profileShowData = await ProfileTvShow.query().first().where({
-    profileId: req.body.profileId,
-    showId: req.body.showId
-  });
-
-  if (profileShowData) {
-    profileShowData = await ProfileTvShow.query().first().update({
-      isFavourite: true
-    }).where({
-      profileId: req.body.profileId,
+  if (req.user && req.user.id) {
+    let profileShowData = await ProfileTvShow.query().first().where({
+      profileId: req.user.id,
       showId: req.body.showId
     });
-  } else {
-    profileShowData = await ProfileTvShow.query().insert({
-      ...req.body,
-      isFavourite: true
-    });
+
+    if (profileShowData) {
+      profileShowData = await ProfileTvShow.query().first().patch({
+        isFavourite: true
+      }).where({
+        profileId: req.user.id,
+        showId: req.body.showId
+      });
+    } else {
+      profileShowData = await ProfileTvShow.query().insert({
+        profileId: req.user.id,
+        showId: req.body.showId,
+        isFavourite: true
+      });
+    }
+
+    if (!profileShowData) {
+      res.status(500).send({error: 'Something went wrong!'});
+    }
+
+    return res.send({ result: !!profileShowData });
   }
 
-  if (!profileShowData) {
-    res.status(500).send({error: 'Something went wrong!'});
-  }
-
-  return res.send({message: 'Show added successfully to favourites!'});
+  return res.send({ result: false });
 };
 
 module.exports.addShowToFavourites = addShowToFavourites;
 
 const removeShowFromFavourites = async function (req, res) {
   res.setHeader('Content-Type', 'application/json');
-  const profileShowData = await ProfileTvShow.query().first().update({
-    isFavourite: false
-  }).where({
-    profileId: req.body.profileId,
-    showId: req.body.showId
-  });
+  if (req.user && req.user.id) {
+    const profileShowData = await ProfileTvShow.query().first().patch({
+      isFavourite: false
+    }).where({
+      profileId: req.user.id,
+      showId: req.body.showId
+    });
 
-  if (!profileShowData) {
-    res.status(500).send({error: 'Something went wrong!'});
+    if (!profileShowData) {
+      res.status(500).send({error: 'Something went wrong!'});
+    }
+
+    return res.send({ result: false });
   }
 
-  return res.send({message: 'Show removed successfully from favourites!'});
+  return res.send({ result: false });
 };
 
 module.exports.removeShowFromFavourites = removeShowFromFavourites;
 
 const addShowToWatchlist = async function (req, res) {
   res.setHeader('Content-Type', 'application/json');
-  let profileShowData = await ProfileTvShow.query().first().where({
-    profileId: req.body.profileId,
-    showId: req.body.showId
-  });
-
-  if (profileShowData) {
-    profileShowData = await ProfileTvShow.query().first().update({
-      isWatched: true
-    }).where({
-      profileId: req.body.profileId,
+  if (req.user && req.user.id) {
+    let profileShowData = await ProfileTvShow.query().first().where({
+      profileId: req.user.id,
       showId: req.body.showId
     });
-  } else {
-    profileShowData = await ProfileTvShow.query().insert({
-      ...req.body,
-      isWatched: true
-    });
+
+    if (profileShowData) {
+      profileShowData = await ProfileTvShow.query().first().patch({
+        ...profileShowData,
+        isWatched: true
+      }).where({
+        profileId: req.user.id,
+        showId: req.body.showId
+      });
+    } else {
+      profileShowData = await ProfileTvShow.query().insert({
+        profileId: req.user.id,
+        showId: req.body.showId,
+        isWatched : true
+      });
+    }
+
+    if (!profileShowData) {
+      res.status(500).send({error: 'Something went wrong!'});
+    }
+
+    return res.send({ result: !!profileShowData });
   }
 
-  if (!profileShowData) {
-    res.status(500).send({error: 'Something went wrong!'});
-  }
-
-  return res.send({message: 'Show added successfully to watchlist!'});
+  return res.send({ result: false });
 };
 
 module.exports.addShowToWatchlist = addShowToWatchlist;
 
 const removeShowFromWatchlist = async function (req, res) {
   res.setHeader('Content-Type', 'application/json');
-  const profileShowData = await ProfileTvShow.query().first().update({
-    isWatched: false
-  }).where({
-    profileId: req.body.profileId,
-    showId: req.body.showId
-  });
+  if (req.user && req.user.id) {
+    const profileShowData = await ProfileTvShow.query().first().patch({
+      isWatched: false
+    }).where({
+      profileId: req.user.id,
+      showId: req.body.showId
+    });
 
-  if (!profileShowData) {
-    res.status(500).send({error: 'Something went wrong!'});
-  }
+    if (!profileShowData) {
+      res.status(500).send({error: 'Something went wrong!'});
+    }
 
-  return res.send({message: 'Show removed successfully from favourites!'});
+  return res.send({ result: false });
+}
+
+return res.send({ result: false });
 };
 
 module.exports.removeShowFromWatchlist = removeShowFromWatchlist;
 
 const changeShowProgress = async function (req, res) {
   res.setHeader('Content-Type', 'application/json');
-  const profileShowData = await ProfileTvShow.query().first().update({
+  const profileShowData = await ProfileTvShow.query().first().patch({
     seasonNumber: req.body.seasonNumber,
     episodeNumber: req.body.episodeNumber
   }).where({
@@ -121,6 +140,29 @@ const changeShowProgress = async function (req, res) {
 };
 
 module.exports.changeShowProgress = changeShowProgress;
+
+const checkShowStatus = async function (req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  let profileShowData = await ProfileTvShow.query().first().where({
+    profileId: req.user.id,
+    showId: req.params.showsId
+  });
+
+  if (!profileShowData) {
+    profileShowData = {
+      profileId: req.user.id,
+      showId: req.params.showsId,
+      seasonNumber: 1,
+      episodeNumber: 1,
+      isFavourite: 0,
+      isWatched: 0
+    };
+  }
+
+  return res.send(profileShowData);
+};
+
+module.exports.checkShowStatus = checkShowStatus;
 
 const getFavouriteShows = async function (req, res) {
   res.setHeader('Content-Type', 'application/json');

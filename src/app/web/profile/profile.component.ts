@@ -13,16 +13,12 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    const authenticationToken = sessionStorage.getItem('jwtToken');
-
-    if (authenticationToken) {
-      this.profileService.getUserProfile(authenticationToken).subscribe((response: Response) => {
-        this.profileData = response;
-        console.log(this.profileData);
-      }, error => {
-        console.log(error);
-      });
-    }
+    this.profileService.getUserProfile().subscribe((response: Response) => {
+      this.profileData = response;
+      console.log(this.profileData);
+    }, error => {
+      console.log(error);
+    });
   }
 
 }
