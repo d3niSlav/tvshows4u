@@ -44,4 +44,7 @@ module.exports = router => {
 
   /** DELETE an episode */
   router.delete('/api/shows/episodes/:episodeId', TvShowController.deleteEpisode);
+
+  /** Get Schedule */
+  router.post('/api/schedule', TvShowController.getSchedule);
 };

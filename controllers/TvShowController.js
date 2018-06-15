@@ -4,6 +4,9 @@ const TvShow = require('../models/TvShow');
 const Season = require('../models/Season');
 const Episode = require('../models/Episode');
 
+const knexfile = require('../knexfile');
+const knex = require('knex')(knexfile.development);
+
 /**--- All TV Shows ---**/
 
 /* Read all TV Show */
@@ -242,3 +245,62 @@ const deleteEpisode = async function (req, res) {
 };
 
 module.exports.deleteEpisode = deleteEpisode;
+
+/** */
+const getSchedule = async function (req, res) {
+  // res.setHeader('Content-Type', 'application/json');
+  const startDate = req.body.startDate;
+  const endDate = req.body.endDate;
+
+  const episodesData = await knex.raw(`
+    SELECT
+      shows.id,
+      shows.logo,
+      shows.title,
+      seasons.number as seasonNumber,
+      episodes.number as episodeNumber,
+      episodes.releaseDate as releaseDate
+    FROM 
+      shows,
+      seasons,
+      episodes
+    WHERE
+      seasons.id = episodes.seasonId 
+    AND
+      seasons.showId = shows.id
+    AND 
+      episodes.releaseDate >= '${startDate}'
+    AND
+      episodes.releaseDate <= '${endDate}'
+  `);
+
+  return res.send(getDays(startDate, episodesData[0]));
+};
+
+module.exports.getSchedule = getSchedule;
+
+/** Helper functions */
+const getDays = (startDate, shows) => {
+  let daysInWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  const nextDay = new Date(startDate);
+
+  daysInWeek = daysInWeek.map((day) => {
+    const currentDate = getDateString(nextDay);
+    const currentShows = shows.filter((show) => {
+      return (new Date(show.releaseDate)).toLocaleDateString() === nextDay.toLocaleDateString();
+    });
+    nextDay.setDate(nextDay.getDate() + 1);
+
+    return {
+      name: day,
+      date: currentDate,
+      shows: currentShows
+    };
+  });
+
+  return daysInWeek;
+};
+
+const getDateString = (date) => {
+  return date.toLocaleDateString("en-au", {year: "numeric", month: "short", day: "numeric"}).replace(/\./g, '');
+};
