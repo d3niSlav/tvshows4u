@@ -50,6 +50,8 @@ import { SingleCommentComponent } from './shows/single-show/comments-list/single
 import { SingleShowService } from './shows/single-show/single-show.service';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ContactService } from './contact-form/contact.service';
+import { ScheduleComponent } from './schedule/schedule.component';
+import { DayBoxComponent } from './schedule/day-box/day-box.component';
 
 @NgModule({
   declarations: [
@@ -93,7 +95,9 @@ import { ContactService } from './contact-form/contact.service';
     StarsComponent,
     CommentFormComponent,
     SingleCommentComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    ScheduleComponent,
+    DayBoxComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,49 @@
+.schedule {
+  min-height: calc(100vh - 54px);
+  padding: 30px 0;
+  background: linear-gradient(rgba(31, 35, 36, 0.5), rgba(51, 51, 51, 0.2)) 0 0, url('/assets/img/circle-stripped-background.png') center;
+  background-blend-mode: hard-light;
+  background-size: cover;
+
+  .container {
+    @media screen and (min-width: 2200px) {
+      max-width: 1200px;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    min-height: calc(100vh - 70px);
+  }
+
+  .title {
+    margin: 30px auto;
+    color: #FFFFFF;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    line-height: 2.188rem;
+
+    @media screen and (min-width: 1024px) {
+      font-size: 3.125rem;
+    }
+  }
+
+  .weekly-schedule-table {
+    text-align: center;
+
+    .day-box-wrapper {
+      display: block;
+      margin-bottom: 30px;
+
+      @media screen and (min-width: 480px) {
+        display: inline-block;
+        vertical-align: top;
+        width: 130px;
+      }
+
+      @media screen and (min-width: 1024px) {
+        width: 150px;
+      }
+    }
+  }
+}

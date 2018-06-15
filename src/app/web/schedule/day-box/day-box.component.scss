@@ -1,0 +1,57 @@
+.day-box {
+  background: #000;
+  text-align: center;
+  box-sizing: border-box;
+  outline: 3px dashed #888;
+
+  @media screen and (min-width: 768px) {
+    min-height: 250px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    min-height: 350px;
+  }
+
+  .title {
+    padding: 3px 0;
+    font-size: 1.313rem;
+    color: #FFFFFF;
+    border-bottom: 2px solid #888888;
+
+    @media screen and (min-width: 1024px) {
+      padding: 0 3px;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  }
+
+  .date {
+    display: block;
+    padding: 3px;
+    font-size: 0.875rem;
+    color: #f73a4c;
+    font-weight: bold;
+    font-style: italic;
+    border-bottom: 2px solid #888;
+
+    @media screen and (min-width: 1024px) {
+      padding: 0 3px;
+      font-size: 1rem;
+    }
+  }
+
+  .single-show {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 10px 0;
+    box-sizing: border-box;
+
+    &:last-child {
+      padding: 10px;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}
