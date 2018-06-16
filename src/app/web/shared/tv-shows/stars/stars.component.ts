@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 const STAR_FULL = 'star';
 const STAR_HALF_FULL = 'star-half-o';
@@ -15,13 +15,10 @@ export class StarsComponent implements OnInit {
   @Input() rating: string = 'N/A';
   stars = [];
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit() {
-    console.log(this.rating);
     this.createStars();
-    console.log(this.stars);
   }
 
   createStars() {
@@ -41,5 +38,4 @@ export class StarsComponent implements OnInit {
 
     this.stars = stars;
   }
-
 }

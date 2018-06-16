@@ -16,4 +16,11 @@ export class ShowsService {
 
     return this.http.get(url);
   }
+
+  getRatedShows(numberOfShows: number): Observable<any> {
+    let url = 'api/shows?criteria=imdbRating&desc=true';
+    url = numberOfShows > 0 ? url + `&limit=${numberOfShows}` : url;
+
+    return this.http.get(url);
+  }
 }

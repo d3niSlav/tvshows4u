@@ -57,6 +57,7 @@ import { FavouritesListComponent } from './profile/favourites-list/favourites-li
 import { ShowsListComponent } from './profile/personal-shows/shows-list/shows-list.component';
 import { PersonalShowsComponent } from './profile/personal-shows/personal-shows.component';
 import { PersonalShowComponent } from './profile/personal-shows/shows-list/personal-show/personal-show.component';
+import { RatedShowsComponent } from './shows/rated-shows/rated-shows.component';
 
 @NgModule({
   declarations: [
@@ -106,7 +107,8 @@ import { PersonalShowComponent } from './profile/personal-shows/shows-list/perso
     FavouritesListComponent,
     ShowsListComponent,
     PersonalShowsComponent,
-    PersonalShowComponent
+    PersonalShowComponent,
+    RatedShowsComponent
   ],
   imports: [
     CommonModule,

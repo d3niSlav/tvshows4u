@@ -16,6 +16,7 @@ import { NewestShowsComponent } from './shows/newest-shows/newest-shows.componen
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { PersonalShowsComponent } from './profile/personal-shows/personal-shows.component';
+import {RatedShowsComponent} from './shows/rated-shows/rated-shows.component';
 
 const webRoutes: Routes = [
   { path: '', component: WebComponent, children: [
@@ -36,7 +37,8 @@ const webRoutes: Routes = [
       { path: 'shows', component: PersonalShowsComponent}
     ]},
     { path: 'contacts', component: ContactFormComponent },
-    { path: 'schedule', component: ScheduleComponent }
+    { path: 'schedule', component: ScheduleComponent },
+    { path: 'ranking', component: RatedShowsComponent }
   ]}
 ];
 
