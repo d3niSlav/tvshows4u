@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'shows-filters',
@@ -6,6 +6,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
   styleUrls: ['./filters.component.scss']
 })
 export class FiltersComponent implements OnInit {
+  @Input() categories;
   @Output() sortingFilterChanged = new EventEmitter<any>();
   sortingFiltersMap = [
     {
@@ -34,15 +35,22 @@ export class FiltersComponent implements OnInit {
     }
   ];
   currentSortingFilter = this.sortingFiltersMap[0];
+  currentCategories = [];
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   switchSortingFilter(criteria) {
     this.currentSortingFilter = criteria;
     this.sortingFilterChanged.emit(criteria);
   }
+
+  handleCategoryChanged(categoryData: any) {
+    if (!this.currentCategories.find(category => category === categoryData.category)) {
+      this.currentCategories.push(categoryData.category);
+    } else {
+      this.currentCategories = this.currentCategories.filter(category => category !== categoryData.category);
+    }
+  };
 }

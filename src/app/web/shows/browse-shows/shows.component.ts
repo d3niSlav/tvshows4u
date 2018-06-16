@@ -8,6 +8,7 @@ import { ShowsService } from '../shows.service';
 })
 export class ShowsComponent implements OnInit {
   shows = [];
+  categories;
   sortingCriteria = '';
   isDescending = '';
 
@@ -17,11 +18,24 @@ export class ShowsComponent implements OnInit {
   ngOnInit() {
     this.showsService.getShows().subscribe(res => {
       this.shows = res;
+      this.categories = this.getCategories(this.shows);
     });
   }
 
   handleSortingCriteriaChange(criteriaData) {
     this.sortingCriteria = criteriaData.criteria;
     this.isDescending = criteriaData.isDescending;
+  }
+
+  getCategories(shows) {
+    const categories = new Set();
+    shows.forEach((show: any) => {
+      const currentShowCategories = show.genre.split(',');
+      currentShowCategories.forEach((category: any) => {
+        categories.add(category.trim());
+      });
+    });
+
+    return categories;
   }
 }

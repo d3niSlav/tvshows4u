@@ -1,3 +1,11 @@
-<p>
-  categories works!
-</p>
+<li class="category-item">
+  <div class="checkbox checkbox-circle">
+    <input
+        [(ngModel)]="isActive"
+        (change)="categoryChanged()"
+        [id]="category.toLowerCase()"
+        class="category-checkbox"
+        type="checkbox" />
+    <label class="category-label" [for]="category.toLowerCase()">{{category}}</label>
+  </div>
+</li>

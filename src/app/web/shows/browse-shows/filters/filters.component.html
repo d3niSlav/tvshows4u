@@ -19,3 +19,12 @@
   </ul>
   <hr class="divider"/>
 </div>
+<div class="categories-list">
+  <ul class="row">
+    <browse-categories
+        class="col-6 col-sm-3"
+        *ngFor="let category of categories"
+        (categoryStateChanged)="handleCategoryChanged($event)"
+        [category]="category"></browse-categories>
+  </ul>
+</div>

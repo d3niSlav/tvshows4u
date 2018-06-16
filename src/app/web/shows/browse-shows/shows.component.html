@@ -1,5 +1,6 @@
 <div class="container">
   <shows-filters
+      [categories]="categories"
       (sortingFilterChanged)="handleSortingCriteriaChange($event)"></shows-filters>
   <div class="row">
     <tv-show-card

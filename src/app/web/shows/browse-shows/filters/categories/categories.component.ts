@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-categories',
+  selector: 'browse-categories',
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent implements OnInit {
+  @Input() category;
+  @Output() categoryStateChanged = new EventEmitter<any>();
+  isActive: boolean = false;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  categoryChanged() {
+    this.categoryStateChanged.emit({
+      category: this.category,
+      state: this.isActive
+    });
   }
-
 }

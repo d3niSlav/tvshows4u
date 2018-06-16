@@ -43,8 +43,8 @@
 
       &:not(.toggle-categories) {
         border: 2px solid transparent;
-        transition: border 0.3s ease-in-out;
         border-radius: 10px;
+        transition: border 0.3s ease-in-out;
 
         &.active {
           border-color: #eeeeee;
@@ -69,13 +69,37 @@
   .divider {
     display: block;
     width: 100%;
-    margin: 15px auto 40px;
+    margin: 15px auto 0;
     border: 0;
     border-top: 1px solid #eee;
     transition: margin 0.3s ease;
 
     @media screen and (min-width: 768px) {
       margin: 0 auto;
+    }
+  }
+}
+
+.categories-list {
+  margin-bottom: 20px;
+  padding: 5px 0;
+  border-bottom: 1px solid #FFFFFF;
+
+  @media screen and (min-width: 768px) {
+    margin: 0 auto;
+  }
+
+  ul {
+    max-width: 400px;
+    margin: 0 auto;
+
+    @media screen and (min-width: 480px) {
+      padding-left: 40px;
+    }
+
+    @media screen and (min-width: 576px) {
+      max-width: 100%;
+      padding: 0;
     }
   }
 }
