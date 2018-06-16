@@ -1,0 +1,35 @@
+.actions {
+  text-align: center;
+  margin: 5px auto 20px;
+
+  .btn {
+    color: #FFFFFF;
+    font-size: 1rem;
+    outline: none;
+    box-shadow: none;
+  }
+
+  .submit-button {
+    border: 1px solid #8B0000;
+    background-color: #8B0000;
+
+    @media screen and (min-width: 768px) {
+      padding: 6px 35px;
+      margin-right: 10px;
+    }
+
+    &:hover {
+      background-color: #b91111;
+      border-color: #b91111;
+    }
+  }
+
+  .reset-button {
+    color: #000;
+
+    &:hover {
+      background-color: #fff;
+      border-color: #fff;
+    }
+  }
+}

@@ -9,12 +9,9 @@ export class ProfileService {
     favourites: [],
     watchedShows: []
   };
-
   personalShowsChanged = new Subject<any>();
 
-
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   setHeaders() {
     return {
@@ -57,5 +54,9 @@ export class ProfileService {
 
   getPersonalShows() {
     return this.personalShows;
+  }
+
+  updateData(url: string, data: any) {
+    return this.http.put(url, data, this.setHeaders());
   }
 }

@@ -1,0 +1,72 @@
+.form-group {
+  margin-bottom: 5px;
+}
+
+.form-control {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #555;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+label {
+  padding-top: 6px;
+  color: #fff;
+
+  @media screen and (min-width: 768px) {
+    text-align: right;
+  }
+}
+
+.message-wrapper {
+  height: 21px;
+
+  .edit-message {
+    display: block;
+    line-height: 1.313rem;
+    margin: 0 5px;
+    color: #FFFFFF;
+    font-size: 0.875rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: #228b22;
+    border-color: #228b22;
+    border-radius: 0 0 30px 30px;
+
+    &.error {
+      background-color: #8B0000;
+      border-color: #8B0000;
+    }
+  }
+}
+
+.image-container {
+  padding: 20px;
+
+  @media screen and (min-width: 768px) {
+    position: absolute;
+      top: 0;
+      right: 0;
+  }
+
+  .image-preview {
+    margin: 0 auto;
+    min-width: 125px;
+    max-width: 150px;
+    min-height: 125px;
+    max-height: 150px;
+    overflow: hidden;
+    border: 2px solid #eeeeee;
+    border-radius: 50%;
+
+    @media screen and (min-width: 768px) {
+    margin: 0;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}

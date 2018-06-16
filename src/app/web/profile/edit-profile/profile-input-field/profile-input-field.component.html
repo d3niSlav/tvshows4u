@@ -1,0 +1,29 @@
+<div class="form-group row" [formGroup]="form && form.getForm()">
+  <label
+      [for]="control.name"
+      class="col-12 col-md-3">{{control.label}}:</label>
+  <div class="col-12 col-md-6">
+    <div>
+      <input
+          [id]="control.name"
+          [name]="control.name"
+          [placeholder]="control.placeholder"
+          [type]="control.type"
+          [formControlName]="control.name"
+          [ngClass]="{ 'error': errorMessage || form.getError(control.name)}"
+          class="form-control"/>
+    </div>
+    <div class="message-wrapper">
+      <span
+          [ngClass]="{ 'error': errorMessage || (form.getError(control.name) && inputControl.dirty)}"
+          class="edit-message">{{form.getError(control.name)}}</span>
+    </div>
+  </div>
+  <div
+      class="col-12 col-md-3 image-container"
+      *ngIf="control.name === 'profileImage'">
+    <div class="image-preview">
+      <img [src]="inputControl.value" alt="Profile image" />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<form (ngSubmit)="onSubmit()" ngForm>
+  <fieldset>
+    <profile-input-field
+        *ngFor="let control of formData.controls"
+        [form]="form"
+        [control]="control"></profile-input-field>
+    <div class="actions">
+      <button class="submit-button btn">Save Name</button>
+      <button class="reset-button btn" (click)="onReset()">
+        {{formData.isResettable ? 'Reset' : 'Clear'}} fields</button>
+    </div>
+  </fieldset>
+</form>

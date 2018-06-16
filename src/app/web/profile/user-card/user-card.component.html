@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-md-3 text-center">
       <div class="avatar-container">
-        <img [src]="profile.profileImage" [alt]="profile.name" />
+        <img *ngIf="profile.profileImage" [src]="profile.profileImage" [alt]="profile.name" />
       </div>
     </div>
     <div class="col-md-6 col-sm-8 profile-information">
@@ -29,8 +29,8 @@
       </div>
     </div>
     <div class="col-md-3">
-      <button class="btn">My Shows</button>
-      <button class="btn">Edit Profile</button>
+      <a class="btn">My Shows</a>
+      <a [routerLink]="'/profile/edit'" class="btn">Edit Profile</a>
     </div>
   </div>
   <hr />

@@ -53,11 +53,13 @@ import { ContactService } from './contact-form/contact.service';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { DayBoxComponent } from './schedule/day-box/day-box.component';
 import { ScheduleService } from './schedule/schedule.service';
-import { FavouritesListComponent } from './profile/favourites-list/favourites-list.component';
 import { ShowsListComponent } from './profile/personal-shows/shows-list/shows-list.component';
 import { PersonalShowsComponent } from './profile/personal-shows/personal-shows.component';
 import { PersonalShowComponent } from './profile/personal-shows/shows-list/personal-show/personal-show.component';
 import { RatedShowsComponent } from './shows/rated-shows/rated-shows.component';
+import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
+import { ProfileInputFieldComponent } from './profile/edit-profile/profile-input-field/profile-input-field.component';
+import { ProfileEditFormComponent } from './profile/edit-profile/profile-edit-form/profile-edit-form.component';
 
 @NgModule({
   declarations: [
@@ -104,11 +106,13 @@ import { RatedShowsComponent } from './shows/rated-shows/rated-shows.component';
     ContactFormComponent,
     ScheduleComponent,
     DayBoxComponent,
-    FavouritesListComponent,
     ShowsListComponent,
     PersonalShowsComponent,
     PersonalShowComponent,
-    RatedShowsComponent
+    RatedShowsComponent,
+    EditProfileComponent,
+    ProfileInputFieldComponent,
+    ProfileEditFormComponent
   ],
   imports: [
     CommonModule,
