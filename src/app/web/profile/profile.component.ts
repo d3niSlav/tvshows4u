@@ -8,6 +8,8 @@ import {ProfileService} from './profile.service';
 })
 export class ProfileComponent implements OnInit {
   profileData = {};
+  favouriteShows: any[] = [];
+  watchedShows: any[] = [];
 
   constructor(private profileService: ProfileService) {
   }
@@ -15,9 +17,20 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.profileService.getUserProfile().subscribe((response: Response) => {
       this.profileData = response;
-      console.log(this.profileData);
-    }, error => {
-      console.log(error);
+    });
+
+    this.profileService.getUserShows().subscribe((response: any) => {
+      this.favouriteShows = response.filter((show) => {
+        return show.isFavourite;
+      });
+      this.watchedShows = response.filter((show) => {
+        return show.isWatched;
+      });
+
+      this.profileService.setUserShows({
+        favourites: this.favouriteShows,
+        watchedShows: this.watchedShows
+      });
     });
   }
 

@@ -53,6 +53,10 @@ import { ContactService } from './contact-form/contact.service';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { DayBoxComponent } from './schedule/day-box/day-box.component';
 import { ScheduleService } from './schedule/schedule.service';
+import { FavouritesListComponent } from './profile/favourites-list/favourites-list.component';
+import { ShowsListComponent } from './profile/personal-shows/shows-list/shows-list.component';
+import { PersonalShowsComponent } from './profile/personal-shows/personal-shows.component';
+import { PersonalShowComponent } from './profile/personal-shows/shows-list/personal-show/personal-show.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +102,11 @@ import { ScheduleService } from './schedule/schedule.service';
     SingleCommentComponent,
     ContactFormComponent,
     ScheduleComponent,
-    DayBoxComponent
+    DayBoxComponent,
+    FavouritesListComponent,
+    ShowsListComponent,
+    PersonalShowsComponent,
+    PersonalShowComponent
   ],
   imports: [
     CommonModule,

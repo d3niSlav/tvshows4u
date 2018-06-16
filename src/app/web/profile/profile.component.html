@@ -1,4 +1,8 @@
 <div class="profile-background"></div>
 <div class="container profile-wrapper">
-  <user-card></user-card>
+  <user-card
+      [profile]="profileData"
+      [favouritesCount]="favouriteShows.length"
+      [watchedShowsCount]="watchedShows.length"></user-card>
+  <router-outlet></router-outlet>
 </div>

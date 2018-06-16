@@ -1,0 +1,33 @@
+.show-wrapper {
+  padding: 10px 0 5px;
+  border-bottom: 1px solid #eee;
+
+  .title {
+    margin: 0;
+
+    a {
+      color: #FFF;
+      font-size: 1.2rem;
+    }
+  }
+
+  .plot {
+    height: 44px;
+    line-height: 1.2;
+    overflow: hidden;
+    margin: 5px auto;
+    color: #888888;
+    font-size: 0.75rem;
+    text-align: justify;
+  }
+
+  .poster {
+    float: left;
+    width: 60px;
+    padding-right: 10px;
+
+    img {
+      width: 100%;
+    }
+  }
+}

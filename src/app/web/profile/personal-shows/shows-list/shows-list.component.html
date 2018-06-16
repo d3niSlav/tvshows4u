@@ -1,0 +1,9 @@
+<div class="title">
+  <i class="fa" [ngClass]="type === 'favourites' ? 'fa-heart' : 'fa-eye'"></i>
+  {{title}}
+</div>
+<div class="shows-wrapper">
+  <div *ngFor="let show of shows">
+    <personal-show [show]="show"></personal-show>
+  </div>
+</div>

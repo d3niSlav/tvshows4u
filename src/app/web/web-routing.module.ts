@@ -15,6 +15,7 @@ import { TrailerComponent } from './shows/single-show/trailer/trailer.component'
 import { NewestShowsComponent } from './shows/newest-shows/newest-shows.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ScheduleComponent } from './schedule/schedule.component';
+import { PersonalShowsComponent } from './profile/personal-shows/personal-shows.component';
 
 const webRoutes: Routes = [
   { path: '', component: WebComponent, children: [
@@ -30,7 +31,10 @@ const webRoutes: Routes = [
       { path: 'comments', component: CommentsListComponent },
       { path: 'trailer', component: TrailerComponent }
     ]},
-    { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+    { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], children: [
+      { path: '', redirectTo: 'shows', pathMatch: 'full' },
+      { path: 'shows', component: PersonalShowsComponent}
+    ]},
     { path: 'contacts', component: ContactFormComponent },
     { path: 'schedule', component: ScheduleComponent }
   ]}

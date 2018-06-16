@@ -1,12 +1,39 @@
 const ProfileTvShow = require('../models/ProfileTvShow');
 const TvShow = require('../models/TvShow');
 const Profile = require('../models/Profile');
-// const Episode = require('../models/Episode');
 
-/**
- * Create a new TV Show. Because we use `insertGraph` you can pass relations
- * with the season and they also get inserted and related to the show.
- */
+/** Get all shows data for a user profile */
+const getShows = async function (req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  const shows = await ProfileTvShow
+    .query()
+    .eager('[showData, showData.seasons, showData.seasons.episodes]')
+    .where({ profileId: req.user.id });
+
+  const showData = shows.map((show) => {
+    const currentShow = show.showData[0];
+    currentShow.seasons = currentShow.seasons.map((season) => {
+      return {
+        season: season.number,
+        episodes: season.episodes.length
+      };
+    });
+
+    delete show.profileId;
+    delete show.showId;
+    delete show.showData;
+
+    return {
+      ...show,
+      ...currentShow
+    };
+  });
+
+  return res.send(showData);
+};
+
+module.exports.getShows = getShows;
+
 const addShowToFavourites = async function (req, res) {
   res.setHeader('Content-Type', 'application/json');
   if (req.user && req.user.id) {

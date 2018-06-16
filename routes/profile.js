@@ -7,6 +7,9 @@ require('../middleware/passport')(passport);
 module.exports = router => {
   router.get('/api/profile', passport.authenticate('jwt', { session: false }), ProfileController.getProfile);
 
+  /** Get user shows */
+  router.get('/api/profile/shows', passport.authenticate('jwt', { session: false }), ProfileController.getShows);
+
   /** Add show to favourites */
   router.post('/api/profile/favourites/add', passport.authenticate('jwt', { session: false }), ProfileController.addShowToFavourites);
 

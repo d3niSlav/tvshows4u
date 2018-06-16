@@ -1,9 +1,18 @@
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class ProfileService {
+  personalShows = {
+    favourites: [],
+    watchedShows: []
+  };
+
+  personalShowsChanged = new Subject<any>();
+
+
   constructor(private http: HttpClient) {
   }
 
@@ -35,5 +44,18 @@ export class ProfileService {
 
   removeShowToWatchlist(showId) {
     return this.http.post('/api/profile/watchlist/remove', { showId: showId }, this.setHeaders());
+  }
+
+  getUserShows() {
+    return this.http.get('/api/profile/shows', this.setHeaders());
+  }
+
+  setUserShows(shows: any) {
+    this.personalShows = shows;
+    this.personalShowsChanged.next(this.personalShows);
+  }
+
+  getPersonalShows() {
+    return this.personalShows;
   }
 }

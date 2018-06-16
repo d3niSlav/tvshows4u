@@ -1,0 +1,9 @@
+<div class="show-wrapper">
+  <div class="poster">
+    <img [src]="show.poster" [alt]="show.title"/>
+  </div>
+  <h4 class="title">
+    <a [routerLink]="['/show', show.id]">{{show.title}}</a>
+  </h4>
+  <p class="plot">{{show.plot}}</p>
+</div>
