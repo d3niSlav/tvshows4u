@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, OnChanges} from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'profile-input-field',
@@ -10,11 +10,9 @@ export class ProfileInputFieldComponent implements OnInit, OnChanges {
   @Input() control: any = {};
   @Input() form: any = {};
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   ngOnChanges() {
     this.inputControl = this.form && this.form.formGroup.controls[this.control.name] || {};

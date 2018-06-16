@@ -3,12 +3,12 @@
 }
 
 .form-control {
-  font-size: 14px;
   line-height: 1.5;
   color: #555;
+  font-size: 14px;
   border: none;
-  outline: none;
   box-shadow: none;
+  outline: none;
 }
 
 label {
@@ -52,17 +52,17 @@ label {
   }
 
   .image-preview {
-    margin: 0 auto;
     min-width: 125px;
     max-width: 150px;
     min-height: 125px;
     max-height: 150px;
+    margin: 0 auto;
     overflow: hidden;
     border: 2px solid #eeeeee;
     border-radius: 50%;
 
     @media screen and (min-width: 768px) {
-    margin: 0;
+      margin: 0;
     }
 
     img {

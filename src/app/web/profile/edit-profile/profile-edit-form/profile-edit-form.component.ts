@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ValidationManager} from 'ng2-validation-manager';
-import {ProfileService} from '../../profile.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { ValidationManager } from 'ng2-validation-manager';
+import { ProfileService } from '../../profile.service';
 
 @Component({
   selector: 'profile-edit-form',
