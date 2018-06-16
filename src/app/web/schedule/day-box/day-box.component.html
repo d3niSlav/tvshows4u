@@ -1,10 +1,12 @@
 <div class="day-box">
-  <div class="title">Tuesday</div>
-  <time class="date">12 Jun 2018</time>
+  <div class="title">{{day.name}}</div>
+  <time class="date">{{day.date}}</time>
   <div class="shows">
-    <a class="single-show">
-      <img src="http://www.saywhatnowproductions.com/wp-content/uploads/2014/02/sherlock-logo1.png" alt="sdsd"/>
+    <a
+        *ngFor="let show of day.shows"
+        [routerLink]="['/show', show.id]"
+        class="single-show">
+      <img [src]="show.logo" [alt]="show.title" />
     </a>
   </div>
 </div>
-<div class="clearfix"></div>

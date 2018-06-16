@@ -52,6 +52,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ContactService } from './contact-form/contact.service';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { DayBoxComponent } from './schedule/day-box/day-box.component';
+import { ScheduleService } from './schedule/schedule.service';
 
 @NgModule({
   declarations: [
@@ -115,7 +116,8 @@ import { DayBoxComponent } from './schedule/day-box/day-box.component';
     ShowsService,
     SingleShowService,
     ProfileService,
-    ContactService
+    ContactService,
+    ScheduleService
   ]
 })
 
