@@ -10,6 +10,7 @@ export class ShowsComponent implements OnInit {
   shows = [];
   categories;
   sortingCriteria = '';
+  currentCategories = [];
   isDescending = '';
 
   constructor(private showsService: ShowsService) {
@@ -22,9 +23,13 @@ export class ShowsComponent implements OnInit {
     });
   }
 
-  handleSortingCriteriaChange(criteriaData) {
+  handleSortingCriteriaChange(criteriaData: any) {
     this.sortingCriteria = criteriaData.criteria;
     this.isDescending = criteriaData.isDescending;
+  }
+
+  handleCategoriesChanged(categories: any) {
+    this.currentCategories = categories;
   }
 
   getCategories(shows) {

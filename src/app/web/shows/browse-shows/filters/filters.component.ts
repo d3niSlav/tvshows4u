@@ -8,6 +8,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class FiltersComponent implements OnInit {
   @Input() categories;
   @Output() sortingFilterChanged = new EventEmitter<any>();
+  @Output() currentCategoriesChanged = new EventEmitter<any>();
+  isCategoryFilterOpen: boolean = false;
   sortingFiltersMap = [
     {
       icon: 'sort-alpha-asc',
@@ -46,11 +48,17 @@ export class FiltersComponent implements OnInit {
     this.sortingFilterChanged.emit(criteria);
   }
 
+  toggleCategories() {
+    this.isCategoryFilterOpen = !this.isCategoryFilterOpen;
+  }
+
   handleCategoryChanged(categoryData: any) {
     if (!this.currentCategories.find(category => category === categoryData.category)) {
       this.currentCategories.push(categoryData.category);
     } else {
       this.currentCategories = this.currentCategories.filter(category => category !== categoryData.category);
     }
+
+    this.currentCategoriesChanged.emit(this.currentCategories);
   };
 }

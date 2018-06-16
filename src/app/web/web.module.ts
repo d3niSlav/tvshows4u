@@ -60,10 +60,12 @@ import { RatedShowsComponent } from './shows/rated-shows/rated-shows.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 import { ProfileInputFieldComponent } from './profile/edit-profile/profile-input-field/profile-input-field.component';
 import { ProfileEditFormComponent } from './profile/edit-profile/profile-edit-form/profile-edit-form.component';
+import { FilterArrayPipe } from '../shared/pipes/filter-array.pipe';
 
 @NgModule({
   declarations: [
     SortPipe,
+    FilterArrayPipe,
     TruncatePipe,
     WebComponent,
     SignInComponent,

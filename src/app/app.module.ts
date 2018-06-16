@@ -7,15 +7,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CmsModule } from './cms/cms.module';
 import { WebModule } from './web/web.module';
-import { FilterPipe } from './shared/pipes/filter.pipe';
-import { FilterArrayPipe } from './shared/pipes/filter-array.pipe';
 import { TruncatePipe } from './shared/pipes/truncate.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    FilterPipe,
-    FilterArrayPipe
+    AppComponent
   ],
   imports: [
     BrowserModule,

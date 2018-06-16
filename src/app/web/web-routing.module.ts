@@ -33,8 +33,8 @@ const webRoutes: Routes = [
       { path: 'comments', component: CommentsListComponent },
       { path: 'trailer', component: TrailerComponent }
     ]},
-    { path: 'profile', component: ProfileComponent, children: [ // canActivate: [AuthGuard],
-      { path: '', redirectTo: 'edit', pathMatch: 'full' },
+    { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], children: [
+      { path: '', redirectTo: 'shows', pathMatch: 'full' },
       { path: 'shows', component: PersonalShowsComponent},
       { path: 'edit', component: EditProfileComponent}
     ]},

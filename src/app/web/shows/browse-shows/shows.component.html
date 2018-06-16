@@ -1,10 +1,14 @@
 <div class="container">
   <shows-filters
       [categories]="categories"
+      (currentCategoriesChanged)="handleCategoriesChanged($event)"
       (sortingFilterChanged)="handleSortingCriteriaChange($event)"></shows-filters>
   <div class="row">
     <tv-show-card
-        *ngFor="let show of shows | sort:sortingCriteria:isDescending"
+        *ngFor="let show of shows | filterArray:currentCategories.join(',') | sort:sortingCriteria:isDescending"
         [show]="show"></tv-show-card>
+    <p class="no-results" *ngIf="(shows | filterArray:currentCategories.join(',')).length === 0">
+      No shows apply to this selected categories!
+    </p>
   </div>
 </div>

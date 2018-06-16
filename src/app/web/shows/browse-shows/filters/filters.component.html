@@ -9,17 +9,18 @@
       <i class="fa fa-{{sortingFilter.icon}}"></i>
     </li>
     <li
+        (click)="toggleCategories()"
         class="toggle-categories"
         title="Choose categories">
     <span class="open-categories ng-scope">
       Categories
-      <i class="fa fa-chevron-down"></i>
+      <i class="fa" [ngClass]="isCategoryFilterOpen ? 'fa-chevron-down' : 'fa-chevron-up'"></i>
     </span>
     </li>
   </ul>
   <hr class="divider"/>
 </div>
-<div class="categories-list">
+<div class="categories-list" [ngClass]="{ 'hidden': !isCategoryFilterOpen }">
   <ul class="row">
     <browse-categories
         class="col-6 col-sm-3"
