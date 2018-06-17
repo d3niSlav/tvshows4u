@@ -35,6 +35,43 @@ const get = async function (req, res) {
 
 module.exports.get = get;
 
+const getUserEmail = async function (req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  const userData = await User.query().first().where({
+    profileId: req.user.id
+  });
+
+  if (!userData) {
+    return res.status(404).send({ error: 'User not found!'});
+  }
+
+  return res.send({ email: userData.email });
+};
+
+module.exports.getUserEmail = getUserEmail;
+
+const changeUserEmail = async function (req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  const user = await User.query().first().where({ email: req.body.email });
+  if (user && user.profileId !== req.user.id) {
+    return res.status(409).send({ error: 'E-mail is already in use!' });
+  }
+
+  const userData = await User.query().first().patch({
+    email: req.body.email
+  }).where({
+    profileId: req.user.id
+  });
+
+  if (userData <= 0) {
+    return res.status(404).send({ error: 'User not found!' });
+  }
+
+  return res.send({ email: req.body.email });
+};
+
+module.exports.changeUserEmail = changeUserEmail;
+
 const update = async function (req, res) {
   res.setHeader('Content-Type', 'application/json');
 

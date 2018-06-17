@@ -1,6 +1,7 @@
 'use strict';
 
 const ProfileController = require('../controllers/ProfileController');
+const UserController = require('../controllers/UserController');
 const passport = require('passport');
 require('../middleware/passport')(passport);
 
@@ -33,4 +34,10 @@ module.exports = router => {
 
   /** Get show favourite/watched status */
   router.get('/api/profile/checkShow/:showsId', passport.authenticate('jwt', { session: false }), ProfileController.checkShowStatus);
+
+  /** Get user e-mail address */
+  router.get('/api/profile/email', passport.authenticate('jwt', { session: false }), UserController.getUserEmail);
+
+  /** Update user e-mail address */
+  router.put('/api/profile/email', passport.authenticate('jwt', { session: false }), UserController.changeUserEmail);
 };
