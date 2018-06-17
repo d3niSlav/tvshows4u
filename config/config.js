@@ -10,6 +10,7 @@ const envVariablesSchema = Joi.object({
     .required()
     .description('JWT Secret required to sign'),
   JWT_TOKEN_EXPIRATION_TIME: Joi.number().default(5000),
+  PASSWORD_RESET_TOKEN_DURATION: Joi.number().default(5000),
   MYSQL_DB: Joi.string()
     .required()
     .description('MySQL database name'),
@@ -19,7 +20,16 @@ const envVariablesSchema = Joi.object({
     .description('MySQL username'),
   MYSQL_PASSWORD: Joi.string()
     .allow('')
-    .description('MySQL password')
+    .description('MySQL password'),
+  MAIL_USER: Joi.string()
+    .required()
+    .description('E-mail username'),
+  MAIL_PASSWORD: Joi.string()
+    .required()
+    .description('E-mail password'),
+  MAIL_SERVICE: Joi.string()
+    .required()
+    .description('E-mail service provider')
 })
   .unknown()
   .required();
@@ -34,11 +44,17 @@ const config = {
   port: envVars.PORT,
   jwtSecret: envVars.JWT_SECRET,
   tokenExpirationTime: envVars.JWT_TOKEN_EXPIRATION_TIME,
+  passwordResetTokenDuration: envVars.PASSWORD_RESET_TOKEN_DURATION,
   mysql: {
     db: envVars.MYSQL_DB,
     host: envVars.MYSQL_HOST,
     user: envVars.MYSQL_USER,
     password: envVars.MYSQL_PASSWORD
+  },
+  mail: {
+    user: envVars.MAIL_USER,
+    password: envVars.MAIL_PASSWORD,
+    service: envVars.MAIL_SERVICE
   }
 };
 

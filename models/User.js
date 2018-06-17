@@ -19,7 +19,7 @@ class User extends Password(Model) {
         id: { type: 'integer' },
         email: { type: 'string' },
         password: { type: 'string' },
-        passwordResetExpirationDate: { type: 'date' },
+        passwordResetExpirationDate: { type: 'dateTime' },
         passwordResetToken: { type: 'string' }
       }
     };

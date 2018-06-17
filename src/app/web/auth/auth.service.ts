@@ -49,4 +49,8 @@ export class AuthService implements OnInit {
 
     return null;
   }
+
+  requestPasswordRequest(emailData: any) {
+    return this.http.post('/api/forgottenPassword', emailData);
+  }
 }

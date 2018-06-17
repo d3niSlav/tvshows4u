@@ -49,6 +49,8 @@
     "morgan": "1.9.0",
     "mysql": "2.15.0",
     "ng2-validation-manager": "^0.5.3",
+    "nodemailer": "^4.6.7",
+    "nodemailer-smtp-transport": "^2.7.4",
     "objection": "1.0.0",
     "objection-password": "1.0.0",
     "passport": "0.4.0",

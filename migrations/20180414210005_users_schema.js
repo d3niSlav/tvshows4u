@@ -9,7 +9,7 @@ exports.up = knex => {
       table.increments('id').primary();
       table.string('email');
       table.text('password');
-      table.date('passwordResetExpirationDate');
+      table.dateTime('passwordResetExpirationDate');
       table.text('passwordResetToken');
       table
         .integer('profileId')

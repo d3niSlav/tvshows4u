@@ -1,5 +1,9 @@
 const { transaction } = require('objection');
+const crypto = require('crypto');
+const nodemailer = require('nodemailer');
+const smtpTransport = require('nodemailer-smtp-transport');
 
+const config = require('../config/config');
 const User = require('../models/User');
 
 const create = async function (req, res) {
@@ -150,3 +154,61 @@ const changePassword = async function (req, res) {
 };
 
 module.exports.changePassword = changePassword;
+
+
+const requestForgottenPassword = async function (req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  const user = await User.query().first().where({ email: req.body.email });
+
+  if (user) {
+    const updatedUser = await User.query().patchAndFetchById(user.id, {
+      passwordResetExpirationDate: new Date(Date.now() + config.passwordResetTokenDuration).toISOString().slice(0, 19).replace('T', ' '),
+      passwordResetToken: crypto.randomBytes(20).toString('hex')
+    });
+
+    if (!updatedUser) {
+      return res.status(500).send({
+        message: 'Something went wrong!',
+        type: 'error'
+      });
+    }
+
+    const smtpTransport = nodemailer.createTransport({
+      service: config.mail.service,
+      auth: {
+        user: config.mail.user,
+        pass: config.mail.password
+      }
+    });
+
+    const mailOptions = {
+      to: updatedUser.email,
+      from: 'TV-Shows for U' + '<' + config.mail.user + '>',
+      subject: 'TV-Show Password Reset Token',
+      text: 'You have requested a password reset. Here is yout reset token.\n\n' +
+      'Click the link to complete the process.\n' +
+      'http://' + req.hostname + ':' + 4200 + '/reset-password/' + updatedUser.passwordResetToken + '\n\n'
+    };
+
+    await smtpTransport.sendMail(mailOptions)
+      .then((data) => {
+        return res.send({
+          message: "Check your mail to reset your password!",
+          type: 'information'
+        });
+      })
+      .catch((err) => {
+        return res.status(500).send({
+          message: 'Something went wrong!',
+          type: 'error'
+        });
+      });
+  } else {
+    return res.send({
+      message: "Password change request sent!",
+      type: 'information'
+    });
+  }
+};
+
+module.exports.requestForgottenPassword = requestForgottenPassword;

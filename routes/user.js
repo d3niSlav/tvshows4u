@@ -20,4 +20,7 @@ module.exports = router => {
 
   /** LOGIN User */
   router.post('/api/users/login', UserController.login);
+
+  /** Request forgotten password */
+  router.post('/api/forgottenPassword', UserController.requestForgottenPassword);
 };
