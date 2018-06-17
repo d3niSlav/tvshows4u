@@ -15,15 +15,15 @@
     </div>
     <div class="message-wrapper">
       <span
-          [ngClass]="{ 'error': errorMessage || (form.getError(control.name) && inputControl.dirty)}"
-          class="edit-message">{{form.getError(control.name)}}</span>
+          [ngClass]="{ 'error': (errors && errors[control.name]) || (form.getError(control.name) && inputControl.dirty || (form.submitted && !form.isValid())) }"
+          class="edit-message">{{form.getError(control.name) || (messages && messages[control.name]) || (errors && errors[control.name]) }}</span>
     </div>
   </div>
   <div
       class="col-12 col-md-3 image-container"
       *ngIf="control.name === 'profileImage'">
     <div class="image-preview">
-      <img [src]="inputControl.value" alt="Profile image" />
+      <img [src]="inputControl.value || control.default" alt="Profile image" />
     </div>
   </div>
 </div>

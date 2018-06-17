@@ -10,33 +10,54 @@ import { ProfileService } from '../../profile.service';
 export class ProfileEditFormComponent implements OnInit {
   @Input() formData: any;
   form: any;
+  messages: any[];
+  errors: any[];
 
   constructor(private profileService: ProfileService) {}
 
   ngOnInit() {
-    this.form = new ValidationManager(this.formData.form);
+    if (this.formData){
+      this.form = new ValidationManager(this.formData.form);
 
-    if (this.formData.values) {
-      this.form.setValue(this.formData.values);
+      if (this.formData.values) {
+        this.form.setValue(this.formData.values);
+      }
+
+      if (this.formData.errorMessages) {
+        this.formData.errorMessages.forEach((errorMessage: any) => {
+          this.form.setErrorMessage(errorMessage.field, errorMessage.rule, errorMessage.message);
+        });
+      }
     }
   }
 
   onSubmit() {
-    this.profileService.updateData(this.formData.url, this.form.formGroup.value).subscribe(
-      (resp: any) => {
-        console.log(resp);
+    if (this.form.isValid()) {
+      this.profileService.updateData(this.formData.url, this.form.formGroup.value).subscribe(
+        (resp: any) => {
+          this.messages = resp;
+          setTimeout(() => {
+            this.messages = null;
+          }, 10000);
 
-        if (this.formData.shouldClearForm) {
-          this.form.reset();
+          if (this.formData.shouldClearForm) {
+            this.form.reset();
+          }
+        },
+        (err: any) => {
+          this.errors = err.error;
+
+          if (this.formData.shouldClearForm) {
+            this.form.reset();
+          }
         }
-      },
-      (err: any) => {
-        console.log(err.error);
-      }
-    );
+      );
+    }
   }
 
-  onReset() {
+  onReset(event: Event) {
+    event.preventDefault();
+
     if (this.formData.isResettable && this.formData.values) {
       this.form.setValue(this.formData.values);
     } else {

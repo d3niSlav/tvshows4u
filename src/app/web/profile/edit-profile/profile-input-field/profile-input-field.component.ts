@@ -9,6 +9,8 @@ export class ProfileInputFieldComponent implements OnInit, OnChanges {
   inputControl: any;
   @Input() control: any = {};
   @Input() form: any = {};
+  @Input() messages: any = {};
+  @Input() errors: any = {};
 
   constructor() {}
 

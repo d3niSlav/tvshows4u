@@ -12,10 +12,13 @@ const updateProfile = async function (req, res) {
   const profile = await Profile.query().patchAndFetchById(req.user.id, req.body);
 
   if (!profile) {
-    return res.status(500).send({ error: 'Something went wrong!' });
+    return res.status(500).send({ name: 'Something went wrong!' });
   }
 
-  return res.send(profile);
+  return res.send({
+    name: 'Name changed successfully!',
+    profileImage: 'Profile picture changed successfully!'
+  });
 };
 
 module.exports.updateProfile = updateProfile;

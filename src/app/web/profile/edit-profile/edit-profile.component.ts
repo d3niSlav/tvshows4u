@@ -18,7 +18,7 @@ export class EditProfileComponent implements OnInit {
   }
 
   initializePasswordEditForm() {
-    this.forms.push({
+    this.forms[2] = ({
       form: {
         oldPassword: 'required',
         newPassword: 'required',
@@ -44,6 +44,28 @@ export class EditProfileComponent implements OnInit {
           type: 'password'
         }
       ],
+      errorMessages: [
+        {
+          field: 'oldPassword',
+          rule: 'required',
+          message: 'Current password is required!'
+        },
+        {
+          field: 'newPassword',
+          rule: 'required',
+          message: 'New password is required!'
+        },
+        {
+          field: 'confirmPassword',
+          rule: 'required',
+          message: 'Confirm your new password!'
+        },
+        {
+          field: 'confirmPassword',
+          rule: 'equalTo',
+          message: 'Passwords do not match!'
+        }
+      ],
       url: '/api/profile/password',
       shouldClearForm: true
     });
@@ -51,7 +73,7 @@ export class EditProfileComponent implements OnInit {
 
   initializeEmailEditForm() {
     this.profileService.getUserEmail().subscribe((emailData: any) => {
-      this.forms.push({
+      this.forms[1] = ({
         form: {
           email: 'required|email'
         },
@@ -74,7 +96,7 @@ export class EditProfileComponent implements OnInit {
 
   initializeProfileEditForm() {
     this.profileService.getUserProfile().subscribe((profileData: any) => {
-      this.forms.push({
+      this.forms[0] = ({
         form: {
           name: 'required',
           profileImage: 'required'
@@ -94,7 +116,15 @@ export class EditProfileComponent implements OnInit {
             name: 'profileImage',
             label: 'Image URL',
             placeholder: 'Enter url...',
-            type: 'text'
+            type: 'text',
+            default: '/assets/img/default-profile-image.png'
+          }
+        ],
+        errorMessages: [
+          {
+            field: 'profileImage',
+            rule: 'required',
+            message: 'Profile image URL is required!'
           }
         ],
         isResettable: true,

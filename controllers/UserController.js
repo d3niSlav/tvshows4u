@@ -71,7 +71,7 @@ const changeUserEmail = async function (req, res) {
     return res.status(404).send({ error: 'User not found!' });
   }
 
-  return res.send({ email: req.body.email });
+  return res.send({ email: "E-mail successfully changed!" });
 };
 
 module.exports.changeUserEmail = changeUserEmail;
@@ -129,12 +129,12 @@ module.exports.login = login;
 const changePassword = async function (req, res) {
   res.setHeader('Content-Type', 'application/json');
   if (!req.body.oldPassword || !req.body.newPassword) {
-    return res.status(400).send({ error: 'Old and new password are required!' });
+    return res.status(400).send({ oldPassword: 'Old and new password are required!' });
   }
 
   let user = await User.query().first().where({ profileId: req.user.id });
   if (!user) {
-    return res.status(401).send({ error: 'User not found!' });
+    return res.status(401).send({ oldPassword: 'User not found!' });
   }
 
   const isPasswordValid = await user.verifyPassword(req.body.oldPassword);
@@ -150,7 +150,7 @@ const changePassword = async function (req, res) {
     return res.status(500).send({ error: 'Something went wrong!' });
   }
 
-  return res.status(200).send({ newPassword: 'Password changed successfully!'});
+  return res.status(200).send({ oldPassword: 'Password changed successfully!'});
 };
 
 module.exports.changePassword = changePassword;
