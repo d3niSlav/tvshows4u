@@ -212,3 +212,63 @@ const requestForgottenPassword = async function (req, res) {
 };
 
 module.exports.requestForgottenPassword = requestForgottenPassword;
+
+
+const updateForgottenPassword = async function (req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  let user = await User.query().first().where({
+    passwordResetToken: req.params.token
+  });
+
+  if (user) {
+    const tokenExpirationDate = new Date(user.passwordResetExpirationDate).getTime();
+    const currentDate = new Date(Date.now() - 3 * 60 * 60 * 1000).getTime();
+
+    if (currentDate <= tokenExpirationDate + config.passwordResetTokenDuration) {
+      user = await User.query().patchAndFetchById(user.id, {
+        password: req.body.newPassword,
+        passwordResetExpirationDate: new Date('1900/1/1').toISOString().slice(0, 19).replace('T', ' ')
+      });
+
+      if (!user) {
+        return res.status(500).send({
+          message: 'Something went wrong!'
+        });
+      }
+
+      const smtpTransport = nodemailer.createTransport({
+        service: config.mail.service,
+        auth: {
+          user: config.mail.user,
+          pass: config.mail.password
+        }
+      });
+
+      const mailOptions = {
+        to: user.email,
+        from: 'TV-Shows for U' + '<' + config.mail.user + '>',
+        subject: 'TV-Shows Password Change',
+        text: 'The password for ' + user.email + ' has been updated successfully.'
+      };
+
+      await smtpTransport.sendMail(mailOptions)
+        .then((data) => {
+          return res.send({ message: 'Password changed successfully!' });
+        })
+        .catch((err) => {
+          return res.status(500).send({ message: 'Something went wrong!' });
+        });
+    }
+
+    return res.status(400).send({
+      message: "Token expired!"
+    });
+  } else {
+    return res.send({
+      message: "Password change request sent!",
+      type: 'information'
+    });
+  }
+};
+
+module.exports.updateForgottenPassword = updateForgottenPassword;

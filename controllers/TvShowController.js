@@ -16,9 +16,6 @@ const getAllShows = async function (req, res) {
     .skipUndefined()
     .allowEager('[seasons]')
     .eager('seasons')
-    // .where('age', '>=', req.query.minAge)
-    // .where('age', '<', req.query.maxAge)
-    // .where('firstName', 'like', req.query.firstName)
     .limit(req.query.limit)
     .orderBy(req.query.criteria, req.query.desc ? 'desc' : 'asc')
     .modifyEager('[seasons]', qb => qb.orderBy('number'));

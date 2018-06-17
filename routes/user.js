@@ -23,4 +23,7 @@ module.exports = router => {
 
   /** Request forgotten password */
   router.post('/api/forgottenPassword', UserController.requestForgottenPassword);
+
+  /** Update forgotten password */
+  router.post('/api/updatePassword/:token', UserController.updateForgottenPassword);
 };
