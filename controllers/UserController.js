@@ -121,3 +121,32 @@ const login = async function (req, res) {
 };
 
 module.exports.login = login;
+
+const changePassword = async function (req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  if (!req.body.oldPassword || !req.body.newPassword) {
+    return res.status(400).send({ error: 'Old and new password are required!' });
+  }
+
+  let user = await User.query().first().where({ profileId: req.user.id });
+  if (!user) {
+    return res.status(401).send({ error: 'User not found!' });
+  }
+
+  const isPasswordValid = await user.verifyPassword(req.body.oldPassword);
+  if (!isPasswordValid) {
+    return res.status(401).send({ oldPassword: 'Wrong password!' });
+  }
+
+  user = await User.query().patchAndFetchById(user.id, {
+    password: req.body.newPassword
+  });
+
+  if (!user) {
+    return res.status(500).send({ error: 'Something went wrong!' });
+  }
+
+  return res.status(200).send({ newPassword: 'Password changed successfully!'});
+};
+
+module.exports.changePassword = changePassword;

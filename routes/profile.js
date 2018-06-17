@@ -40,4 +40,7 @@ module.exports = router => {
 
   /** Update user e-mail address */
   router.put('/api/profile/email', passport.authenticate('jwt', { session: false }), UserController.changeUserEmail);
+
+  /** Update user password */
+  router.put('/api/profile/password', passport.authenticate('jwt', { session: false }), UserController.changePassword);
 };
