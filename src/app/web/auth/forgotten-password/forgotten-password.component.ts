@@ -12,13 +12,17 @@ import { Router } from '@angular/router';
     }
 
     .success-message {
-      padding: 25px 0 20px;
-      color: #228b22;
+      margin: 25px 0 20px;
+      padding: 10px 0;
+      color: #228B22;
       font-size: 1.5rem;
+      background-color: #FFFFFF;
+      border: 4px solid #228B22;
+      border-radius: 10px;
     }
 
     a {
-      color: #000;
+      color: #000000;
       transition: color 0.3s ease;
     }
     
