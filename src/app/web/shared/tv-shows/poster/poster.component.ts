@@ -3,12 +3,12 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'show-poster',
   template: `
-    <a 
+    <a
       class="poster-wrapper"
       [routerLink]="[showUrl]">
       <img
-       class="img-fluid" 
-       alt="{{showTitle}}" 
+       class="img-fluid"
+       alt="{{showTitle}}"
        src="{{showImage}}" />
     </a>
   `,
@@ -18,7 +18,7 @@ import { Component, Input } from '@angular/core';
       width: 100%;
       height: 100%;
     }
-    
+
    .poster-wrapper img {
       width: 100%;
     }

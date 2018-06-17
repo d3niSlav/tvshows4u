@@ -32,7 +32,7 @@ export class SignUpComponent implements OnInit {
   }
 
   signUp() {
-    let userData = {...this.signUpForm.formGroup.value};
+    const userData = {...this.signUpForm.formGroup.value};
     delete userData.confirmPassword;
 
     this.authService.registerUser(userData).subscribe((response: Response) => {

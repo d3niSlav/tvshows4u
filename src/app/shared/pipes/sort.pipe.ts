@@ -1,4 +1,4 @@
-import {Pipe, PipeTransform} from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'sort'
@@ -11,7 +11,7 @@ export class SortPipe implements PipeTransform {
         let secondParameter = secondElement[criteria].toString().toLowerCase();
 
         if (isDescending) {
-          [firstParameter, secondParameter] = [secondParameter, firstParameter]
+          [firstParameter, secondParameter] = [secondParameter, firstParameter];
         }
 
         if (firstParameter < secondParameter) {

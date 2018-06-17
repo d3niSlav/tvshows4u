@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
-import {ActivatedRoute, Params, Router} from '@angular/router'
-import {TvShowsService} from '../../services/tv-shows.service';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { TvShowsService } from '../../services/tv-shows.service';
 
 @Component({
   selector: 'app-edit-season',

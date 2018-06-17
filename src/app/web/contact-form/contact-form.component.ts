@@ -33,7 +33,7 @@ export class ContactFormComponent implements OnInit {
       this.isError = false;
     }, error => {
       this.isError = true;
-      this.message = 'We are sorry, there was a problem submitting your message!'
+      this.message = 'We are sorry, there was a problem submitting your message!';
     }, () => {
       this.contactForm.reset();
       setTimeout(() => {

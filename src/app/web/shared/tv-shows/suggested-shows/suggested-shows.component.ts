@@ -6,12 +6,10 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./suggested-shows.component.scss']
 })
 export class SuggestedShowsComponent implements OnInit {
-  @Input() sectionTitle: string = "";
+  @Input() sectionTitle: string = '';
   @Input() shows = [];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

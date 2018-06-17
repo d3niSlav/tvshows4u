@@ -10,7 +10,7 @@ import {Subscription} from 'rxjs/Subscription';
 export class PersonalShowsComponent implements OnInit {
   shows: any;
   subscription: Subscription;
-  
+
   constructor(private profileService: ProfileService) {
   }
 

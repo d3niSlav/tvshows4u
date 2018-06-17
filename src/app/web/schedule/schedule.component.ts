@@ -7,7 +7,7 @@ import { ScheduleService } from './schedule.service';
   styleUrls: ['./schedule.component.scss']
 })
 export class ScheduleComponent implements OnInit {
-  schedule:any = [];
+  schedule: any = [];
   constructor(private scheduleService: ScheduleService) {
   }
 
@@ -39,7 +39,7 @@ export class ScheduleComponent implements OnInit {
     }
 
     if (day.length < 2) {
-      day = `0${day}`
+      day = `0${day}`;
     }
 
     return [year, month, day].join('-');

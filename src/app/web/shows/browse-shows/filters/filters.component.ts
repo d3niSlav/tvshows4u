@@ -60,5 +60,5 @@ export class FiltersComponent implements OnInit {
     }
 
     this.currentCategoriesChanged.emit(this.currentCategories);
-  };
+  }
 }

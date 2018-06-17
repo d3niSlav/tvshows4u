@@ -22,11 +22,11 @@ export class StarsComponent implements OnInit {
   }
 
   createStars() {
-    let stars = new Array(STARS_COUNT);
+    const stars = new Array(STARS_COUNT);
     stars.fill(STAR_EMPTY);
 
     let fullStarsCount = 0;
-    let maxFullRating = Math.floor(+this.rating);
+    const maxFullRating = Math.floor(+this.rating);
     for (let starIndex = 0; starIndex < maxFullRating; starIndex++) {
       stars[starIndex] = STAR_FULL;
       fullStarsCount++;

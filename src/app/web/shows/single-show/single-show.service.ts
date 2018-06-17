@@ -9,7 +9,7 @@ export class SingleShowService {
   }
 
   getShowId() {
-    if (this.currentShow){
+    if (this.currentShow) {
       return this.currentShow.id;
     }
   }

@@ -17,7 +17,7 @@ export class ProfileEditFormComponent implements OnInit {
     this.form = new ValidationManager(this.formData.form);
 
     if (this.formData.values) {
-      this.form.setValue(this.formData.values)
+      this.form.setValue(this.formData.values);
     }
   }
 
@@ -37,7 +37,7 @@ export class ProfileEditFormComponent implements OnInit {
 
   onReset() {
     if (this.formData.isResettable && this.formData.values) {
-      this.form.setValue(this.formData.values)
+      this.form.setValue(this.formData.values);
     } else {
       this.form.reset();
     }

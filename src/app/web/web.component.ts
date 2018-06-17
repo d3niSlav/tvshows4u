@@ -27,7 +27,7 @@ export class WebComponent implements OnInit {
   }
 
   handleModalChange(isModalOpen: boolean) {
-    this.isModalOpen = isModalOpen
+    this.isModalOpen = isModalOpen;
   }
 
 }
