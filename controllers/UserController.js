@@ -226,7 +226,7 @@ const updateForgottenPassword = async function (req, res) {
 
     if (currentDate <= tokenExpirationDate + config.passwordResetTokenDuration) {
       user = await User.query().patchAndFetchById(user.id, {
-        password: req.body.newPassword,
+        password: req.body.password,
         passwordResetExpirationDate: new Date('1900/1/1').toISOString().slice(0, 19).replace('T', ' ')
       });
 
@@ -258,11 +258,11 @@ const updateForgottenPassword = async function (req, res) {
         .catch((err) => {
           return res.status(500).send({ message: 'Something went wrong!' });
         });
+    } else {
+      return res.status(400).send({
+        message: "Token expired!"
+      });
     }
-
-    return res.status(400).send({
-      message: "Token expired!"
-    });
   } else {
     return res.send({
       message: "Password change request sent!",

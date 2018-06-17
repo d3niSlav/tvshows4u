@@ -53,4 +53,8 @@ export class AuthService implements OnInit {
   requestPasswordRequest(emailData: any) {
     return this.http.post('/api/forgottenPassword', emailData);
   }
+
+  updateRequestedPasswordReset(token, formData: any) {
+    return this.http.post(`/api/updatePassword/${token}`, formData);
+  }
 }

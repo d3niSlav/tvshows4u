@@ -18,12 +18,14 @@ import { ScheduleComponent } from './schedule/schedule.component';
 import { PersonalShowsComponent } from './profile/personal-shows/personal-shows.component';
 import { RatedShowsComponent } from './shows/rated-shows/rated-shows.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
+import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 
 const webRoutes: Routes = [
   { path: '', component: WebComponent, children: [
     { path: '', component: HomeComponent, pathMatch: 'full' },
     { path: 'signin', component: SignInComponent },
     { path: 'forgotten', component: ForgottenPasswordComponent },
+    { path: 'reset-password/:token', component: ResetPasswordComponent },
     { path: 'signup', component: SignUpComponent },
     { path: 'shows', component: ShowsComponent },
     { path: 'newest', component: NewestShowsComponent },

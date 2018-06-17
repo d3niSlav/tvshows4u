@@ -61,6 +61,7 @@ import { EditProfileComponent } from './profile/edit-profile/edit-profile.compon
 import { ProfileInputFieldComponent } from './profile/edit-profile/profile-input-field/profile-input-field.component';
 import { ProfileEditFormComponent } from './profile/edit-profile/profile-edit-form/profile-edit-form.component';
 import { FilterArrayPipe } from '../shared/pipes/filter-array.pipe';
+import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -114,7 +115,8 @@ import { FilterArrayPipe } from '../shared/pipes/filter-array.pipe';
     RatedShowsComponent,
     EditProfileComponent,
     ProfileInputFieldComponent,
-    ProfileEditFormComponent
+    ProfileEditFormComponent,
+    ResetPasswordComponent
   ],
   imports: [
     CommonModule,
