@@ -22,17 +22,18 @@ export class ProfileEditFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.formData.url);
-    console.log(this.form.formGroup.value);
+    this.profileService.updateData(this.formData.url, this.form.formGroup.value).subscribe(
+      (resp: any) => {
+        console.log(resp);
 
-    // this.profileService.updateData(this.formData.url, this.form.formGroup.value).subscribe(
-    //   (resp: any) => {
-    //     console.log(resp);
-    //   },
-    //   (еrror: any) => {
-    //
-    //   }
-    // );
+        if (this.formData.shouldClearForm) {
+          this.form.reset();
+        }
+      },
+      (err: any) => {
+        console.log(err.error);
+      }
+    );
   }
 
   onReset() {

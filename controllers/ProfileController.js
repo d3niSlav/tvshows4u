@@ -2,6 +2,24 @@ const ProfileTvShow = require('../models/ProfileTvShow');
 const TvShow = require('../models/TvShow');
 const Profile = require('../models/Profile');
 
+const getProfile = async function (req, res) {
+  return res.send(req.user);
+};
+
+module.exports.getProfile = getProfile;
+
+const updateProfile = async function (req, res) {
+  const profile = await Profile.query().patchAndFetchById(req.user.id, req.body);
+
+  if (!profile) {
+    return res.status(500).send({ error: 'Something went wrong!' });
+  }
+
+  return res.send(profile);
+};
+
+module.exports.updateProfile = updateProfile;
+
 /** Get all shows data for a user profile */
 const getShows = async function (req, res) {
   res.setHeader('Content-Type', 'application/json');
@@ -251,9 +269,3 @@ const mergeObjectsFromArrays = (firstArray, secondArray) => {
 
   return mergedArray;
 };
-
-const getProfile = async function (req, res) {
-  return res.send(userProfile);
-};
-
-module.exports.getProfile = getProfile;

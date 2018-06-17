@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProfileService } from '../profile.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -8,16 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class EditProfileComponent implements OnInit {
   forms = [];
 
-  constructor() {}
+  constructor(private profileService: ProfileService) {}
 
   ngOnInit() {
-    this.forms.push(this.initializeProfileEditForm());
-    this.forms.push(this.initializeEmailEditForm());
-    this.forms.push(this.initializePasswordEditForm());
+    this.initializeProfileEditForm();
+    this.initializeEmailEditForm();
+    this.initializePasswordEditForm();
   }
 
   initializePasswordEditForm() {
-    return {
+    this.forms.push({
       form: {
         oldPassword: 'required',
         newPassword: 'required',
@@ -43,57 +44,62 @@ export class EditProfileComponent implements OnInit {
           type: 'password'
         }
       ],
-      url: '/api/user/password'
-    };
+      url: '/api/profile/password',
+      shouldClearForm: true
+    });
   }
 
   initializeEmailEditForm() {
-    return {
-      form: {
-        email: 'required|email'
-      },
-      values: {
-        email: 'deni3@mail.bg'
-      },
-      controls: [
-        {
-          name: 'email',
-          label: 'E-mail',
-          placeholder: 'Enter your email address...',
-          type: 'email'
-        }
-      ],
-      isResettable: true,
-      url: '/api/user/email'
-    };
+    this.profileService.getUserEmail().subscribe((emailData: any) => {
+      this.forms.push({
+        form: {
+          email: 'required|email'
+        },
+        values: {
+          email: emailData.email
+        },
+        controls: [
+          {
+            name: 'email',
+            label: 'E-mail',
+            placeholder: 'Enter your email address...',
+            type: 'email'
+          }
+        ],
+        isResettable: true,
+        url: '/api/profile/email'
+      });
+    });
   }
 
   initializeProfileEditForm() {
-    return {
-      form: {
-        name: 'required',
-        profileImage: 'required'
-      },
-      values: {
-        name: 'deni',
-        profileImage: 'https://avatars0.githubusercontent.com/u/23580705?s=400&u=bbc5b149851ff5be2cbb649582f0bef0cc086098&v=4'
-      },
-      controls: [
-        {
-          name: 'name',
-          label: 'Name',
-          placeholder: 'Enter your name...',
-          type: 'text'
+    this.profileService.getUserProfile().subscribe((profileData: any) => {
+      this.forms.push({
+        form: {
+          name: 'required',
+          profileImage: 'required'
         },
-        {
-          name: 'profileImage',
-          label: 'Image URL',
-          placeholder: 'Enter url...',
-          type: 'text'
-        }
-      ],
-      isResettable: true,
-      url: '/api/profile'
-    };
+        values: {
+          name: profileData.name,
+          profileImage: profileData.profileImage
+        },
+        controls: [
+          {
+            name: 'name',
+            label: 'Name',
+            placeholder: 'Enter your name...',
+            type: 'text'
+          },
+          {
+            name: 'profileImage',
+            label: 'Image URL',
+            placeholder: 'Enter url...',
+            type: 'text'
+          }
+        ],
+        isResettable: true,
+        url: '/api/profile'
+      });
+    });
   }
 }

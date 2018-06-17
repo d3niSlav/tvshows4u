@@ -59,4 +59,8 @@ export class ProfileService {
   updateData(url: string, data: any) {
     return this.http.put(url, data, this.setHeaders());
   }
+
+  getUserEmail() {
+    return this.http.get('/api/profile/email', this.setHeaders());
+  }
 }

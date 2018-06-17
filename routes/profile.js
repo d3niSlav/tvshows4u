@@ -6,7 +6,11 @@ const passport = require('passport');
 require('../middleware/passport')(passport);
 
 module.exports = router => {
+  /** Get user profile */
   router.get('/api/profile', passport.authenticate('jwt', { session: false }), ProfileController.getProfile);
+
+  /** Update user profile */
+  router.put('/api/profile', passport.authenticate('jwt', { session: false }), ProfileController.updateProfile);
 
   /** Get user shows */
   router.get('/api/profile/shows', passport.authenticate('jwt', { session: false }), ProfileController.getShows);
