@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-  <a class="navbar-brand" routerLink="">Start Bootstrap</a>
+  <a class="navbar-brand" [routerLink]="['/cms']">TV Shows 4 U - CMS</a>
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
           data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
           aria-label="Toggle navigation">
@@ -7,6 +7,54 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav navbar-sidenav" id="cmsMenu">
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Actors">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#actors"
+           data-parent="#cmsMenu" (click)="onCollapsedNavLinkClick()">
+          <i class="fa fa-grav" aria-hidden="true"></i>
+          <span class="nav-link-text">Actors</span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="actors">
+          <li>
+            <a class="nav-link" routerLink="/cms/users/admins">
+              <i class="fa fa-address-book" aria-hidden="true"></i>
+              <span class="nav-link-text">All actors</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" routerLink="/cms/users">
+              <i class="fa fa-address-card-o" aria-hidden="true"></i>
+              <span class="nav-link-text">Add Actor/Actress</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Contact Messages">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#contactMessages"
+           data-parent="#cmsMenu" (click)="onCollapsedNavLinkClick()">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span class="nav-link-text">Contact Messages</span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="contactMessages">
+          <li>
+            <a class="nav-link" routerLink="/cms/users">
+              <i class="fa fa-envelope-square" aria-hidden="true"></i>
+              <span class="nav-link-text">All messages</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" routerLink="/cms/users/admins">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span class="nav-link-text">Unread</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" routerLink="/cms/users">
+              <i class="fa fa-envelope-open" aria-hidden="true"></i>
+              <span class="nav-link-text">Answered</span>
+            </a>
+          </li>
+        </ul>
+      </li>
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="TV Shows">
         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#tvShowsComponents"
            data-parent="#cmsMenu" (click)="onCollapsedNavLinkClick()">
@@ -24,6 +72,12 @@
             <a class="nav-link" routerLink="/cms/shows/new">
               <i class="fa fa-plus-square-o" aria-hidden="true"></i>
               <span class="nav-link-text">Add new TV show</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" routerLink="/cms/shows">
+              <i class="fa fa-comments-o" aria-hidden="true"></i>
+              <span class="nav-link-text">Comments</span>
             </a>
           </li>
         </ul>
@@ -48,49 +102,6 @@
             </a>
           </li>
         </ul>
-      </li>
-      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
-        <a
-            class="nav-link nav-link-collapse"
-            data-toggle="collapse" href="#collapseMulti"
-            data-parent="#exampleAccordion"
-            [ngClass]="{'collapsed': !isSideNavCollapsed}"
-            (click)="onCollapsedNavLinkClick()">
-          <i class="fa fa-fw fa-sitemap"></i>
-          <span class="nav-link-text">Menu Levels</span>
-        </a>
-        <ul class="sidenav-second-level collapse" id="collapseMulti">
-          <li>
-            <a href="#">Second Level Item</a>
-          </li>
-          <li>
-            <a href="#">Second Level Item</a>
-          </li>
-          <li>
-            <a href="#">Second Level Item</a>
-          </li>
-          <li>
-            <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Third
-              Level</a>
-            <ul class="sidenav-third-level collapse" id="collapseMulti2">
-              <li>
-                <a href="#">Third Level Item</a>
-              </li>
-              <li>
-                <a href="#">Third Level Item</a>
-              </li>
-              <li>
-                <a href="#">Third Level Item</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-        <a class="nav-link" href="#">
-          <i class="fa fa-fw fa-link"></i>
-          <span class="nav-link-text">Link</span>
-        </a>
       </li>
     </ul>
     <ul class="navbar-nav sidenav-toggler">
@@ -143,67 +154,17 @@
           <a class="dropdown-item small" href="#">View all messages</a>
         </div>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown"
-           aria-haspopup="true" aria-expanded="false">
-          <i class="fa fa-fw fa-bell"></i>
-          <span class="d-lg-none">Alerts
-              <span class="badge badge-pill badge-warning">6 New</span>
-            </span>
-          <span class="indicator text-warning d-none d-lg-block">
-              <i class="fa fa-fw fa-circle"></i>
-            </span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="alertsDropdown">
-          <h6 class="dropdown-header">New Alerts:</h6>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">
-              <span class="text-success">
-                <strong>
-                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
-              </span>
-            <span class="small float-right text-muted">11:21 AM</span>
-            <div class="dropdown-message small">This is an automated server response message. All systems
-              are online.
-            </div>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">
-              <span class="text-danger">
-                <strong>
-                  <i class="fa fa-long-arrow-down fa-fw"></i>Status Update</strong>
-              </span>
-            <span class="small float-right text-muted">11:21 AM</span>
-            <div class="dropdown-message small">This is an automated server response message. All systems
-              are online.
-            </div>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">
-              <span class="text-success">
-                <strong>
-                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
-              </span>
-            <span class="small float-right text-muted">11:21 AM</span>
-            <div class="dropdown-message small">This is an automated server response message. All systems
-              are online.
-            </div>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item small" href="#">View all alerts</a>
-        </div>
-      </li>
       <li class="nav-item">
-        <!--<form class="form-inline my-2 my-lg-0 mr-lg-2">-->
-        <!--<div class="input-group">-->
-        <!--<input class="form-control" type="text" placeholder="Search for...">-->
-        <!--<span class="input-group-append">-->
-        <!--<button class="btn btn-primary" type="button">-->
-        <!--<i class="fa fa-search"></i>-->
-        <!--</button>-->
-        <!--</span>-->
-        <!--</div>-->
-        <!--</form>-->
+        <form class="form-inline my-2 my-lg-0 mr-lg-2">
+          <div class="input-group">
+            <input class="form-control" type="text" placeholder="Search for...">
+            <span class="input-group-append">
+              <button class="btn btn-primary" type="button">
+                <i class="fa fa-search"></i>
+              </button>
+            </span>
+          </div>
+        </form>
       </li>
       <li class="nav-item">
         <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
