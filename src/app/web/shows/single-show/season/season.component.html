@@ -5,7 +5,12 @@
         <ul class="seasons-list" *ngIf="seasons.length > 0">
           <li><strong>Season</strong></li>
           <li *ngFor="let season of seasons">
-            <button class="season-number">{{ season.number }}</button>
+            <button
+                class="season-number"
+                [ngClass]="{'active' : currentSeason.id === season.id}"
+                (click)="changeSeason(season.id)">
+              {{ season.number }}
+            </button>
           </li>
         </ul>
         <p class="title">Season {{ currentSeason.number }}</p>

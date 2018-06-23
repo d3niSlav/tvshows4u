@@ -40,14 +40,26 @@
       line-height: 1rem;
       color: #FFFFFF;
 
-      @media screen and (min-width: 1024px) {
-        line-height: 1.313rem;
-        padding-left: 5px;
-        font-size: 1.313rem;
+      &:first-child {
+        margin-right: 10px;
+        border: none;
       }
 
       button {
         cursor: pointer;
+        border: 1px solid transparent;
+        border-radius: 7px;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease;
+
+        &.active { border-color: #FFFFFF; }
+        &:hover { border-bottom-color: #FFFFFF; }
+      }
+
+      @media screen and (min-width: 1024px) {
+        line-height: 1.313rem;
+        padding-left: 5px;
+        font-size: 1.313rem;
       }
     }
 
