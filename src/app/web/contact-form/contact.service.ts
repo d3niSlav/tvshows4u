@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ContactService {
@@ -8,7 +8,6 @@ export class ContactService {
   constructor(private http: HttpClient) {}
 
   sendMessage(messageData: any): Observable<any> {
-    console.log(messageData);
-    return this.http.get(`/api/shows`);
+    return this.http.post('/api/contactMessages', messageData);
   }
 }
