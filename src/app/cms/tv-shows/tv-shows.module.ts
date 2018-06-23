@@ -7,6 +7,7 @@ import { EditEpisodeComponent } from './edit-episode/edit-episode.component';
 import { EditSeasonComponent } from './edit-season/edit-season.component';
 import { EditShowComponent } from './edit-show/edit-show.component';
 import { TvShowsComponent } from './tv-shows.component';
+import { TvShowsService } from './tv-shows.service';
 import { ShowsListComponent } from './shows-list/shows-list.component';
 
 @NgModule({
@@ -25,6 +26,9 @@ import { ShowsListComponent } from './shows-list/shows-list.component';
   ],
   exports: [
     TvShowsComponent
+  ],
+  providers: [
+    TvShowsService
   ]
 })
 export class TvShowsModule { }

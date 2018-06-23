@@ -18,6 +18,7 @@ class User extends Password(Model) {
       properties: {
         id: { type: 'integer' },
         email: { type: 'string' },
+        role: { type: 'integer', defaultsTo: 3 },
         password: { type: 'string' },
         passwordResetExpirationDate: { type: 'dateTime' },
         passwordResetToken: { type: 'string' }

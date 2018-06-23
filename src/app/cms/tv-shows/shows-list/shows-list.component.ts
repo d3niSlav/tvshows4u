@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TvShowsService } from '../../services/tv-shows.service';
+import { TvShowsService } from '../tv-shows.service';
 
 @Component({
   selector: 'app-shows-list',

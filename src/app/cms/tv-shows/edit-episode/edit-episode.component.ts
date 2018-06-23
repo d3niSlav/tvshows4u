@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
-import {ActivatedRoute, Params, Router} from '@angular/router';
-import {TvShowsService} from '../../services/tv-shows.service';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+
+import { TvShowsService } from '../tv-shows.service';
 
 @Component({
   selector: 'app-edit-episode',
@@ -16,8 +17,7 @@ export class EditEpisodeComponent implements OnInit {
   episodeNumber: number;
   editMode = false;
 
-  constructor(private route: ActivatedRoute, private tvShowsService: TvShowsService, private router: Router) {
-  }
+  constructor(private route: ActivatedRoute, private tvShowsService: TvShowsService, private router: Router) {}
 
   ngOnInit() {
     this.route.params.subscribe(

@@ -35,6 +35,7 @@ export class SeasonComponent implements OnInit {
 
   changeSeason(seasonId: number) {
     this.showService.getSingleSeason(seasonId).subscribe((seasonData: any) => {
+      this.areEpisodesShown = false;
       this.currentSeason = seasonData;
     });
   }

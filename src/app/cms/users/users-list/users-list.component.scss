@@ -1,0 +1,60 @@
+ul {
+  padding: 0 30px 25px;
+
+  li {
+    padding-bottom: 15px;
+  }
+}
+
+.profile-image {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+  vertical-align: middle;
+
+  img {
+    height: 100%;
+  }
+}
+
+.information {
+  display: inline-block;
+  vertical-align: middle;
+
+  p {
+    margin: 0;
+    padding: 0 0 0 10px;
+
+    &.name {
+      font-size: 1.2rem;
+      font-weight: 900;
+    }
+  }
+}
+
+.list-group-item {
+  max-width: 400px;
+  margin: 0 auto;
+  border-radius: 0.25rem;
+
+  .badge {
+    padding: 5px 12px;
+    cursor: pointer;
+  }
+
+  .role {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}
+
+.no-results {
+  padding: 0 25px;
+  font-size: 1.25rem;
+  font-weight: 700;
+}

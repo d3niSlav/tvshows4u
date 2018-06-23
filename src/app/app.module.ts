@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CmsModule } from './cms/cms.module';
 import { WebModule } from './web/web.module';
+import { ConfigService } from './shared/services/config.service';
+import { HelpersService } from './shared/services/helpers.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,10 @@ import { WebModule } from './web/web.module';
     WebModule,
     CmsModule
   ],
-  providers: [],
+  providers: [
+    ConfigService,
+    HelpersService
+  ],
   bootstrap: [
     AppComponent
   ]

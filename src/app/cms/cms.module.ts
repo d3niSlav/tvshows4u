@@ -5,7 +5,7 @@ import { CmsComponent } from './cms.component';
 import { CmsRoutingModule } from './cms-routing.module';
 import { NavigationComponent } from './navigation/navigation.component';
 import { TvShowsModule } from './tv-shows/tv-shows.module';
-import { TvShowsService } from './services/tv-shows.service';
+import { UsersModule } from './users/users.module';
 
 @NgModule({
   declarations: [
@@ -15,10 +15,8 @@ import { TvShowsService } from './services/tv-shows.service';
   imports: [
     CommonModule,
     CmsRoutingModule,
-    TvShowsModule
-  ],
-  providers: [
-    TvShowsService
+    TvShowsModule,
+    UsersModule
   ]
 })
 export class CmsModule {}

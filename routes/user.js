@@ -18,6 +18,12 @@ module.exports = router => {
   /** DELETE User */
   router.delete('/api/users', passport.authenticate('jwt', { session: false }), UserController.remove);
 
+  /** READ Administration */
+  router.get('/api/users/administration', passport.authenticate('jwt', { session: false }), UserController.getAdministration);
+
+  /** READ All web users */
+  router.get('/api/users/web', passport.authenticate('jwt', { session: false }), UserController.getWebUsers);
+
   /** LOGIN User */
   router.post('/api/users/login', UserController.login);
 

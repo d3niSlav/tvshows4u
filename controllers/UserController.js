@@ -272,3 +272,29 @@ const updateForgottenPassword = async function (req, res) {
 };
 
 module.exports.updateForgottenPassword = updateForgottenPassword;
+
+const getAdministration = async function (req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  const users = await User.query().whereNot('role', 3).eager('profile');
+
+  if (!users) {
+    return res.status(500).send({ error: 'Something went wrong!' });
+  }
+
+  return res.send(users);
+};
+
+module.exports.getAdministration = getAdministration;
+
+const getWebUsers = async function (req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  const users = await User.query().select('id', 'email', 'role').where('role', 3).eager('profile');
+
+  if (!users) {
+    return res.status(500).send({ error: 'Something went wrong!' });
+  }
+
+  return res.send(users);
+};
+
+module.exports.getWebUsers = getWebUsers;
