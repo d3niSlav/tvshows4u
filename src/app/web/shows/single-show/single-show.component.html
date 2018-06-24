@@ -18,16 +18,17 @@
       </div>
       <div class="overview">
         <div class="title">Plot</div>
-        <p class="plot">{{ show.plot }}</div>
+        <p class="plot">{{ show.plot }}</p>
+      </div>
     </div>
-    <div class="cast" *ngIf="show.cast">
+    <div class="cast" *ngIf="show.actors && show.actors.length > 0">
       <div class="title">
         Main cast
       </div>
       <hr/>
       <div class="cast-wrapper row justify-content-center">
-        <div class="col-6 col-md-5th" *ngFor="let member of show.cast">
-          <app-actor-preview></app-actor-preview>
+        <div class="col-6 col-md-5th" *ngFor="let actor of show.actors">
+          <app-actor-preview [actor]="actor"></app-actor-preview>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
-<div class="actor-wrapper">
+<div class="actor-wrapper" *ngIf="actor">
   <div class="actor-image">
-    <img src="https://image.tmdb.org/t/p/w132_and_h132_bestv2/sWt8uZeydzN2GTEDerFN2q2GCqs.jpg" alt="Hayley Atwell"/>
+    <img [src]="actor.thumbnail" [alt]="actor.name" />
   </div>
-  <p class="name">Hayley Atwell</p>
-  <p class="character">Peggy Carter</p>
+  <p class="name">{{actor.name}}</p>
+  <p class="character">{{actor.character}}</p>
 </div>

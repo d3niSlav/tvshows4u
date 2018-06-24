@@ -2,6 +2,8 @@
 
 const Model = require('objection').Model;
 const Season = require('./Season');
+const Actor = require('./Actor');
+const ActorTvShow = require('./ActorTvShow');
 
 class Show extends Model {
   static get tableName() {
@@ -60,6 +62,20 @@ class Show extends Model {
         join: {
           from: 'shows.id',
           to: 'seasons.showId'
+        }
+      },
+      actors: {
+        relation: Model.ManyToManyRelation,
+        modelClass: Actor,
+        join: {
+          from: 'shows.id',
+          through: {
+            modelClass: ActorTvShow,
+            from: 'shows_actors.showId',
+            to: 'shows_actors.actorId',
+            extra: ['character']
+          },
+          to: 'actors.id'
         }
       }
     };

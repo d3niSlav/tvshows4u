@@ -58,7 +58,7 @@ module.exports.createShow = createShow;
 /* READ TV Show */
 const getShow = async function (req, res) {
   res.setHeader('Content-Type', 'application/json');
-  let tvShow = await TvShow.query().findById(req.params.id).eager('seasons');
+  let tvShow = await TvShow.query().findById(req.params.id).eager('[seasons, actors]');
 
   if (!tvShow) {
     return res.status(404).send({ error: 'TV Show not found!' });
@@ -70,6 +70,16 @@ const getShow = async function (req, res) {
       number: season.number
     };
   });
+
+  tvShow.actors = tvShow.actors.map(actor => {
+    return {
+      id: actor.id,
+      name: actor.name,
+      thumbnail: actor.thumbnail,
+      character: actor.character
+    };
+  });
+
   return res.send(tvShow);
 };
 
@@ -127,7 +137,7 @@ module.exports.createSeason = createSeason;
 
 /* READ Show with latest season */
 const getShowWithLatestSeason = async function (req, res) {
-  // res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Content-Type', 'application/json');
   let tvShow = await TvShow.query()
     .findById(req.params.id)
     .join('seasons', 'shows.id', '=', 'seasons.showId');
@@ -245,7 +255,7 @@ module.exports.deleteEpisode = deleteEpisode;
 
 /** */
 const getSchedule = async function (req, res) {
-  // res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Content-Type', 'application/json');
   const startDate = req.body.startDate;
   const endDate = req.body.endDate;
 
