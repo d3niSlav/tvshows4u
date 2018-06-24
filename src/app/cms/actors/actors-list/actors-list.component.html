@@ -1,0 +1,22 @@
+<ul class="row" *ngIf="actors && actors.length > 0">
+  <li *ngFor="let actor of actors" class="col-12 col-md-6">
+    <div class="list-group-item">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="wrapper d-flex align-items-center">
+          <div class="profile-image">
+            <img [src]="actor.thumbnail" [alt]="actor.name" />
+          </div>
+          <p class="name">{{actor.name}}</p>
+        </div>
+        <div class="navigation text-center">
+          <a
+              class="btn btn-primary"
+              [routerLink]="['/cms/actors', actor.id, 'edit']">Edit</a>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+<p class="no-results" *ngIf="!actors || actors.length === 0">
+  No actors found!
+</p>

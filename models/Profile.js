@@ -16,7 +16,7 @@ class Profile extends Model {
       properties: {
         id: { type: 'integer' },
         name: { type: 'string', default: '' },
-        profileImage: { type: 'string' }
+        profileImage: { type: 'string', defaultsTo: '/assets/img/default-profile-image.png' }
       }
     };
   }

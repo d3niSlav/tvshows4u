@@ -7,6 +7,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { TvShowsModule } from './tv-shows/tv-shows.module';
 import { UsersModule } from './users/users.module';
 import { ContactsModule } from './contacts/contacts.module';
+import { ActorsModule } from './actors/actors.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ContactsModule } from './contacts/contacts.module';
     CmsRoutingModule,
     TvShowsModule,
     UsersModule,
-    ContactsModule
+    ContactsModule,
+    ActorsModule
   ]
 })
 export class CmsModule {}

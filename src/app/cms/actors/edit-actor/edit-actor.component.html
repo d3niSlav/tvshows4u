@@ -1,0 +1,95 @@
+<div class="col-10 order-md-1 m-auto">
+  <div class="row">
+    <div class="col-12 col-md-5 col-xl-7">
+      <h4 class="mb-3" *ngIf="actorId">Edit actor</h4>
+      <h4 class="mb-3" *ngIf="!actorId">Add actor</h4>
+    </div>
+    <div class="col-12 col-md-7 col-xl-5 text-md-right">
+      <a
+          class="btn btn-primary"
+          routerLink="/cms/actors">Go back</a>
+      <button class="btn btn-dark"
+              *ngIf="actorId"
+              (click)="onDelete()"
+              title="Delete this TV show">
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+  <hr class="mb-4" />
+  <form [formGroup]="actorForm" class="needs-validation mb-3" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-8 mb-3">
+            <label for="name">Name</label>
+            <input
+                type="text"
+                id="name"
+                class="form-control"
+                formControlName="name"
+                placeholder="Enter actors name here" />
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="birthdate">Birthday</label>
+            <input
+                id="birthdate"
+                type="text"
+                formControlName="birthdate"
+                class="form-control" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8 mb-3">
+            <p>
+              <label for="actorImage">Image URL</label>
+              <input
+                  type="text"
+                  id="actorImage"
+                  formControlName="actorImage"
+                  class="form-control"
+                  placeholder="Actor image URL"
+                  #actorImagePath />
+            </p>
+            <p>
+              <label for="thumbnail">Thumbnail URL</label>
+              <input
+                  type="text"
+                  id="thumbnail"
+                  formControlName="thumbnail"
+                  class="form-control"
+                  placeholder="Actor thumbnail URL"
+                  #thumbnailImage />
+            </p>
+          </div>
+          <div class="col-md-4 mb-3 text-center">
+            <label for="thumbnail-image" class="d-block">Thumbnail preview:</label>
+            <img
+                id="thumbnail-image"
+                [src]="thumbnailImage.value || '/assets/img/actor-placeholder.png'"
+                alt="Thumbnail"
+                class="img-fluid thumbnail-image" />
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="bio">Biography</label>
+          <textarea
+              id="bio"
+              formControlName="bio"
+              class="form-control"
+              rows="5"></textarea>
+        </div>
+      </div>
+      <div class="col-md-4 text-center">
+        <label for="poster-image" class="d-block">Poster preview:</label>
+        <img
+            id="poster-image"
+            [src]="actorImagePath.value || '/assets/img/actor-placeholder.png'"
+            alt="Poster"
+            class="img-fluid" />
+      </div>
+    </div>
+    <hr class="mb-4" />
+    <button class="btn btn-primary btn-lg btn-block" type="submit">Save changes</button>
+  </form>
+</div>

@@ -82,6 +82,41 @@ const addActorToShow = async function (req, res) {
 
 module.exports.addActorToShow = addActorToShow;
 
+const addActorToShowByName = async function (req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  const actor = await Actor.query().insert(req.body.actor);
+
+  if (!actor) {
+    return res.status(500).send({ error: 'Something went wrong!' });
+  }
+
+  const tvShow = await TvShow.query().first().where({
+    title: req.body.showName
+  });
+
+  if (!tvShow) {
+    return res.status(500).send({ error: 'Something went wrong!' });
+  }
+
+  console.log(actor.id)
+  console.log(tvShow.id)
+
+  const actorShow = await ActorTvShow.query().insert({
+    actorId: actor.id,
+    showId: tvShow.id,
+    character: req.body.character
+  });
+
+  if (!actorShow) {
+    return res.status(500).send({ error: 'Something went wrong!' });
+  }
+
+
+  return res.send(actorShow);
+};
+
+module.exports.addActorToShowByName = addActorToShowByName;
+
 const removeActorFromShow = async function (req, res) {
   res.setHeader('Content-Type', 'application/json');
   const deletedRoles = await ActorTvShow.query().where({

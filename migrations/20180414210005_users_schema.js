@@ -4,7 +4,7 @@ exports.up = knex => {
       table.increments('id').primary();
       table.string('name');
       table.dateTime('dateCreated').defaultTo(knex.raw('now()'));
-      table.string('profileImage');
+      table.string('profileImage').defaultTo('/assets/img/default-profile-image.png');
     })
     .createTable('users', table => {
       table.increments('id').primary();

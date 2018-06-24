@@ -14,10 +14,9 @@ export class EditShowComponent implements OnInit {
   tvShowForm: FormGroup;
   seasons = [];
 
-  constructor(private route: ActivatedRoute, private tvShowsService: TvShowsService, private router: Router) {
-  }
+  constructor(private route: ActivatedRoute, private tvShowsService: TvShowsService, private router: Router) {}
 
-    ngOnInit() {
+  ngOnInit() {
     this.route.params.subscribe(
       (params: Params) => {
         const id = +params['id'];

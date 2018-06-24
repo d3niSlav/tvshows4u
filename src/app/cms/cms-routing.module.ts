@@ -9,6 +9,9 @@ import { EditEpisodeComponent } from './tv-shows/edit-episode/edit-episode.compo
 import { UsersListComponent } from './users/users-list/users-list.component';
 import { ContactMessagesListComponent } from './contacts/contact-messages-list/contact-messages-list.component';
 import { MessageDetailComponent } from './contacts/contact-messages-list/message-detail/message-detail.component';
+import { EditActorComponent } from './actors/edit-actor/edit-actor.component';
+import { ActorsListComponent } from './actors/actors-list/actors-list.component';
+import { ActorsComponent } from './actors/actors.component';
 
 const cmsRoutes: Routes = [
   { path: '', component: CmsComponent, children: [
@@ -24,7 +27,12 @@ const cmsRoutes: Routes = [
     { path: 'users/:type', component: UsersListComponent },
     { path: 'contact-messages', component: ContactMessagesListComponent },
     { path: 'contact-messages/:type', component: ContactMessagesListComponent },
-    { path: 'contact-messages/read/:id', component: MessageDetailComponent }
+    { path: 'contact-messages/read/:id', component: MessageDetailComponent },
+    { path: 'actors', component: ActorsComponent, children: [
+      { path: '', component: ActorsListComponent, pathMatch: 'full' },
+      { path: 'new', component: EditActorComponent },
+      { path: ':id/edit', component: EditActorComponent }
+    ]},
   ]}
 ];
 
