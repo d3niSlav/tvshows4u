@@ -1,0 +1,66 @@
+.email-preview {
+  padding: 0 15px;
+
+  @media screen and (min-width: 768px) {
+    padding: 0 50px;
+  }
+
+  .header {
+    margin-bottom: 10px;
+
+    p {
+      margin: 0 auto;
+    }
+  }
+
+  .message-text {
+    padding: 0 0 20px;
+    border-top: 1px solid #2e2e2e;
+    border-bottom: 1px solid #2e2e2e;
+    white-space: pre-line;
+  }
+
+  .btn-group {
+    position: relative;
+      left: 50%;
+    transform: translateX(-50%);
+
+    @media screen and (min-width: 768px) {
+      left: auto;
+      transform: none;
+    }
+  }
+
+  .button-text {
+    display: none;
+
+    @media screen and (min-width: 768px) {
+      display: inline-block;
+    }
+  }
+}
+
+.back-button {
+  padding: 15px;
+
+  @media screen and (min-width: 480px) {
+    position: absolute;
+      top: 32px;
+      right: 10px;
+      z-index: 10;
+    padding: 0;
+  }
+
+  @media screen and (min-width: 480px) {
+    right: 50px;
+  }
+
+  a {
+    display: inline-block;
+    width: 100%;
+
+    @media screen and (min-width: 768px) {
+      display: inline;
+    }
+  }
+}

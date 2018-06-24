@@ -21,4 +21,8 @@ export class ContactMessage {
     this.isAnswered = this.isAnswered || false;
     this.dateCreated = this.dateCreated || new Date().toISOString().slice(0, 19).replace('T', ' ');
   }
+
+  getDate() {
+    return Date.parse(this.dateCreated);
+  }
 }

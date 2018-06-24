@@ -29,7 +29,9 @@ module.exports.getAllContactMessages = getAllContactMessages;
 
 const getSingleContactMessage = async function (req, res) {
   res.setHeader('Content-Type', 'application/json');
-  const contactMessage = await ContactMessage.query().findById(req.params.id);
+  const contactMessage = await ContactMessage.query().patchAndFetchById(req.params.id, {
+    isRead: true
+  });
 
   if (!contactMessage) {
     return res.status(404).send({ error: 'Contact message with ID: ' + req.params.id + ' found!' });

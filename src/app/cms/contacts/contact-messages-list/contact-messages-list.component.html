@@ -1,0 +1,33 @@
+<ul class="list-group" *ngIf="messages">
+  <li *ngFor="let message of messages"
+      class="list-group-item list-group-item-action"
+      [ngClass]="{'list-group-item-secondary' : !message.isRead}">
+    <a class="row justify-content-between align-items-center">
+      <div class="contact-message-wrapper row col-12 col-md-10">
+        <p class="col-12 col-md-3 d-flex align-items-center">
+          <i
+              class="fa"
+              [ngClass]="message.isRead ? 'fa-envelope-open-o' : 'fa-envelope'"
+              aria-hidden="true"></i>
+          From: <span class="message-text">{{message.name}}</span>
+        </p>
+        <p class="col-12 col-md-7 d-flex align-items-center">
+          Message: <span class="message-text">{{message.message}}</span>
+        </p>
+        <p class="col-12 col-md-2 d-flex align-items-center">
+          <span
+              class="badge badge-pill"
+              [ngClass]="message.isAnswered ? 'badge-success' : 'badge-danger'">
+            {{message.isAnswered ? 'Answered' : 'Unanswered'}}
+          </span>
+        </p>
+      </div>
+      <div class="col-12 col-md-2 text-right">
+        <a
+            [routerLink]="['/cms/contact-messages/read', message.id]"
+            type="button"
+            class="btn btn-primary">Open</a>
+      </div>
+    </a>
+  </li>
+</ul>

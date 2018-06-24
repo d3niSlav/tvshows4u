@@ -7,6 +7,8 @@ import { ShowsListComponent } from './tv-shows/shows-list/shows-list.component';
 import { EditSeasonComponent } from './tv-shows/edit-season/edit-season.component';
 import { EditEpisodeComponent } from './tv-shows/edit-episode/edit-episode.component';
 import { UsersListComponent } from './users/users-list/users-list.component';
+import { ContactMessagesListComponent } from './contacts/contact-messages-list/contact-messages-list.component';
+import { MessageDetailComponent } from './contacts/contact-messages-list/message-detail/message-detail.component';
 
 const cmsRoutes: Routes = [
   { path: '', component: CmsComponent, children: [
@@ -19,7 +21,10 @@ const cmsRoutes: Routes = [
       { path: ':id/season/:seasonId/episode/new', component: EditEpisodeComponent },
       { path: ':id/season/:seasonId/episode/:episodeId/edit', component: EditEpisodeComponent }
     ]},
-    { path: 'users/:type', component: UsersListComponent }
+    { path: 'users/:type', component: UsersListComponent },
+    { path: 'contact-messages', component: ContactMessagesListComponent },
+    { path: 'contact-messages/:type', component: ContactMessagesListComponent },
+    { path: 'contact-messages/read/:id', component: MessageDetailComponent }
   ]}
 ];
 

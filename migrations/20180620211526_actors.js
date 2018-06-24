@@ -9,18 +9,19 @@ exports.up = knex => {
       table.date('birthdate');
     })
     .createTable('shows_actors', table => {
+      table.string('character');
       table
         .integer('actorId')
         .unsigned()
         .references('id')
         .inTable('actors')
-        .onDelete('RESTRICT');
+        .onDelete('CASCADE');
       table
         .integer('showId')
         .unsigned()
         .references('id')
         .inTable('shows')
-        .onDelete('RESTRICT');
+        .onDelete('CASCADE');
     });
 };
 

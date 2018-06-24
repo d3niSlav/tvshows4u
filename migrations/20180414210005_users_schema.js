@@ -3,7 +3,7 @@ exports.up = knex => {
     .createTable('profiles', table => {
       table.increments('id').primary();
       table.string('name');
-      table.dateTime('dateCreated');
+      table.dateTime('dateCreated').defaultTo(knex.raw('now()'));
       table.string('profileImage');
     })
     .createTable('users', table => {
