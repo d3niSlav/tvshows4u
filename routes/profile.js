@@ -4,6 +4,7 @@ const ProfileController = require('../controllers/ProfileController');
 const UserController = require('../controllers/UserController');
 const passport = require('passport');
 require('../middleware/passport')(passport);
+const upload = require('../middleware/multerUpload')('src/assets/uploads/img/users/');
 
 module.exports = router => {
   /** Get user profile */
@@ -47,4 +48,7 @@ module.exports = router => {
 
   /** Update user password */
   router.put('/api/profile/password', passport.authenticate('jwt', { session: false }), UserController.changePassword);
+
+  /** Upload image */
+  router.post('/api/profile/image', upload.single('avatar'), ProfileController.uploadImage);
 };

@@ -2,7 +2,7 @@
   <label
       [for]="control.name"
       class="col-12 col-md-3">{{control.label}}:</label>
-  <div class="col-12 col-md-6">
+  <div class="col-12 col-md-6" *ngIf="control.type !== 'file'">
     <div>
       <input
           [id]="control.name"
@@ -19,11 +19,39 @@
           class="edit-message">{{form.getError(control.name) || (messages && messages[control.name]) || (errors && errors[control.name]) }}</span>
     </div>
   </div>
-  <div
-      class="col-12 col-md-3 image-container"
-      *ngIf="control.name === 'profileImage'">
-    <div class="image-preview">
-      <img [src]="inputControl.value || control.default" alt="Profile image" />
+  <ng-container *ngIf="control.type === 'file'">
+    <div class="col-12 col-md-6">
+      <input
+          [id]="control.name"
+          [name]="control.name"
+          [formControlName]="control.name"
+          style="display: none"
+          type="text" />
+      <input
+          style="display: none"
+          type="file"
+          (change)="onFileChanged($event)"
+          #fileInput />
+      <div class="input-group mb-3 file-input-wrapper">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
+        </div>
+        <input
+            type="text"
+            class="form-control disabled"
+            [value]="selectedFile ? selectedFile.name : ''"
+            placeholder="Click browse and choose an image..."/>
+        <div class="input-group-append">
+          <button class="input-group-text" (click)="triggerClick($event)">Browse</button>
+        </div>
+      </div>
     </div>
-  </div>
+    <div class="col-12 col-md-3 image-container">
+      <div class="image-preview">
+        <img
+            [src]="(selectedFile && selectedFile.name && url) ? url : inputControl.value || control.default"
+            alt="Profile image" />
+      </div>
+    </div>
+  </ng-container>
 </div>

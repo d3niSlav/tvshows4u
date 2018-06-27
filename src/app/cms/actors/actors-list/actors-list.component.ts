@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActorsService } from '../actors.service';
+
 import { Actor } from '../../../shared/models/actor.model';
+import { ActorsService } from '../actors.service';
 
 @Component({
   selector: 'app-actors-list',

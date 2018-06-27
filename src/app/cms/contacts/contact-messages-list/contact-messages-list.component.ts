@@ -15,6 +15,6 @@ export class ContactMessagesListComponent implements OnInit {
   ngOnInit() {
     this.contactsService.getAllContactMessages().subscribe(res => {
       this.messages = res;
-    })
+    });
   }
 }

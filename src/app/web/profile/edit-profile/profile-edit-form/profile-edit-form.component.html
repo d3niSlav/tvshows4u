@@ -1,14 +1,15 @@
-<form *ngIf="formData" (ngSubmit)="onSubmit()" ngForm>
+<form *ngIf="formData" (ngSubmit)="onSubmit($event)" ngForm>
   <fieldset>
     <profile-input-field
         *ngFor="let control of formData.controls"
+        [shouldSubmit]="shouldSubmit"
         [form]="form"
         [messages]="messages"
         [errors]="errors"
         [control]="control"></profile-input-field>
     <div class="actions">
-      <button class="submit-button btn">Save changes</button>
-      <button class="reset-button btn" (click)="onReset($event)">
+      <button type="submit" class="submit-button btn">Save changes</button>
+      <button type="button" class="reset-button btn" (click)="onReset($event)">
         {{formData.isResettable ? 'Reset' : 'Clear'}} fields
       </button>
     </div>

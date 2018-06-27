@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ProfileService } from '../profile.service';
 
 @Component({
@@ -105,6 +106,7 @@ export class EditProfileComponent implements OnInit {
           name: profileData.name,
           profileImage: profileData.profileImage
         },
+        hasFiles: true,
         controls: [
           {
             name: 'name',
@@ -116,7 +118,7 @@ export class EditProfileComponent implements OnInit {
             name: 'profileImage',
             label: 'Image URL',
             placeholder: 'Enter url...',
-            type: 'text',
+            type: 'file',
             default: '/assets/img/default-profile-image.png'
           }
         ],

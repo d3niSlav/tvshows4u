@@ -19,7 +19,6 @@ export class MessageDetailComponent implements OnInit {
         const messageId = params['id'];
         this.contactsService.getSingleContactMessages(messageId).subscribe((res: ContactMessage) => {
           this.message = new ContactMessage(res);
-          console.log(this.message.getDate());
         });
       }
     );

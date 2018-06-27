@@ -230,6 +230,18 @@ const getFavouriteShows = async function (req, res) {
 
 module.exports.getFavouriteShows = getFavouriteShows;
 
+const uploadImage = async function (req, res) {
+
+  const data = {
+    ...req.file,
+    ...req.body
+  };
+
+  return res.send(data);
+};
+
+module.exports.uploadImage = uploadImage;
+
 const getWatchedShows = async function (req, res) {
   res.setHeader('Content-Type', 'application/json');
   const watchedShowsData = await ProfileTvShow

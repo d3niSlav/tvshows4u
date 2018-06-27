@@ -12,11 +12,12 @@ export class ProfileEditFormComponent implements OnInit {
   form: any;
   messages: any[];
   errors: any[];
+  shouldSubmit = false;
 
   constructor(private profileService: ProfileService) {}
 
   ngOnInit() {
-    if (this.formData){
+    if (this.formData) {
       this.form = new ValidationManager(this.formData.form);
 
       if (this.formData.values) {
@@ -31,28 +32,39 @@ export class ProfileEditFormComponent implements OnInit {
     }
   }
 
-  onSubmit() {
+  onSubmit(event) {
+    event.preventDefault();
     if (this.form.isValid()) {
-      this.profileService.updateData(this.formData.url, this.form.formGroup.value).subscribe(
-        (resp: any) => {
-          this.messages = resp;
-          setTimeout(() => {
-            this.messages = null;
-          }, 10000);
-
-          if (this.formData.shouldClearForm) {
-            this.form.reset();
-          }
-        },
-        (err: any) => {
-          this.errors = err.error;
-
-          if (this.formData.shouldClearForm) {
-            this.form.reset();
-          }
-        }
-      );
+      if (this.formData.hasFiles) {
+        this.shouldSubmit = true;
+        this.updateUserData();
+        return;
+      } else {
+        this.updateUserData()
+      }
     }
+  }
+
+  updateUserData() {
+    this.profileService.updateData(this.formData.url, this.form.formGroup.value).subscribe(
+      (resp: any) => {
+        this.messages = resp;
+        setTimeout(() => {
+          this.messages = null;
+        }, 10000);
+
+        if (this.formData.shouldClearForm) {
+          this.form.reset();
+        }
+      },
+      (err: any) => {
+        this.errors = err.error;
+
+        if (this.formData.shouldClearForm) {
+          this.form.reset();
+        }
+      }
+    );
   }
 
   onReset(event: Event) {

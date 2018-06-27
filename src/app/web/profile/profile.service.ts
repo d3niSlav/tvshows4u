@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
+
 import { HelpersService } from '../../shared/services/helpers.service';
 
 @Injectable()
@@ -57,5 +58,11 @@ export class ProfileService {
 
   getUserEmail() {
     return this.http.get('/api/profile/email', this.helpersService.setHeaders());
+  }
+
+  saveProfileImage(selectedFile: File, fileName: string) {
+    const uploadData = new FormData();
+    uploadData.append('avatar', selectedFile, fileName);
+    return this.http.post('/api/profile/image', uploadData);
   }
 }
