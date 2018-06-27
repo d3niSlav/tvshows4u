@@ -8,11 +8,15 @@ import { ProfileComponent } from './profile.component';
 import { ProfileService } from './profile.service';
 import { UserCardComponent } from './user-card/user-card.component';
 import { WebRoutingModule } from '../web-routing.module';
+import { ShowsProgressComponent } from './shows-progress/shows-progress.component';
+import { SingleShowProgressComponent } from './shows-progress/single-show-progress/single-show-progress.component';
 
 @NgModule({
   declarations: [
     ProfileComponent,
-    UserCardComponent
+    UserCardComponent,
+    ShowsProgressComponent,
+    SingleShowProgressComponent
   ],
   imports: [
     CommonModule,

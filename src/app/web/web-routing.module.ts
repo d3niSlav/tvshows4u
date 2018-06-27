@@ -19,6 +19,7 @@ import { PersonalShowsComponent } from './profile/personal-shows/personal-shows.
 import { RatedShowsComponent } from './shows/rated-shows/rated-shows.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
+import { ShowsProgressComponent } from './profile/shows-progress/shows-progress.component';
 
 const webRoutes: Routes = [
   { path: '', component: WebComponent, children: [
@@ -35,10 +36,11 @@ const webRoutes: Routes = [
       { path: 'comments', component: CommentsListComponent },
       { path: 'trailer', component: TrailerComponent }
     ]},
-    { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], children: [
-      { path: '', redirectTo: 'shows', pathMatch: 'full' },
+    { path: 'profile', component: ProfileComponent, children: [ //canActivate: [AuthGuard],
+      { path: '', redirectTo: 'progress', pathMatch: 'full' },
       { path: 'shows', component: PersonalShowsComponent},
-      { path: 'edit', component: EditProfileComponent}
+      { path: 'edit', component: EditProfileComponent},
+      { path: 'progress', component: ShowsProgressComponent}
     ]},
     { path: 'contacts', component: ContactFormComponent },
     { path: 'schedule', component: ScheduleComponent },
