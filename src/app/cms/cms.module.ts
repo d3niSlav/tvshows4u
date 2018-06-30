@@ -8,11 +8,14 @@ import { TvShowsModule } from './tv-shows/tv-shows.module';
 import { UsersModule } from './users/users.module';
 import { ContactsModule } from './contacts/contacts.module';
 import { ActorsModule } from './actors/actors.module';
+import { CmsLoginComponent } from './auth/cms-login/cms-login.component';
+import { CommentsModule } from './comments/comments.module';
 
 @NgModule({
   declarations: [
     CmsComponent,
-    NavigationComponent
+    NavigationComponent,
+    CmsLoginComponent,
   ],
   imports: [
     CommonModule,
@@ -20,7 +23,8 @@ import { ActorsModule } from './actors/actors.module';
     TvShowsModule,
     UsersModule,
     ContactsModule,
-    ActorsModule
+    ActorsModule,
+    CommentsModule
   ]
 })
 export class CmsModule {}

@@ -3,6 +3,7 @@
 const Model = require('objection').Model;
 const CommentsProfiles = require('./CommentsProfiles');
 const Profile = require('./Profile');
+const TvShow = require('./TvShow');
 
 class Comment extends Model {
   static get tableName() {
@@ -32,6 +33,15 @@ class Comment extends Model {
           from: 'comments.profileId',
           to: 'profiles.id',
           extra: ['name', 'profileImage']
+        }
+      },
+      show: {
+        relation: Model.BelongsToOneRelation,
+        modelClass: TvShow,
+        join: {
+          from: 'comments.showId',
+          to: 'shows.id',
+          extra: ['title']
         }
       },
       likes: {

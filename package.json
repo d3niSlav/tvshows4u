@@ -19,7 +19,7 @@
     "e2e": "ng e2e"
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": "8.9.4"
   },
   "dependencies": {
     "@angular/animations": "5.2.0",

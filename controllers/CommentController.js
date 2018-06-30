@@ -26,6 +26,19 @@ const removeComment = async function (req, res) {
 
 module.exports.removeComment = removeComment;
 
+const getComments = async function (req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  const comments = await Comment.query().eager('[likes, user, show]').orderBy('commentDate', 'desc');
+
+  if (!comments) {
+    return res.status(500).send({ error: 'Something went wrong!' });
+  }
+
+  return res.send(comments);
+};
+
+module.exports.getComments = getComments;
+
 const getCommentsByShowId = async function (req, res) {
   res.setHeader('Content-Type', 'application/json');
   const comments = await Comment.query()

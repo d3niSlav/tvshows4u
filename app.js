@@ -14,6 +14,7 @@ const registerApi = require('./routes');
 
 // Initialize knex.
 const knex = Knex(knexConfig.development);
+const port = process.env.PORT || config.port;
 
 // Bind all Models to a knex instance.
 Model.knex(knex);
@@ -41,6 +42,6 @@ app.use((err, req, res, next) => {
   }
 });
 
-const server = app.listen(config.port, () => {
+const server = app.listen(port, () => {
   console.log(`Application is listening at port ${server.address().port}`);
 });

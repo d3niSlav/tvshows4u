@@ -12,12 +12,15 @@ import { MessageDetailComponent } from './contacts/contact-messages-list/message
 import { EditActorComponent } from './actors/edit-actor/edit-actor.component';
 import { ActorsListComponent } from './actors/actors-list/actors-list.component';
 import { ActorsComponent } from './actors/actors.component';
+import { CmsLoginComponent } from './auth/cms-login/cms-login.component';
+import { CmsCommentsListComponent } from './comments/cms-comments-list/cms-comments-list.component';
 
 const cmsRoutes: Routes = [
   { path: '', component: CmsComponent, children: [
     { path: 'shows', component: TvShowsComponent, children: [
       { path: '', component: ShowsListComponent, pathMatch: 'full' },
       { path: 'new', component: EditShowComponent },
+      { path: 'comments', component: CmsCommentsListComponent },
       { path: ':id/edit', component: EditShowComponent },
       { path: ':id/season/new', component: EditSeasonComponent },
       { path: ':id/season/:seasonId/edit', component: EditSeasonComponent },
@@ -25,6 +28,7 @@ const cmsRoutes: Routes = [
       { path: ':id/season/:seasonId/episode/:episodeId/edit', component: EditEpisodeComponent }
     ]},
     { path: 'users/:type', component: UsersListComponent },
+    { path: 'login', component: CmsLoginComponent },
     { path: 'contact-messages', component: ContactMessagesListComponent },
     { path: 'contact-messages/:type', component: ContactMessagesListComponent },
     { path: 'contact-messages/read/:id', component: MessageDetailComponent },

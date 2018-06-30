@@ -1,0 +1,33 @@
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fa fa-table"></i> All comments</div>
+  <div class="card-body" *ngIf="comments">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="commentsTable" width="100%" cellspacing="0">
+        <thead>
+        <tr>
+          <th>User name</th>
+          <th>TV Show</th>
+          <th>Comment</th>
+          <th>Date added</th>
+          <th>Likes</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let comment of comments">
+          <td>{{comment.user.name}}</td>
+          <td>{{comment.show.title}}</td>
+          <td>{{comment.commentText}}</td>
+          <td>{{comment.commentDate | date:'shortDate'}}</td>
+          <td>{{comment.likes.length}}</td>
+          <td></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div *ngIf="lastComment" class="card-footer small text-muted">
+    Last comment added on {{lastComment.commentDate | date:'EEEE, MMMM d, y, h:mm:ss a'}}.
+  </div>
+</div>
