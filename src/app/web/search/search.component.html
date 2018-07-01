@@ -1,22 +1,29 @@
 <section class="container">
   <div class="filter-select row">
     <div class="form-group col-12 col-md-8 m-auto row">
-      <select class="form-control col-12 col-sm-3">
-        <option>Title</option>
-        <option>Genre</option>
-        <option>Plot</option>
-        <option>Year</option>
-        <option selected>Filter all</option>
+      <select
+          class="form-control col-12 col-sm-3"
+          [value]="selectedCriteria"
+          (change)="onCriteriaChange($event.target.value)">
+        <option
+            *ngFor="let searchOption of searchOptions"
+            [value]="searchOption.criteria">
+          {{searchOption.name}}
+        </option>
       </select>
       <input
+          (change)="onTermChange($event.target.value)"
           placeholder="Enter search term..."
           class="form-control col-12 col-sm-9"
-          type="text"/>
+          type="text" />
     </div>
   </div>
 </section>
-<section class="results" *ngIf="shows">
+<section class="results">
   <div class="container">
-    <personal-show *ngFor="let show of shows" [show]="show"></personal-show>
+    <personal-show *ngFor="let show of resultList" [show]="show"></personal-show>
+    <p *ngIf="!resultList || resultList.length === 0" class="no-results text-center">
+      No shows found!
+    </p>
   </div>
 </section>
