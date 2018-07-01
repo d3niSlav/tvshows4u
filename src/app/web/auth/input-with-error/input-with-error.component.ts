@@ -14,13 +14,11 @@ export class InputWithErrorComponent implements OnInit, OnChanges {
   @Input() form: any = {};
   @Input() type: string = 'text';
   @Input() placeholder: string = null;
-  @Input() errorMessage: string = null;
+  @Input() errorMessages: any;
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   ngOnChanges(changes) {
     this.inputControl = this.form && this.form.formGroup.controls[this.name] || {};

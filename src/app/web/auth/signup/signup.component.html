@@ -7,11 +7,13 @@
               name="email"
               type="email"
               [form]="signUpForm"
+              [errorMessages]="messages"
               placeholder="Enter email address"></input-with-errors>
           <input-with-errors
               name="password"
               type="password"
               [form]="signUpForm"
+              [errorMessages]="messages"
               placeholder="Enter password"></input-with-errors>
           <input-with-errors
               name="confirmPassword"

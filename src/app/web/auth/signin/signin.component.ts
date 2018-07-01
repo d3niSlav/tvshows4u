@@ -10,9 +10,9 @@ import { Router } from '@angular/router';
 export class SignInComponent implements OnInit {
   signInForm: any;
   data: any;
+  messages: any;
 
-  constructor(private authService: AuthService, private router: Router) {
-  }
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
     this.signInForm = new ValidationManager({
@@ -24,6 +24,7 @@ export class SignInComponent implements OnInit {
   signIn() {
     const userData = {...this.signInForm.formGroup.value};
 
+    this.messages = {};
     this.authService.loginUser(userData).subscribe(response => {
       this.data = response;
       sessionStorage.setItem('jwtToken', this.data.token);
@@ -31,6 +32,8 @@ export class SignInComponent implements OnInit {
       this.router.navigate(['/']);
     }, error => {
       this.authService.logout();
+      this.messages.email = error.error.email;
+      this.messages.password = error.error.password;
     });
   }
 }

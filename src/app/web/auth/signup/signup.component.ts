@@ -35,6 +35,7 @@ export class SignUpComponent implements OnInit {
     const userData = {...this.signUpForm.formGroup.value};
     delete userData.confirmPassword;
 
+    this.messages = {};
     this.authService.registerUser(userData).subscribe((response: Response) => {
         this.data = response;
         sessionStorage.setItem('jwtToken', this.data.token);

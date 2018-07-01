@@ -1,5 +1,5 @@
 <li [formGroup]="form && form.getForm()">
-  <span class="error error-message">{{ form.getError(name) }}</span>
+  <span class="error error-message">{{ form.getError(name) || (errorMessages && errorMessages[name]) }}</span>
   <div
       class="fieldgroup"
       [ngClass]="{ 'with-side': buttonRedirect }">
@@ -7,7 +7,7 @@
         class="user-input"
         [id]="id || name"
         [name]="name"
-        [ngClass]="{ 'error': errorMessage || form.getError(name)}"
+        [ngClass]="{ 'error': (errorMessages && errorMessages[name]) || form.getError(name)}"
         [placeholder]="placeholder"
         [type]="type"
         [formControlName]="name" />
