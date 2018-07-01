@@ -1,0 +1,22 @@
+<section class="container">
+  <div class="filter-select row">
+    <div class="form-group col-12 col-md-8 m-auto row">
+      <select class="form-control col-12 col-sm-3">
+        <option>Title</option>
+        <option>Genre</option>
+        <option>Plot</option>
+        <option>Year</option>
+        <option selected>Filter all</option>
+      </select>
+      <input
+          placeholder="Enter search term..."
+          class="form-control col-12 col-sm-9"
+          type="text"/>
+    </div>
+  </div>
+</section>
+<section class="results" *ngIf="shows">
+  <div class="container">
+    <personal-show *ngFor="let show of shows" [show]="show"></personal-show>
+  </div>
+</section>

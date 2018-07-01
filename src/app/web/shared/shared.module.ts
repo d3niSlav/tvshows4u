@@ -11,6 +11,7 @@ import { TruncatePipe } from '../../shared/pipes/truncate.pipe';
 import { TvShowCardComponent } from './tv-show-card/tv-show-card.component';
 import { WebRoutingModule } from '../web-routing.module';
 import { SlickSliderComponent } from './sliders/slick-slider/slick-slider.component';
+import { PersonalShowComponent } from './tv-shows/personal-show/personal-show.component';
 
 @NgModule({
   imports: [
@@ -26,14 +27,16 @@ import { SlickSliderComponent } from './sliders/slick-slider/slick-slider.compon
     SuggestedShowsComponent,
     TruncatePipe,
     TvShowCardComponent,
-    SlickSliderComponent
+    SlickSliderComponent,
+    PersonalShowComponent
   ],
   exports: [
     FeaturedShowsComponent,
     ShowsWithRatingComponent,
     SuggestedShowsComponent,
     TvShowCardComponent,
-    SlickSliderComponent
+    SlickSliderComponent,
+    PersonalShowComponent
   ]
 })
 export class SharedModule { }

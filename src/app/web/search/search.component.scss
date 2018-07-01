@@ -1,0 +1,33 @@
+.filter-select {
+  margin: 40px auto;
+
+  select,
+  input {
+    font-size: 1rem;
+    outline: none;
+    box-shadow: none;
+    border-color: #ced4da;
+  }
+
+  select {
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: .25rem .25rem 0 0;
+
+    @media screen and (min-width: 576px) {
+      border-radius: .25rem  0 0 .25rem;
+    }
+
+    @media screen and (min-width: 1024px) {
+      font-size: 1rem;
+    }
+  }
+
+  input {
+    border-radius: 0 0 .25rem .25rem;
+
+    @media screen and (min-width: 576px) {
+      border-radius: 0 .25rem .25rem 0;
+    }
+  }
+}

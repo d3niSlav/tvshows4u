@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'personal-show',
@@ -8,9 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class PersonalShowComponent implements OnInit {
   @Input() show: any;
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }

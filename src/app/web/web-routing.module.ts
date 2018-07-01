@@ -20,6 +20,7 @@ import { RatedShowsComponent } from './shows/rated-shows/rated-shows.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { ShowsProgressComponent } from './profile/shows-progress/shows-progress.component';
+import { SearchComponent } from './search/search.component';
 
 const webRoutes: Routes = [
   { path: '', component: WebComponent, children: [
@@ -43,6 +44,7 @@ const webRoutes: Routes = [
       { path: 'progress', component: ShowsProgressComponent}
     ]},
     { path: 'contacts', component: ContactFormComponent },
+    { path: 'search', component: SearchComponent },
     { path: 'schedule', component: ScheduleComponent },
     { path: 'ranking', component: RatedShowsComponent }
   ]}

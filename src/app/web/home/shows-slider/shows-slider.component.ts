@@ -43,7 +43,5 @@ export class ShowsSliderComponent implements OnInit {
     this.showsService.getCatalogue().subscribe((res: any) => {
       this.shows = res;
     });
-
-    console.log(jQuery('#horse'));
   }
 }

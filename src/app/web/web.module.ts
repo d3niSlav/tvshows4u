@@ -14,10 +14,12 @@ import { WebComponent } from './web.component';
 import { WebRoutingModule } from './web-routing.module';
 import { HomeModule } from './home/home.module';
 import {ShowsService} from './shows/shows.service';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
-    WebComponent
+    WebComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,
