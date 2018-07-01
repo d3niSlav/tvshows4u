@@ -1,0 +1,130 @@
+.catalog-slider-wrapper {
+  background: linear-gradient(to bottom, rgba(12, 12, 12, 0.7) 0%, rgba(20, 20, 20, 0.7) 100%), url('/assets/img/lines-background.jpg') no-repeat 0 0;
+  background-size: cover;
+}
+
+.slider {
+  width: 90%;
+  padding: 35px 0 20px;
+  margin: 0 auto;
+}
+
+.poster-slide {
+  margin: 0 5px;
+  padding-top: 25px;
+  text-align: center;
+
+  img {
+    width: 100%;
+  }
+}
+
+.slick-prev,
+.slick-next {
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.poster-content {
+  padding: 10px 0;
+
+  .carousel-title {
+    overflow: hidden;
+    color: #eeeeee;
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-overflow: ellipsis;
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+
+    @media screen and (min-width: 480px) {
+      font-size: 1rem;
+    }
+
+    @media screen and (min-width: 768px) {
+      font-size: 1.125rem;
+    }
+  }
+
+  .carousel-date {
+    line-height: 1.313rem;
+    margin: 0 0 1em;
+    color: #eeeeee;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .info-button {
+    display: inline-block;
+    line-height: 22px;
+    padding: 5px 15px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #8B0000;
+    border: 1px solid #8B0000;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out, border 0.2s ease;
+
+    &:hover {
+      background-color: #DC143C;
+      border-color: #DC143C;
+    }
+  }
+}
+
+.slick-content {
+  padding-top: 30px;
+  padding-bottom: 20px;
+  //background: linear-gradient(to bottom, rgba(12, 12, 12, 0.7) 0%, rgba(20, 20, 20, 0.7) 100%), url($path-images + "information_background.jpg") no-repeat 0 0;
+  background-size: cover;
+}
+
+.slick-center {
+  display: block;
+  max-width: 10%;
+  max-height: 20%;
+  opacity: 1;
+
+  .slide-h3 {
+    color: #FFFFFF;
+  }
+}
+
+.slick-current {
+  padding: 0;
+
+  @media screen and (min-width: 1024px) {
+    .poster-content {
+      padding-top: 20px;
+
+      .carousel-title {
+        font-size: 1.5rem;
+      }
+
+      .carousel-date {
+        font-size: 1.25rem;
+      }
+
+      .info-button {
+        padding: 7px 20px;
+      }
+    }
+  }
+}

@@ -36,6 +36,16 @@ const getAllShows = async function (req, res) {
 
 module.exports.getAllShows = getAllShows;
 
+const getShowsCatalogue = async function (req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  const tvShows = await TvShow.query()
+    .select('id', 'title', 'year', 'plot', 'poster')
+    .orderBy('title');
+
+  return res.send(tvShows);
+};
+
+module.exports.getShowsCatalogue = getShowsCatalogue;
 
 /**--- TV Shows ---**/
 

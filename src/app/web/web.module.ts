@@ -5,7 +5,6 @@ import { NgModule } from '@angular/core';
 import { AuthModule } from './auth/auth.module';
 import { ContactFormModule } from './contact-form/contact-form.module';
 import { HeaderModule } from './header/header.module';
-import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileModule } from './profile/profile.module';
 import { ScheduleModule } from './schedule/schedule.module';
@@ -13,11 +12,12 @@ import { SharedModule } from './shared/shared.module';
 import { ShowsModule } from './shows/shows.module';
 import { WebComponent } from './web.component';
 import { WebRoutingModule } from './web-routing.module';
+import { HomeModule } from './home/home.module';
+import {ShowsService} from './shows/shows.service';
 
 @NgModule({
   declarations: [
-    WebComponent,
-    HomeComponent
+    WebComponent
   ],
   imports: [
     CommonModule,
@@ -25,6 +25,7 @@ import { WebRoutingModule } from './web-routing.module';
     ReactiveFormsModule,
     HttpClientModule,
     AuthModule,
+    HomeModule,
     ContactFormModule,
     HeaderModule,
     ProfileModule,
@@ -32,6 +33,9 @@ import { WebRoutingModule } from './web-routing.module';
     SharedModule,
     ShowsModule,
     WebRoutingModule
+  ],
+  providers: [
+    ShowsService
   ],
   exports: [
     SharedModule

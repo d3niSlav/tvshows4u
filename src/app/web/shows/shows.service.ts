@@ -10,6 +10,10 @@ export class ShowsService {
     return this.http.get(`/api/shows?criteria=${criteria}`);
   }
 
+  getCatalogue(): Observable<any> {
+    return this.http.get('/api/shows/catalogue');
+  }
+
   getNewestShows(numberOfShows: number): Observable<any> {
     let url = 'api/shows?criteria=releaseDate&desc=true';
     url = numberOfShows > 0 ? url + `&limit=${numberOfShows}` : url;

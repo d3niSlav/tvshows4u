@@ -33,9 +33,6 @@ import { WebRoutingModule } from '../web-routing.module';
     SingleShowModule,
     SharedModule,
     WebRoutingModule
-  ],
-  providers: [
-    ShowsService
   ]
 })
 export class ShowsModule { }

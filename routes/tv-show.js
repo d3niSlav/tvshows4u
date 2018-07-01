@@ -6,6 +6,9 @@ module.exports = router => {
   /** READ All TV Shows */
   router.get('/api/shows', TvShowController.getAllShows);
 
+  /** READ TV Shows Catalogue*/
+  router.get('/api/shows/catalogue', TvShowController.getShowsCatalogue);
+
   /** Create a TV Show */
   router.post('/api/shows', TvShowController.createShow);
 

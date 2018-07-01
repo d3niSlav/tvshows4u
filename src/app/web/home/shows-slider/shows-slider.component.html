@@ -1,0 +1,18 @@
+<section class="catalog-slider-wrapper">
+  <div class="slider">
+    <slick-slider *ngIf="shows" [options]="options">
+      <div class="poster-slide" *ngFor="let show of shows">
+        <a [routerLink]="['/show/', show.id]">
+          <img [src]="show.poster" [alt]="show.title" />
+        </a>
+        <div class="poster-content">
+          <h3 class="carousel-title">{{show.title}}</h3>
+          <div class="information">
+            <p class="carousel-date"><span class="u-separator">{{show.year}}</span></p>
+          </div>
+          <a class="info-button" [routerLink]="['/show/', show.id]">More info</a>
+        </div>
+      </div>
+    </slick-slider>
+  </div>
+</section>

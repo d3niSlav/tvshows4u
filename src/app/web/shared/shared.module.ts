@@ -10,6 +10,7 @@ import { SuggestedShowsComponent } from './tv-shows/suggested-shows/suggested-sh
 import { TruncatePipe } from '../../shared/pipes/truncate.pipe';
 import { TvShowCardComponent } from './tv-show-card/tv-show-card.component';
 import { WebRoutingModule } from '../web-routing.module';
+import { SlickSliderComponent } from './sliders/slick-slider/slick-slider.component';
 
 @NgModule({
   imports: [
@@ -24,13 +25,15 @@ import { WebRoutingModule } from '../web-routing.module';
     StarsComponent,
     SuggestedShowsComponent,
     TruncatePipe,
-    TvShowCardComponent
+    TvShowCardComponent,
+    SlickSliderComponent
   ],
   exports: [
     FeaturedShowsComponent,
     ShowsWithRatingComponent,
     SuggestedShowsComponent,
-    TvShowCardComponent
+    TvShowCardComponent,
+    SlickSliderComponent
   ]
 })
 export class SharedModule { }
