@@ -22,8 +22,14 @@ import { Router } from '@angular/router';
     }
 
     a {
-      color: #000000;
+      color: #FFFFFF;
       transition: color 0.3s ease;
+    }
+    
+    @media screen and (min-width: 480px) {
+      a {
+        color: #000000;
+      }
     }
     
     a:hover {
