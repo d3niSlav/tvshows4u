@@ -1,6 +1,6 @@
 .single-watched-show {
-  height: 270px;
   margin: 15px 0;
+  padding-bottom: 10px;
   border: 2px solid white;
   background-color: rgba(100, 100, 100, 0.3);
   border-radius: 15px;
@@ -11,6 +11,7 @@
 
   @media screen and (min-width: 1024px) {
     height: 100px;
+    padding: 0;
   }
 
   .main-information {
@@ -27,44 +28,6 @@
     }
   }
 
-  .show-status {
-    width: 100px;
-    height: 100%;
-    padding: 10px 0;
-    border-top-left-radius: 15px;
-    text-align: center;
-    font-size: 1.125rem;
-    color: #FFFFFF;
-    font-weight: bold;
-
-    @media screen and (min-width: 768px) {
-      height: 136px;
-      border-bottom-left-radius: 15px;
-    }
-
-    @media screen and (min-width: 1024px) {
-      width: 120px;
-      height: 100%;
-      padding: 5px 0;
-    }
-
-    &.canceled-show {
-      background-color: #8b0000;
-    }
-
-    i {
-      margin-top: 10px;
-      font-size: 1.375rem;
-      color: #FFFFFF;
-      font-weight: bold;
-
-      @media screen and (min-width: 768px) {
-        margin-top: 15px;
-        font-size: 2.188rem;
-      }
-    }
-  }
-
   .current-show-logo {
     width: calc(100% - 100px);
     text-align: center;
@@ -75,13 +38,19 @@
     }
 
     .show-logo-container {
+      position: relative;
       display: block;
       height: 100%;
       width: 100%;
 
       .logo-image {
+        position: absolute;
+          top: 50%;
+          left: 50%;
+        max-width: 100%;
         max-height: 80px;
         padding: 5px;
+        transform: translate(-50%, -50%);
       }
     }
   }
@@ -118,12 +87,53 @@
     .progress-title {
       line-height: 1rem;
       padding: 10px 0 3px;
+      font-size: 0.85rem;
       border-bottom: 2px solid #888888;
+
+      @media screen and (min-width: 370px) {
+        font-size: 0.9rem;
+      }
+
+      @media screen and (min-width: 1024px) {
+        font-size: 1rem;
+      }
     }
 
     .progress-data {
-      padding-left: 15px;
       line-height: 1.375rem;
+      padding: 0;
+
+      @media screen and (min-width: 370px) {
+        padding-left: 15px;
+      }
+
+      span:first-child {
+        display: inline-block;
+        width: 60px;
+
+        @media screen and (min-width: 768px) {
+          width: 75px;
+        }
+
+        @media screen and (min-width: 1024px) {
+          width: 65px;
+        }
+      }
+
+      select {
+        width: 40px;
+        border-radius: 5px;
+        box-shadow: none;
+        outline: none;
+
+        @media screen and (min-width: 370px){
+          width: 50px;
+        }
+
+        @media screen and (min-width: 1024px) {
+          width: 45px;
+        }
+      }
     }
   }
 
@@ -150,15 +160,56 @@
     .action-button {
       width: 215px;
       height: 32px;
+      line-height: 1rem;
       margin-top: 10px;
+      color: #FFFFFF;
+      font-size: 1rem;
+      font-weight: bold;
       text-align: center;
       background-color: #8B0000;
       border: 1px solid #8B0000;
       border-radius: 5px;
-      font-size: 1rem;
-      color: #FFFFFF;
-      font-weight: bold;
-      line-height: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+
+      &:hover {
+        background-color: #DC143C;
+        border-color: #DC143C;
+      }
+
+      &[disabled],
+      &[disabled]:hover {
+        background: #868e96;
+        border: #868e96;
+        cursor: not-allowed;
+      }
+
+    }
+
+    .edit-buttons-wrapper {
+      width: 215px;
+      margin: 0 auto;
+
+      @media screen and (min-width: 768px) {
+        margin: 0;
+      }
+
+      @media screen and (min-width: 1024px) {
+        margin: 0 12px;
+      }
+
+      div {
+        padding: 0 5px 0 0;
+
+        &:last-child {
+          padding: 0;
+        }
+
+        .action-button {
+          width: 100%;
+          padding: 0;
+        }
+      }
     }
   }
 }

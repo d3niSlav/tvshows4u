@@ -1,5 +1,3 @@
-<p>
-  shows-progress works!
-
-  <app-single-show-progress></app-single-show-progress>
-</p>
+<app-single-show-progress
+    *ngFor="let show of shows"
+    [show]="show"></app-single-show-progress>

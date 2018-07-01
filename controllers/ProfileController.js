@@ -176,7 +176,7 @@ const changeShowProgress = async function (req, res) {
     seasonNumber: req.body.seasonNumber,
     episodeNumber: req.body.episodeNumber
   }).where({
-    profileId: req.body.profileId,
+    profileId: req.user.id,
     showId: req.body.showId
   });
 
@@ -215,7 +215,7 @@ module.exports.checkShowStatus = checkShowStatus;
 const getFavouriteShows = async function (req, res) {
   res.setHeader('Content-Type', 'application/json');
   const favouriteShows = await ProfileTvShow.query().select('showId').where({
-    profileId: 2,
+    profileId: req.user.id,
     isFavourite: true
   });
 
@@ -248,7 +248,7 @@ const getWatchedShows = async function (req, res) {
     .query()
     .select('showId', 'seasonNumber', 'episodeNumber')
     .where({
-      profileId: 1,
+      profileId: req.user.id,
       isWatched: true
     });
 

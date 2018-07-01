@@ -10,13 +10,15 @@ import { UserCardComponent } from './user-card/user-card.component';
 import { WebRoutingModule } from '../web-routing.module';
 import { ShowsProgressComponent } from './shows-progress/shows-progress.component';
 import { SingleShowProgressComponent } from './shows-progress/single-show-progress/single-show-progress.component';
+import { ShowStatusComponent } from './shows-progress/single-show-progress/show-status/show-status.component';
 
 @NgModule({
   declarations: [
     ProfileComponent,
     UserCardComponent,
     ShowsProgressComponent,
-    SingleShowProgressComponent
+    SingleShowProgressComponent,
+    ShowStatusComponent
   ],
   imports: [
     CommonModule,

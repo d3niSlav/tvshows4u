@@ -23,10 +23,10 @@ module.exports = router => {
   router.post('/api/profile/favourites/remove', passport.authenticate('jwt', { session: false }), ProfileController.removeShowFromFavourites);
 
   /** Get all favourite shows */
-  router.get('/api/profile/favourites', ProfileController.getFavouriteShows);
+  router.get('/api/profile/favourites', passport.authenticate('jwt', { session: false }), ProfileController.getFavouriteShows);
 
  /** Get all watched shows */
-  router.get('/api/profile/watchlist', ProfileController.getWatchedShows);
+  router.get('/api/profile/watchlist', passport.authenticate('jwt', { session: false }), ProfileController.getWatchedShows);
 
   /** Add show to watchlist */
   router.post('/api/profile/watchlist/add', passport.authenticate('jwt', { session: false }), ProfileController.addShowToWatchlist);
@@ -35,7 +35,7 @@ module.exports = router => {
   router.post('/api/profile/watchlist/remove', passport.authenticate('jwt', { session: false }), ProfileController.removeShowFromWatchlist);
 
   /** Change show progress */
-  router.put('/api/profile/watchlist/progress', ProfileController.changeShowProgress);
+  router.put('/api/profile/watchlist/progress', passport.authenticate('jwt', { session: false }), ProfileController.changeShowProgress);
 
   /** Get show favourite/watched status */
   router.get('/api/profile/checkShow/:showsId', passport.authenticate('jwt', { session: false }), ProfileController.checkShowStatus);

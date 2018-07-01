@@ -74,6 +74,10 @@ label {
 .file-input-wrapper {
   height: 33px;
 
+  input {
+    pointer-events: none;
+  }
+
   button {
     padding: 0 15px;
     color: #000;

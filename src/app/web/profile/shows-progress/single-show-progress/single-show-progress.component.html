@@ -1,15 +1,12 @@
-<div class="single-watched-show">
+<div class="single-watched-show" *ngIf="show">
   <div class="main-information pull-left">
-    <div class="show-status canceled-show pull-left">
-      <p class="m-0">Canceled</p>
-      <i class="fa fa-window-close-o" aria-hidden="true"></i>
-    </div>
+    <app-show-status [status]="show.status"></app-show-status>
     <div class="current-show-logo pull-left">
       <a class="show-logo-container">
         <img
             class="logo-image"
-            src="http://vignette3.wikia.nocookie.net/agentsofshield/images/a/ad/Marvel_Agent_Carter_Logo.png/revision/latest?cb=20150125054906"
-            alt="Agent Carter"/>
+            [src]="show.logo"
+            [alt]="show.title" />
       </a>
     </div>
   </div>
@@ -22,11 +19,31 @@
       <div class="progress-title">Current progress</div>
       <div class="progress-data">
         <span>Season: </span>
-        <span *ngIf="!isEditActive">1</span>
+        <span *ngIf="!isEditActive">{{selectedSeason || show.seasonNumber}}</span>
+        <select
+            name="seasonNumber"
+            *ngIf="isEditActive"
+            (change)="onSeasonChange(+$event.target.value)"
+            [value]="selectedSeason">
+          <option
+              *ngFor="let seasonNumber of seasons"
+              [value]="seasonNumber">{{seasonNumber}}
+          </option>
+        </select>
       </div>
       <div class="progress-data">
         <span>Episode: </span>
-        <span *ngIf="!isEditActive">6</span>
+        <span *ngIf="!isEditActive">{{selectedEpisode || show.episodeNumber}}</span>
+        <select
+            name="episodeNumber"
+            *ngIf="isEditActive"
+            (change)="onEpisodeChange(+$event.target.value)"
+            [value]="selectedEpisode">
+          <option
+              *ngFor="let episodeNumber of episodes"
+              [value]="episodeNumber">{{episodeNumber}}
+          </option>
+        </select>
       </div>
     </div>
     <div class="show-progress col-xs-6 col-sm-6">
@@ -35,18 +52,39 @@
       </div>
       <div class="progress-data">
         <span>Season: </span>
-        <span>2</span>
+        <span>{{show.seasons.length}}</span>
       </div>
       <div class="progress-data">
         <span>Episode: </span>
-        <span>10</span>
+        <span>{{show.seasons[show.seasons.length - 1].episodes}}</span>
       </div>
     </div>
   </div>
   <div class="actions-container text-center">
-      <button class="action-button" (click)="moveCurrentProgressToNextEpisode()">Switch to next episode <i
-          class="fa fa-chevron-right" aria-hidden="true"></i></button>
-      <button class="action-button" (click)="openEditProgress()" *ngIf="!isEditActive">
-        Change your progress <i class="fa fa-cog" aria-hidden="true"></i></button>
+    <button
+        class="action-button"
+        [disabled]="isLatestReached"
+        (click)="moveCurrentProgressToNextEpisode()">
+      Switch to next episode <i class="fa fa-chevron-right" aria-hidden="true"></i>
+    </button>
+    <button class="action-button" (click)="openEditProgress()" *ngIf="!isEditActive">
+      Change your progress <i class="fa fa-cog" aria-hidden="true"></i></button>
+    <div class="edit-buttons-wrapper d-inline-flex" *ngIf="isEditActive">
+      <div class="col-4">
+        <button
+            (click)="saveSelectedData()"
+            class="action-button">Save</button>
+      </div>
+      <div class="col-4">
+        <button
+            (click)="initSelectedData()"
+            class="action-button">Reset</button>
+      </div>
+      <div class="col-4">
+        <button
+            (click)="closeEditProgress()"
+            class="action-button">Cancel</button>
+      </div>
+    </div>
   </div>
 </div>

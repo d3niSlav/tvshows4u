@@ -29,8 +29,18 @@
       </div>
     </div>
     <div class="col-md-3">
-      <a [routerLink]="'/profile/progress'" class="btn">My Shows</a>
-      <a [routerLink]="'/profile/edit'" class="btn">Edit Profile</a>
+      <a
+          routerLinkActive="d-none"
+          [routerLink]="'/profile/shows'"
+          class="btn btn-primary">My Shows</a>
+      <a
+          routerLinkActive="d-none"
+          [routerLink]="'/profile/progress'"
+          class="btn btn-primary">My progress</a>
+      <a
+          routerLinkActive="d-none"
+          [routerLink]="'/profile/edit'"
+          class="btn btn-primary">Edit Profile</a>
     </div>
   </div>
   <hr />
