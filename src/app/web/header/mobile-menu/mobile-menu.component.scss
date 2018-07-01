@@ -65,3 +65,83 @@
   min-height: calc(100vh - 54px);
   background-color: #000;
 }
+
+.mobile-menu {
+  position: fixed;
+    top: 54px;
+    z-index: 10;
+  width: 100%;
+  height: calc(100vh - 54px);
+  overflow: scroll;
+  background-color: #000000;
+
+  .mobile-logo-image {
+    max-width: 300px;
+    margin: 10px auto;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.button-container {
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 5px;
+
+  .btn {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    line-height: 1.8rem;
+    color: #00b7ba;
+    font-size: 0.875rem;
+    font-style: italic;
+    border: 1px solid #000000;
+    border-radius: 25px;
+
+    &.big {
+      margin-bottom: 5px;
+      padding: 10px 15px;
+      color: #FFFFFF;
+      font-size: 1.125rem;
+      font-weight: 700;
+      font-style: normal;
+      background-color: #DC143C;
+    }
+  }
+}
+
+.mobile-links {
+  text-align: center;
+
+  ul {
+    padding: 5px 0;
+  }
+
+  .single-mobile-link {
+    display: block;
+    line-height: 1.8rem;
+    color: #536878;
+    font-size: 1.2rem;
+
+    &.active {
+      background-color: #00b7ba;
+      color: #FFFFFF;
+      font-weight: 900;
+    }
+  }
+
+  .primary .single-mobile-link {
+    line-height: 2.188rem;
+    color: #FFFFFF;
+    font-size: 1.375rem;
+  }
+}
+
+.line-divider {
+  margin: 0 10px;
+  border-top: 1px dashed #eeeeee;
+  border-collapse: collapse;
+}

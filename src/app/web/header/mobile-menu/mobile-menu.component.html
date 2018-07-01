@@ -6,5 +6,93 @@
   </div>
 </button>
 <div class="mobile-menu d-md-none" *ngIf="isHamburgerMenuOpen">
-  kon
+  <section>
+    <div class="mobile-logo-image">
+      <img src="/assets/img/logo-mobile.png" alt="TV-Shows-Logo" />
+    </div>
+    <section>
+      <div class="button-container" *ngIf="!isUserAuthenticated">
+        <a class="btn big" [routerLink]="['/signup']">Register to our site</a>
+        <a class="btn" [routerLink]="['/signin']">Login with E-mail</a>
+      </div>
+      <div class="button-container" *ngIf="isUserAuthenticated">
+        <a class="btn big" [routerLink]="['/profile']">My Profile Page</a>
+        <a class="btn" (click)="onLogout()">Log out</a>
+      </div>
+    </section>
+    <section class="mobile-links">
+      <nav class="nav-menu-mobile">
+        <div class="line-divider"></div>
+        <ul class="primary">
+          <li class="menu-item">
+            <a
+                class="single-mobile-link"
+                [routerLink]="['/']"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}"
+                title="Home">Home</a>
+          </li>
+          <li class="menu-item">
+            <a
+                class="single-mobile-link"
+                [routerLink]="['/newest']"
+                routerLinkActive="active"
+                title="List of new shows">New Shows</a>
+          </li>
+          <li class="menu-item">
+            <a
+                class="single-mobile-link"
+                [routerLink]="['/shows']"
+                routerLinkActive="active"
+                title="Browse all TV shows">Browse A-Z</a>
+          </li>
+          <li class="menu-item">
+            <a
+                class="single-mobile-link"
+                [routerLink]="['/ranking']"
+                routerLinkActive="active"
+                title="List of all shows by their rating">High Scores</a>
+          </li>
+          <li class="menu-item">
+            <a
+                class="single-mobile-link"
+                [routerLink]="['/schedule']"
+                routerLinkActive="active"
+                title="Schedule for the week">This Week</a>
+          </li>
+        </ul>
+        <div class="line-divider"></div>
+        <ul class="secondary">
+          <li class="menu-item">
+            <a
+                class="single-mobile-link"
+                [routerLink]="['/search']"
+                routerLinkActive="active"
+                title="Search">Search</a>
+          </li>
+          <li class="menu-item">
+            <a
+                class="single-mobile-link"
+                [routerLink]="['/about']"
+                routerLinkActive="active"
+                title="About the site">About the Site</a>
+          </li>
+          <li class="menu-item">
+            <a
+                class="single-mobile-link"
+                [routerLink]="['/futureDev']"
+                routerLinkActive="active"
+                title="Future development">Future development</a>
+          </li>
+          <li class="menu-item">
+            <a
+                class="single-mobile-link"
+                [routerLink]="['/contacts']"
+                routerLinkActive="active"
+                title="Contact us">Contact us</a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+  </section>
 </div>
