@@ -21,6 +21,7 @@ import { EditProfileComponent } from './profile/edit-profile/edit-profile.compon
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { ShowsProgressComponent } from './profile/shows-progress/shows-progress.component';
 import { SearchComponent } from './search/search.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const webRoutes: Routes = [
   { path: '', component: WebComponent, children: [
@@ -37,8 +38,8 @@ const webRoutes: Routes = [
       { path: 'comments', component: CommentsListComponent },
       { path: 'trailer', component: TrailerComponent }
     ]},
-    { path: 'profile', component: ProfileComponent, children: [ //canActivate: [AuthGuard],
-      { path: '', redirectTo: 'progress', pathMatch: 'full' },
+    { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], children: [
+      { path: '', redirectTo: 'show', pathMatch: 'full' },
       { path: 'shows', component: PersonalShowsComponent},
       { path: 'edit', component: EditProfileComponent},
       { path: 'progress', component: ShowsProgressComponent}
@@ -46,7 +47,9 @@ const webRoutes: Routes = [
     { path: 'contacts', component: ContactFormComponent },
     { path: 'search', component: SearchComponent },
     { path: 'schedule', component: ScheduleComponent },
-    { path: 'ranking', component: RatedShowsComponent }
+    { path: 'ranking', component: RatedShowsComponent },
+    { path: 'not-found', component: NotFoundComponent },
+    { path: '**', redirectTo: '/not-found' }
   ]}
 ];
 

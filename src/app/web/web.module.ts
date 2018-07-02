@@ -16,12 +16,14 @@ import { HomeModule } from './home/home.module';
 import { ShowsService } from './shows/shows.service';
 import { SearchComponent } from './search/search.component';
 import { ModalComponent } from '../shared/components/modal/modal.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
     WebComponent,
     SearchComponent,
-    ModalComponent
+    ModalComponent,
+    NotFoundComponent
   ],
   imports: [
     CommonModule,
