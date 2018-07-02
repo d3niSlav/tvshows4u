@@ -9,6 +9,7 @@ import { CmsModule } from './cms/cms.module';
 import { WebModule } from './web/web.module';
 import { ConfigService } from './shared/services/config.service';
 import { HelpersService } from './shared/services/helpers.service';
+import { ModalService } from './shared/services/modal.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HelpersService } from './shared/services/helpers.service';
   ],
   providers: [
     ConfigService,
-    HelpersService
+    HelpersService,
+    ModalService
   ],
   bootstrap: [
     AppComponent

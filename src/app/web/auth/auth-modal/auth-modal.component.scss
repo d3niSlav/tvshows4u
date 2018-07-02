@@ -51,13 +51,18 @@
 }
 
 .popup-close-button {
+  display: none;
   float: right;
   margin-top: -15px;
   margin-right: -25px;
-  color: #000;
+  color: #FFFFFF;
   font-size: 1.8rem;
   font-weight: bold;
   background: none;
   border: 0;
   cursor: pointer;
+
+  @media screen and (min-width: 480px) {
+    color: #000;
+  }
 }

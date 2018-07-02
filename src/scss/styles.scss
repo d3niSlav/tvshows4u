@@ -5,6 +5,10 @@
 body {
   font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #000;
+
+  &.modal-open {
+    overflow: hidden;
+  }
 }
 
 a:hover {
@@ -144,22 +148,74 @@ ul {
   position: absolute;
     top: 50%;
   color: #f8f9fa;
-  font-size: 2rem;
+  font-size: 1.5rem;
   background: none;
   border: none;
   outline: none;
   cursor: pointer;
   transform: translateY(-50%);
 
+  @media screen and (min-width: 1024px) {
+    font-size: 2rem;
+  }
+
   &.slick-hidden {
     display: none;
   }
 
   &.next-arrow {
-    right: -50px;
+    right: -30px;
+
+    @media screen and (min-width: 1024px) {
+      right: -50px;
+    }
   }
 
   &.back-arrow {
-    left: -50px;
+    left: -35px;
+
+    @media screen and (min-width: 1024px) {
+      left: -50px;
+    }
+  }
+}
+
+/* MODAL STYLES */
+modal {
+  display: none;
+
+  .modal {
+    position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1100;
+    display: block !important;
+    overflow: auto;
+
+    .auth-section {
+      width: auto;
+      height: auto;
+      background: none;
+    }
+
+    .popup-close-button {
+      display: inline-block;
+    }
+  }
+
+  .modal-background {
+    position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1000;
+    background-color: #000;
+
+    @media screen and (min-width: 480px) {
+      opacity: 0.75;
+    }
   }
 }

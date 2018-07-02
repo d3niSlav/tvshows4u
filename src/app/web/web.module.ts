@@ -13,13 +13,15 @@ import { ShowsModule } from './shows/shows.module';
 import { WebComponent } from './web.component';
 import { WebRoutingModule } from './web-routing.module';
 import { HomeModule } from './home/home.module';
-import {ShowsService} from './shows/shows.service';
+import { ShowsService } from './shows/shows.service';
 import { SearchComponent } from './search/search.component';
+import { ModalComponent } from '../shared/components/modal/modal.component';
 
 @NgModule({
   declarations: [
     WebComponent,
-    SearchComponent
+    SearchComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule,

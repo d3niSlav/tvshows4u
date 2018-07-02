@@ -1,4 +1,5 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ModalService } from '../../../shared/services/modal.service';
 
 @Component({
   selector: 'app-auth-modal',
@@ -6,18 +7,12 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
   styleUrls: ['./auth-modal.component.scss']
 })
 export class AuthModalComponent implements OnInit {
-  @Output() getModalStateChange = new EventEmitter<boolean>();
-  isModal = false;
+  constructor(private modalService: ModalService) {}
 
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   closeModal() {
-    this.isModal = false;
-    this.getModalStateChange.emit(false);
+    this.modalService.close('sign-in');
+    this.modalService.close('sign-up');
   }
-
 }

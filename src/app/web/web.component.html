@@ -2,6 +2,19 @@
   <web-header></web-header>
   <router-outlet></router-outlet>
 </div>
-<ng-template [ngIf]="isModalOpen">
-  <app-auth-modal (getModalStateChange)="handleModalChange($event)"></app-auth-modal>
-</ng-template>
+<modal id="sign-up">
+  <div class="modal">
+    <div class="modal-body">
+      <app-signup></app-signup>
+    </div>
+  </div>
+  <div class="modal-background"></div>
+</modal>
+<modal id="sign-in">
+  <div class="modal">
+    <div class="modal-body">
+      <app-signin></app-signin>
+    </div>
+  </div>
+  <div class="modal-background"></div>
+</modal>

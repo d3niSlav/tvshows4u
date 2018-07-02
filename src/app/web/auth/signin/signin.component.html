@@ -4,12 +4,14 @@
     <fieldset>
         <ul>
           <input-with-errors
+              id="user-email"
               name="email"
               type="email"
               [form]="signInForm"
               [errorMessages]="messages"
               placeholder="Enter email address"></input-with-errors>
           <input-with-errors
+              id="user-password"
               buttonRedirect="/forgotten"
               name="password"
               type="password"
@@ -17,6 +19,7 @@
               [errorMessages]="messages"
               placeholder="Enter password"></input-with-errors>
           <app-auth-submit
+              id="submit-user-data"
               [form]="signInForm"
               label="Not a member?"
               labelButtonText="Join now"

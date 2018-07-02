@@ -32,7 +32,9 @@ import { WebRoutingModule } from '../web-routing.module';
     WebRoutingModule
   ],
   exports: [
-    AuthModalComponent
+    AuthModalComponent,
+    SignInComponent,
+    SignUpComponent
   ],
   providers: [
     AuthGuard,
