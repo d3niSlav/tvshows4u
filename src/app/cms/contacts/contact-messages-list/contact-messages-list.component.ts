@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ContactsService } from '../contacts.service';
+import { ContactsService } from '../cms-contacts.service';
 
 @Component({
   selector: 'app-contact-messages-list',
@@ -10,10 +10,10 @@ import { ContactsService } from '../contacts.service';
 export class ContactMessagesListComponent implements OnInit {
   messages: any;
 
-  constructor(private contactsService: ContactsService) { }
+  constructor(private contactsService: ContactsService) {}
 
   ngOnInit() {
-    this.contactsService.getAllContactMessages().subscribe(res => {
+    this.contactsService.getAllContactMessages().subscribe((res: any) => {
       this.messages = res;
     });
   }

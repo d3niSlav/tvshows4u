@@ -51,8 +51,9 @@
           <div class="col-md-4 mb-3">
             <label for="year">Duration</label>
             <input
-                type="text"
                 id="year"
+                type="text"
+                placeholder="From - To"
                 formControlName="year"
                 class="form-control" />
             <div class="invalid-feedback">
@@ -147,17 +148,18 @@
             <label for="logo-image">Logo preview:</label>
             <img
                 id="logo-image"
-                [src]="logoImage.value"
+                [src]="logoImage.value || '/assets/img/camera-roll.svg'"
                 alt="Logo"
                 class="img-fluid" />
           </div>
+          <div>{{logoImage.value}}</div>
         </div>
       </div>
       <div class="col-md-4 text-center">
         <label for="poster-image" class="d-block">Poster preview:</label>
         <img
             id="poster-image"
-            [src]="posterImagePath.value"
+            [src]="posterImagePath.value || '/assets/img/camera-vintage.png'"
             alt="Poster"
             class="img-fluid" />
       </div>

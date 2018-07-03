@@ -7,13 +7,13 @@ import { ShowsListComponent } from './tv-shows/shows-list/shows-list.component';
 import { EditSeasonComponent } from './tv-shows/edit-season/edit-season.component';
 import { EditEpisodeComponent } from './tv-shows/edit-episode/edit-episode.component';
 import { UsersListComponent } from './users/users-list/users-list.component';
-import { ContactMessagesListComponent } from './contacts/contact-messages-list/contact-messages-list.component';
 import { MessageDetailComponent } from './contacts/contact-messages-list/message-detail/message-detail.component';
 import { EditActorComponent } from './actors/edit-actor/edit-actor.component';
 import { ActorsListComponent } from './actors/actors-list/actors-list.component';
 import { ActorsComponent } from './actors/actors.component';
 import { CmsLoginComponent } from './auth/cms-login/cms-login.component';
 import { CmsCommentsListComponent } from './comments/cms-comments-list/cms-comments-list.component';
+import { ContactMessagesListComponent } from './contacts/contact-messages-list/contact-messages-list.component';
 
 const cmsRoutes: Routes = [
   { path: '', component: CmsComponent, children: [

@@ -71,7 +71,7 @@
               formControlName="poster"
               class="form-control"
               placeholder="Poster URL"
-              #posterImagePath/>
+              #posterImagePath />
         </div>
         <div class="mb-3">
           <label for="description">Description</label>
@@ -89,7 +89,7 @@
         <label for="poster-image" class="d-block">Poster preview:</label>
         <img
             id="poster-image"
-            [src]="posterImagePath.value"
+            [src]="posterImagePath.value || '/assets/img/camera-vintage.png'"
             alt="Poster"
             class="img-fluid"/>
       </div>

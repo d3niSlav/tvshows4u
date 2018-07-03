@@ -88,7 +88,7 @@
         <label for="poster-image" class="d-block">Screenshot preview:</label>
         <img
             id="poster-image"
-            [src]="screenshotImagePath.value"
+            [src]="screenshotImagePath.value || '/assets/img/camera-diaphragm.png'"
             alt="Episode screenshot"
             class="img-fluid" />
       </div>

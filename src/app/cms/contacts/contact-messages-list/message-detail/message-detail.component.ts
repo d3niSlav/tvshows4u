@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
-import { ContactsService } from '../../contacts.service';
+import { ContactsService } from '../../cms-contacts.service';
 import { ContactMessage } from '../../../../shared/models/contact-message.model';
 
 @Component({
