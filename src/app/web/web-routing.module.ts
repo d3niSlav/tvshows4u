@@ -22,6 +22,8 @@ import { ResetPasswordComponent } from './auth/reset-password/reset-password.com
 import { ShowsProgressComponent } from './profile/shows-progress/shows-progress.component';
 import { SearchComponent } from './search/search.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { FutureDevComponent } from './future-dev/future-dev.component';
 
 const webRoutes: Routes = [
   { path: '', component: WebComponent, children: [
@@ -45,6 +47,8 @@ const webRoutes: Routes = [
       { path: 'progress', component: ShowsProgressComponent}
     ]},
     { path: 'contacts', component: ContactFormComponent },
+    { path: 'about-us', component: AboutUsComponent },
+    { path: 'future-dev', component: FutureDevComponent },
     { path: 'search', component: SearchComponent },
     { path: 'schedule', component: ScheduleComponent },
     { path: 'ranking', component: RatedShowsComponent },

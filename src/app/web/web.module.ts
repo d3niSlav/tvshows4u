@@ -17,13 +17,16 @@ import { ShowsService } from './shows/shows.service';
 import { SearchComponent } from './search/search.component';
 import { ModalComponent } from '../shared/components/modal/modal.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import {AboutUsModule} from './about-us/about-us.module';
+import { FutureDevComponent } from './future-dev/future-dev.component';
 
 @NgModule({
   declarations: [
     WebComponent,
     SearchComponent,
     ModalComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    FutureDevComponent
   ],
   imports: [
     CommonModule,
@@ -31,6 +34,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ReactiveFormsModule,
     HttpClientModule,
     AuthModule,
+    AboutUsModule,
     HomeModule,
     ContactFormModule,
     HeaderModule,

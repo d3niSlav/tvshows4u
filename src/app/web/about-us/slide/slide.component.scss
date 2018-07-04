@@ -1,0 +1,18 @@
+.slide-wrapper {
+  position: relative;
+  color: #FFF;
+  background: linear-gradient(rgba(#000, 0.3), rgba(#000, 0.5)), url('/assets/img/contact-background.jpg') no-repeat;
+
+  @media screen and (min-width: 768px) {
+    height: calc(100vh - 54px);
+  }
+
+  @media screen and (min-width: 1024px) {
+    height: calc(100vh - 70px);
+  }
+
+  &.project-background {
+    background: linear-gradient(rgba(#000, 0.2), rgba(#000, 0.4)), url('/assets/img/project-background.jpg') no-repeat;
+    background-size: cover;
+  }
+}
