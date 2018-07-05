@@ -14,10 +14,12 @@ import { ActorsComponent } from './actors/actors.component';
 import { CmsLoginComponent } from './auth/cms-login/cms-login.component';
 import { CmsCommentsListComponent } from './comments/cms-comments-list/cms-comments-list.component';
 import { ContactMessagesListComponent } from './contacts/contact-messages-list/contact-messages-list.component';
+import { CmsHomeComponent } from './cms-home/cms-home.component';
 
 const cmsRoutes: Routes = [
   { path: '', component: CmsComponent, children: [
-    { path: 'shows', component: TvShowsComponent, children: [
+      { path: '', component: CmsHomeComponent, pathMatch: 'full' },
+      { path: 'shows', component: TvShowsComponent, children: [
       { path: '', component: ShowsListComponent, pathMatch: 'full' },
       { path: 'new', component: EditShowComponent },
       { path: 'comments', component: CmsCommentsListComponent },

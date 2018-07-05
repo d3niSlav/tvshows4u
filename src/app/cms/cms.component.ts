@@ -8,11 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class CmsComponent implements OnInit {
   isSideNavToggled = false;
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   handleSideNav(isSideNavToggled) {
     this.isSideNavToggled = isSideNavToggled;

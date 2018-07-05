@@ -10,12 +10,14 @@ import { ContactsModule } from './contacts/contacts.module';
 import { ActorsModule } from './actors/actors.module';
 import { CmsLoginComponent } from './auth/cms-login/cms-login.component';
 import { CommentsModule } from './comments/comments.module';
+import { CmsHomeComponent } from './cms-home/cms-home.component';
 
 @NgModule({
   declarations: [
     CmsComponent,
     NavigationComponent,
     CmsLoginComponent,
+    CmsHomeComponent,
   ],
   imports: [
     CommonModule,
