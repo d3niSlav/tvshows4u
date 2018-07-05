@@ -28,14 +28,23 @@
 
   .user-title{
     padding-top: 15px;
-    font-size: 20px;
+    font-size: 30px;
   }
 
   .profile-information {
+    margin: 0 auto;
     text-align: center;
 
     @media screen and (min-width: 768px) {
+      margin-left: 0;
       text-align: left;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .btn {
+      min-width: 115px;
+      margin-bottom: 10px;
     }
   }
 }

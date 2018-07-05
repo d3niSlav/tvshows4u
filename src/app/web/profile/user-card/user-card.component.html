@@ -12,23 +12,18 @@
           <h2 class="user-title">Welcome, {{profile.name}}</h2>
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm-7">
-          <span class="text-muted">Member since:</span> 20 Apr 2017
+      <div class="row justify-content-center">
+        <div class="col-12 col-sm-6">
+          <i class="fa fa-heart text-muted" title="Favorite Movies"></i>
+          Favourites: {{favouritesCount}}
         </div>
-        <div class="col-md-4 col-sm-4">
-          <div class="row justify-content-center">
-            <div class="col-3">
-              <i class="fa fa-eye text-muted" title="Watched Movies"></i> {{favouritesCount}}
-            </div>
-            <div class="col-3">
-              <i class="fa fa-heart text-muted" title="Favorite Movies"></i> {{watchedShowsCount}}
-            </div>
-          </div>
+        <div class="col-12 col-sm-6">
+          <i class="fa fa-eye text-muted" title="Watched Movies"></i>
+          Watched: {{watchedShowsCount}}
         </div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 text-center pt-2">
       <a
           routerLinkActive="d-none"
           [routerLink]="'/profile/shows'"
